@@ -1,0 +1,54 @@
+@use "../../global/variable" as *;
+@use "../../global/mixin" as *;
+
+
+#floating-btn {
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3.1rem;
+  align-items: center;
+  @include sp {
+    left: 0;
+    right: 0;
+  }
+
+  #page-top {
+    width: 6.8rem;
+    height: 6.8rem;
+    border-radius: 50%;
+    transition: all 0.4s;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    @include sp {
+      align-self: flex-end;
+      margin-right: 2rem;
+    }
+  }
+
+  #contact-btn {
+    width: 30rem;
+    height: 6rem;
+    background-color: $color-red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s;
+    a {
+      font-size: 2rem;
+      color: #fff;
+    }
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    @include sp {
+      align-self: center;
+    }
+  }
+}

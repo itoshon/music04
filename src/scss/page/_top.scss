@@ -1,0 +1,687 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+
+// ファーストビュー
+.main__fv {
+  width: 100%;
+  height: auto;
+  position: relative;
+  picture,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  h2 {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-size: 4rem;
+    line-height: calc(60 / 40);
+    background-color: rgba(#505050, 0.49);
+    @include sp {
+      font-size: 3rem;
+      line-height: calc(50 / 30);
+    }
+  }
+}
+
+.main__about {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding-top: 7rem;
+  h3 {
+    font-size: 3.5rem;
+    color: $color-red;
+    text-align: center;
+    margin-bottom: 3rem;
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+  p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 4.4rem;
+    @include sp {
+      margin-bottom: 3rem;
+    }
+  }
+  picture,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 全人類ミュージシャン計画
+.about__timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  margin-top: 3rem;
+  @include sp {
+    gap: 4rem;
+  }
+  .about__label-en {
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+    margin: 0;
+    text-align: right;
+    span {
+      font-size: 2.5rem;
+      color: $color-red;
+      @include sp {
+        font-size: 2rem;
+      }
+    }
+  }
+  .about__timeline-center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .arrow {
+      position: relative;
+      width: 0.3rem;
+      height: 19rem;
+      background-color: $color-red;
+      margin-bottom: 3rem;
+      &::before {
+        content: "";
+        width: 2.5rem;
+        height: 0.3rem;
+        background-color: $color-red;
+        position: absolute;
+        top: -0.15rem;
+        right: 0.05rem;
+        border-radius: 0.9rem;
+        transform: rotate(-45deg);
+        transform-origin: right center;
+      }
+      &::after {
+        content: "";
+        width: 2.5rem;
+        height: 0.3rem;
+        background-color: $color-red;
+        position: absolute;
+        top: -0.15rem;
+        left: 0.05rem;
+        border-radius: 0.9rem;
+        transform: rotate(45deg);
+        transform-origin: left center;
+      }
+    }
+    .dot-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      position: absolute;
+    }
+    .dot {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: $color-red;
+    }
+  }
+  .about__label-jp {
+    display: flex;
+    flex-direction: column;
+    gap: 4.4rem;
+    text-align: left;
+    span {
+      font-size: 2.3rem;
+      font-weight: 500;
+      @include sp {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+// 音楽業界初！
+.main__about-com-section {
+  padding: 7rem 0;
+  width: 100%;
+  height: auto;
+  background-color: $color-red;
+  margin-top: 7rem;
+  @include sp {
+    padding: 5rem 0;
+  }
+  .main__about-com {
+    text-align: center;
+    h3 {
+      font-size: 3rem;
+      line-height: calc(50 / 30);
+      color: #fff;
+      margin-bottom: 5rem;
+      @include sp {
+        font-size: 2.5rem;
+        line-height: calc(40 / 25);
+        margin-bottom: 3rem;
+      }
+    }
+    p {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: calc(30 / 18);
+      color: #fff;
+    }
+  }
+}
+
+// きたむらミュージックスクールが選ばれる理由
+.main__reason {
+  width: 100%;
+  height: auto;
+  padding: 7rem 0;
+  @include sp {
+    padding: 5rem 0;
+  }
+  h3 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4.2rem;
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+  .main__reason-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    .main__reason-box {
+      width: 100%;
+      height: auto;
+      display: flex;
+      column-gap: 5rem;
+      @include sp {
+        flex-direction: column;
+      }
+      picture {
+        width: 35%;
+        height: auto;
+        @include sp {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .main__reason-box-com-area {
+        width: 65%;
+        height: auto;
+        @include sp {
+          width: 100%;
+          height: auto;
+        }
+        h4 {
+          width: 100%;
+          font-size: 2.2rem;
+          display: inline-block;
+          position: relative;
+          padding-left: 5rem;
+          padding-bottom: 2rem;
+          @include sp {
+            padding: 2rem 0;
+            font-size: 2rem;
+            margin-top: 3rem;
+          }
+        }
+        .main__reason-box-com {
+          width: 100%;
+          border-top: $color-red 0.2rem solid;
+          padding: 4rem 5rem;
+          @include sp {
+            padding: 0;
+            padding-top: 2rem;
+          }
+          p {
+            font-size: 1.6rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 生徒さんたちの声
+.main__voice {
+  width: 100%;
+  padding: 7rem 0;
+  background-color: $color-red;
+
+  h3 {
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* スライド枠 */
+  .main__voice-wrapper {
+    position: relative;
+    overflow: hidden;
+    max-width: 970px;
+    margin: 0 auto;
+    padding: 5rem 3.4rem 0;
+    @include sp {
+      width: 100%;
+    }
+  }
+
+  .main__voice-container {
+    display: flex;
+    gap: 3.5rem;
+    transition: transform 0.4s ease;
+    padding-left: 4.4rem;
+    padding-right: 4.4rem;
+    @include sp {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  /* カード幅＝（全幅－gap×2）÷3 */
+  .main__voice-card {
+    flex: 0 0 calc((100% - 2 * 3.5rem) / 3);
+    @include sp {
+      flex: 0 0 100%;
+    }
+
+    h4 {
+      color: #fff;
+      font-size: 2.2rem;
+      margin: 2rem 0;
+    }
+
+    p {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: calc(30 / 18);
+    }
+  }
+
+  /* 矢印ボタン */
+  .voice-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    z-index: 10;
+    @include sp {
+      top: 45%;
+      transform: translateY(-45%);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      opacity: 0.5;
+    }
+
+    // &--prev {
+    //   left: 0;
+    // }
+
+    &--next {
+      right: 3.5rem;
+    }
+  }
+}
+
+// ご利用の流れ
+.usage__flow {
+  width: 100%;
+  height: auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  @include sp {
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 3rem;
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+
+  .usage__flow-list {
+    position: relative;
+    padding-left: calc(4rem + 4rem - 0.15rem);
+    @include sp {
+      padding-left: calc(1rem + 1rem - 0.15rem);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 3rem;
+      bottom: 0;
+      left: calc(4rem + 4rem - 0.15rem);
+      width: 0.3rem;
+      height: 100%;
+      background-color: $color-red;
+      margin-left: -0.15rem;
+      @include sp {
+        left: calc(1rem + 1rem - 0.15rem);
+        top: 2rem;
+      }
+    }
+    &::after {
+      // 先端は菱形
+      content: "";
+      position: absolute;
+      bottom: -1.5rem;
+      left: calc(4rem + 4rem - 0.15rem);
+      width: 2.4rem;
+      height: 2.4rem;
+      background-color: transparent;
+      border-bottom: 0.3rem solid $color-red;
+      border-right: 0.3rem solid $color-red;
+      transform: translate(-50%, 50%) rotate(45deg);
+      border-radius: 0.3rem;
+      @include sp {
+        left: calc(1rem + 1rem - 0.15rem);
+        bottom: -0.8rem;
+      }
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-top: 7rem;
+      @include sp {
+        margin-top: 5rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h4 {
+        position: relative;
+        width: 22rem;
+        padding-left: 5rem;
+        margin-right: 3.8rem;
+        color: $color-red;
+        font-size: 2.2rem;
+        @include sp {
+          padding-left: 2.3rem;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 2rem;
+          height: 2rem;
+          background-color: $color-red;
+          border-radius: 50%;
+        }
+      }
+
+      p {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: calc(30 / 18);
+        @include sp {
+          font-size: 1.6rem;
+          line-height: calc(30 / 16);
+          margin-top: 2rem;
+          padding-left: 3rem;
+        }
+      }
+    }
+  }
+}
+
+// よくある質問
+.main__faq {
+  width: 100%;
+  height: auto;
+  padding-top: 6rem;
+  padding-bottom: 10rem;
+  @include sp {
+    padding-bottom: 5rem;
+  }
+  h3 {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .main__faq-list {
+    width: 100%;
+    height: auto;
+    margin-top: 5rem;
+  }
+  .main__faq-item {
+    border-top: 0.05rem solid #000;
+  }
+  .main__faq-item:last-child {
+    border-bottom: 0.05rem solid #000;
+  }
+  /* ── 質問ボタン ── */
+  .faq__question {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2.4rem 3rem 2.3rem 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.7rem;
+    font-weight: 500;
+    position: relative;
+    transition: background-color 0.2s;
+    @include sp {
+      font-size: 1.6rem;
+      padding: 2rem 1.5rem 2rem 0rem;
+    }
+  }
+  .faq__question:hover {
+    background-color: rgba(#505050, 0.1);
+  }
+  /* 開いているときのハイライト */
+  .faq__question[aria-expanded="true"] {
+    background-color: rgba(203, 0, 0, 0.1);
+  }
+
+  /* Qアイコン */
+  .faq__question-icon {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include sp {
+      font-size: 1.6rem;
+      margin-right: 2.3rem;
+    }
+  }
+
+  /* 質問テキスト */
+  .faq__question-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  /* ▼矢印 */
+  .faq__question-arrow {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: 1rem;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transform: rotate(45deg);
+    // transition: transform 0.3s;
+    @include sp {
+      margin-left: 1.8rem;
+    }
+  }
+  .faq__question[aria-expanded="true"] .faq__question-arrow {
+    transform: rotate(-135deg);
+  }
+
+  /* ── 回答 ── */
+  .faq__answer {
+    display: none;
+    border-bottom: 1px solid #ddd;
+    padding: 2.4rem 2rem;
+    background-color: rgba(203, 0, 0, 0.1);
+    max-height: 100%;
+    @include sp {
+      padding: 2rem 4.7rem 2rem 0rem;
+    }
+    p {
+      display: flex;
+      align-items: center;
+      font-size: 1.7rem;
+      color: $color-red;
+      line-height: calc(30 / 17);
+      @include sp {
+        font-size: 1.6rem;
+      }
+    }
+    .faq__answer-icon {
+      flex-shrink: 0;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      background-color: $color-red;
+      color: #fff;
+      font-size: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      @include sp {
+        margin-right: 2.3rem;
+      }
+    }
+  }
+  /* 展開時に表示 */
+  .faq__question[aria-expanded="true"] + .faq__answer {
+    display: block;
+  }
+}
+
+// ブログ
+.main__blog-list {
+  padding-bottom: 21.3rem;
+  @include sp {
+    padding-bottom: 19.9rem;
+  }
+  h3 {
+    text-align: center;
+    font-size: 3rem;
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+  .main__blog-list__item {
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    gap: 5rem;
+    @include sp {
+      flex-direction: column;
+    }
+    .main__blog-list__item-box {
+      width: 26rem;
+      @include sp {
+        width: 100%;
+      }
+      .main__blog-list__item-link {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .main__blog-list__item-img {
+        width: 26rem;
+        height: 20rem;
+        position: relative;
+        @include sp {
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        p {
+          width: 8rem;
+          height: 3rem;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: #fff;
+          background-color: $color-red;
+          position: absolute;
+          top: 0;
+        }
+      }
+      .main__blog-list__item-com {
+        h4 {
+          font-size: 2rem;
+        }
+        time {
+          display: block;
+          font-size: 1.7rem;
+          font-weight: 500;
+          text-align: end;
+          @include sp {
+            margin-top: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main__blog-list__btn {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: end;
+  text-decoration: underline;
+  text-decoration-color: #000;
+  text-underline-offset: 0.3rem;
+  transition: all 0.4s;
+  &:hover {
+    opacity: 0.6;
+  }
+  @include sp {
+    text-align: center;
+  }
+}

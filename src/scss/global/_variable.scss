@@ -1,0 +1,14 @@
+
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
+
+$font-sans: '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+
+$color-red: #CB0000;
+$color-black: #000;
+$color-white: #fff;
+$color-green: #008000;
+$bg-green: #F0FFF0;
+
+@function vw($pixelSize, $baseWidth: 1060) {
+  @return calc($pixelSize / $baseWidth * 100vw);
+}

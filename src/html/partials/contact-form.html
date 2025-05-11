@@ -1,0 +1,90 @@
+<section id="contact__form">
+  <div class="contact__form-banner">
+    <picture>
+      <source media="(min-width: 768px)" srcset="/images/banner/Contact.jpg" type="image/jpg">
+      <img src="/images/banner/Contact-sp.jpg" alt="バナー" width="375" height="300">
+    </picture>
+    <div class="contact__form-banner-title">
+      <h1>お問い合わせ</h1>
+    </div>
+  </div>
+
+  <nav aria-label="breadcrumb" class="breadcrumb">
+    <div class="inner">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__link">ホーム</a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="./contact-form.html" class="breadcrumb__link">お問い合わせ</a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <div class="inner">
+    <div class="contact__form-com">
+      <p>当校に関するご質問・ご相談・資料請求は下記のフォームからお気軽にお問い合わせください。<br>
+        通常３営業日以内にメールにてご連絡させていただきます。</p>
+    </div>
+
+    <main class="contact">
+      <form action="/submit-contact" method="post" class="contact__form">
+        <div class="contact__form-block">
+          <label for="company" class="contact__form-label">会社名</label>
+          <input type="text" id="company" name="company" placeholder="きたむらミュージックスクール" class="contact__form-input">
+        </div>
+
+        <div class="contact__form-block">
+          <label for="name" class="contact__form-label">お名前</label>
+          <input type="text" id="name" name="name" placeholder="北村　翔平" class="contact__form-input">
+        </div>
+
+        <div class="contact__form-block">
+          <label for="email" class="contact__form-label">メールアドレス</label>
+          <input type="text" id="email" name="email" placeholder="info@kitamura.musicschool.jp"
+            class="contact__form-input">
+        </div>
+
+        <div class="contact__form-block">
+          <label for="tel" class="contact__form-label">電話番号</label>
+          <input type="tel" id="tel" name="tel" placeholder="090-1234-5678" class="contact__form-input">
+        </div>
+
+        <!-- チェックボックス用 -->
+        <div class="contact__form-block contact__form-block--checkboxes">
+          <div class="contact__form-label">目　的　<br class="pc">(複数選択可)</div>
+          <div class="contact__form-checkboxes">
+            <label class="checkboxItem">
+              <input type="checkbox" name="purpose[]" value="plan" class="checkbox">
+              プランについてのお問い合わせ
+            </label>
+            <label class="checkboxItem">
+              <input type="checkbox" name="purpose[]" value="hearing" class="checkbox">
+              ヒアリングのご予約
+            </label>
+            <label class="checkboxItem">
+              <input type="checkbox" name="purpose[]" value="materials" class="checkbox">
+              資料請求
+            </label>
+            <label class="checkboxItem">
+              <input type="checkbox" name="purpose[]" value="other" class="checkbox">
+              その他
+            </label>
+          </div>
+        </div>
+
+        <div class="contact__form-block contact__form-block--textarea">
+          <label for="message" class="contact__form-label">内　容</label>
+          <textarea id="message" name="message" placeholder="内容に関する詳細やご希望などをご入力ください"
+            class="contact__form-textarea"></textarea>
+        </div>
+
+        <div class="contact__form-group contact__form-group--submit">
+          <button type="submit" class="contact__form-btn">送 信</button>
+        </div>
+
+      </form>
+    </main>
+  </div>
+</section>

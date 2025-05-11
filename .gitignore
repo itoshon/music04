@@ -1,0 +1,15 @@
+# macOS の不要ファイル
+.DS_Store
+
+# VS Code の設定フォルダ
+.vscode/
+
+# Node.js の依存フォルダ
+node_modules/
+
+# ビルド成果物
+dist/
+build/
+
+# 環境変数ファイル（機密情報がある場合）
+.env

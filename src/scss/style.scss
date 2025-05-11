@@ -1,0 +1,29 @@
+// // src/scss/style.scss
+
+// // 1. 変数を先に読み込む（as * でグローバルに展開）
+// @use 'global/variable' as *;
+
+// // 2. mixin などを読み込む
+// @use 'global/mixin' as *;
+
+// // 3. reset → base → components → page
+// @use 'common/reset';
+// @use 'common/base';
+// @use 'common/components';
+// @use 'page/index';
+// src/scss/style.scss
+
+// ① まず変数と mixin をグローバルに読み込む
+@use 'global/variable' as *;
+@use 'global/mixin'    as *;
+
+// ② リセット／ベースを読み込む
+@use 'common/reset';
+@use 'common/base';
+
+// ③ コンポーネント群を読み込む
+@use 'common/components';  // ここで components/_fv.scss などが呼ばれます
+
+// ④ ページ固有スタイル
+@use 'page';               // page/_index.scss など
+

@@ -1,0 +1,262 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+
+.plan__banner {
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  picture {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .plan__banner-title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5rem;
+    background-color: rgba(#505050, 0.49);
+  }
+}
+
+.plan__type {
+  padding: 7rem 0;
+  @include sp {
+    padding: 5rem 0;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .plan__type-info {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 5rem;
+    @include sp {
+      flex-direction: column;
+      gap: 1.98rem;
+    }
+    .info {
+      width: 21rem;
+      height: 6rem;
+      background-color: $color-red;
+      font-size: 2rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .plus {
+      position: relative;
+      width: 1.85rem;
+      height: 1.85rem;
+      margin: 0 3rem;
+    }
+    .plus::before,
+    .plus::after {
+      content: "";
+      position: absolute;
+      background-color: #000;
+    }
+
+    .plus::before {
+      top: 0;
+      left: 50%;
+      width: 0.3rem; /* 棒の太さ */
+      height: 100%;
+      transform: translateX(-50%);
+    }
+
+    .plus::after {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 0.3rem;
+      transform: translateY(-50%);
+    }
+  }
+  p {
+    margin-top: 5rem;
+    font-size: 1.8rem;
+    line-height: calc(30 / 18);
+    font-weight: 500;
+    @include sp {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// プラン内容・月額料金
+.plan__month {
+  width: 100%;
+  height: auto;
+  padding-bottom: 7rem;
+  margin-bottom: 14rem;
+  .inner {
+    overflow-x: auto; /* ★横スクロールを許可 */
+    -webkit-overflow-scrolling: touch;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  .table-wrapper {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    @include sp {
+      padding-bottom: 1.75rem;
+    }
+    .simplebar-scrollbar::before {
+      position: absolute;
+      background: rgba(80, 80, 80, 0.25);
+      border-radius: 0;
+    }
+    .simplebar-scrollbar.simplebar-visible::before {
+      opacity: 1 !important;
+    }
+    .simplebar-track {
+      position: absolute;
+      background: rgba(80, 80, 80, 0.15);
+      width: 100%;
+      height: 2.5rem;
+    }
+  }
+
+  .plan__table {
+    width: 100%;
+    min-width: 67.5rem;
+    border-collapse: collapse;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+    border-bottom: 0.05rem solid #000;
+    th,
+    td {
+      height: 8.5rem;
+      vertical-align: middle;
+      text-align: center;
+      border-right: 0.05rem solid #000;
+      @include sp {
+        width: 16.7rem;
+      }
+      &:last-child {
+        border: none;
+      }
+    }
+    /* ヘッダー */
+    thead th {
+      position: relative;
+      height: 5rem;
+      border-bottom: 0.05rem solid #000;
+      &:last-child {
+        border-right: none;
+      }
+    }
+    th.plan__table-header {
+      background: transparent;
+      border: none;
+    }
+    .plan-basic,
+    .plan-premium {
+      background-color: #000;
+      color: #fff;
+      font-size: 2rem;
+    }
+    .plan-standard {
+      background-color: $color-red;
+      color: #fff;
+      font-size: 2rem;
+
+      .badge {
+        position: absolute;
+        top: -3rem;
+        left: 0;
+        width: 100%;
+        height: 3rem;
+        line-height: 3rem;
+        text-align: center;
+        background: $color-red;
+        color: #fff;
+        font-size: 1.7rem;
+      }
+    }
+    tbody {
+      tr:nth-child(even) {
+        background: rgba(80, 80, 80, 0.15);
+      }
+      .monthly-fee th {
+        font-size: 1.7rem;
+        font-weight: 700;
+        padding: 3.4rem 2rem;
+        text-align: left;
+        border-top: 0.05rem solid #000;
+        @include sp {
+          font-size: 1.6rem;
+          padding: 0 1rem;
+        }
+      }
+      .monthly-fee td {
+        font-size: 2.2rem;
+      }
+      tr:not(.monthly-fee) th {
+        font-size: 1.7rem;
+        font-weight: 400;
+        text-align: left;
+        padding: 2rem;
+        @include sp {
+          font-size: 1.6rem;
+          text-align: left;
+          padding-left: 1rem;
+        }
+      }
+      tr:not(.monthly-fee) td {
+        font-size: 1.7rem;
+        font-weight: 500;
+      }
+    }
+    .highlight {
+      color: $color-red;
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+    .dot {
+      display: inline-block;
+      width: 0.8em;
+      height: 0.8em;
+      background: #000;
+      border-radius: 50%;
+      margin-right: 0.5em;
+      vertical-align: middle;
+      &.red {
+        background: $color-red;
+      }
+    }
+    /* 横線アイコン */
+    .line {
+      display: inline-block;
+      width: 3rem;
+      height: 0.1rem;
+      background-color: currentColor;
+      vertical-align: middle;
+    }
+  }
+  p {
+    font-size: 1.7rem;
+    font-weight: 400;
+    @include sp {
+      padding-top: 2rem;
+    }
+  }
+}

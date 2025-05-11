@@ -1,0 +1,228 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const hbBtn   = document.querySelector('.header__hb-btn');
+  const nav     = document.getElementById('site-nav');
+  const overlay = document.querySelector('.nav-overlay');
+  const links   = nav.querySelectorAll('a');
+
+  // メニューの開閉を切り替える関数
+  function toggleMenu() {
+    const isOpen = hbBtn.classList.toggle('active');
+    nav.classList.toggle('active');
+    overlay.classList.toggle('active');
+
+    // アクセシビリティ属性も更新
+    hbBtn.setAttribute('aria-expanded', isOpen);
+    nav.setAttribute('aria-hidden', !isOpen);
+  }
+
+  // ハンバーガーボタンとオーバーレイをクリックしたら開閉
+  hbBtn.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+
+  // メニュー内リンクをクリックしたら閉じる（スマホ向けUX向上）
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (hbBtn.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  });
+});
+
+  // トップボタンとお問い合わせボタン
+  document.addEventListener('DOMContentLoaded', () => {
+    const floatingBtn = document.getElementById('floating-btn');
+    const pageTopBtn  = document.getElementById('page-top');
+    const footer      = document.querySelector('footer');
+    const threshold   = 200;  // 何pxスクロールしたら表示するか
+    const baseMargin  = 16;   // 画面下からの基本余白(px)。1rem=16pxなら16。
+  
+    window.addEventListener('scroll', () => {
+      const scY = window.scrollY;
+  
+      // ── 1) 200px超えたら表示・それ以下で非表示
+      if (scY > threshold) {
+        floatingBtn.style.display = 'flex';
+      } else {
+        floatingBtn.style.display = 'none';
+        return;  // 非表示なら底位置の調整は不要
+      }
+  
+      // ── 2) フッターが画面内に入ってきたら overlap が正になる
+      const footRect = footer.getBoundingClientRect();
+      const overlap  = window.innerHeight - footRect.top;
+  
+      // overlap>0 ならフッターとかぶっているので、上に押し上げる
+      const newBottom = overlap > 0
+        ? overlap
+        : baseMargin;
+  
+      floatingBtn.style.bottom = newBottom + 'px';
+    });
+  
+    // トップへ戻る（スムーススクロール）
+    pageTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  
+
+// ブログリストページネーション
+document.addEventListener('DOMContentLoaded', () => {
+  const listEl       = document.getElementById('blog-list');
+  const pagerEl      = document.getElementById('pagination');
+  const items        = Array.from(listEl.children);
+  const itemsPerPage = 10;  // １ページに表示する記事数
+  const totalPages   = Math.ceil(items.length / itemsPerPage);
+  // URL ?page= から現在ページ取得（1～totalPagesでクランプ）
+  const params      = new URLSearchParams(location.search);
+  let currentPage   = Math.min(
+    Math.max(Number(params.get('page')) || 1, 1),
+    totalPages
+  );
+  // Δ 前後に何ページ分見せるか（ここを変えれば自由に設定可能）
+  const delta = 2;
+  /**
+   * current: 現在ページ, total: 総ページ数, delta: 前後表示数
+   * → [1, '…', 4,5,6, '…', total] のような配列を返す
+   */
+  function getVisiblePages(current, total, delta) {
+    const pages = [1];
+    const start = Math.max(2,     current - delta);
+    const end   = Math.min(total-1, current + delta);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    if (total > 1) pages.push(total);
+
+    // 差が2以上のときだけ「…」を挟む
+    const result = [];
+    let prev = null;
+    for (const p of pages) {
+      if (prev !== null && p - prev > 1) {
+        result.push('…');
+      }
+      result.push(p);
+      prev = p;
+    }
+    return result;
+  }
+
+  // ページャー描画
+  function renderPager() {
+    const visible = getVisiblePages(currentPage, totalPages, delta);
+    pagerEl.innerHTML = visible.map(item => {
+      if (item === '…') {
+        return `<li class="ellipsis">…</li>`;
+      }
+      const num = item;
+      if (num === currentPage) {
+        return `<li class="active"><a>${num}</a></li>`;
+      }
+      return `<li><a href="?page=${num}">${num}</a></li>`;
+    }).join('');
+  }
+
+  // 記事一覧の表示制御
+  function showPage() {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end   = start + itemsPerPage;
+    items.forEach((item, idx) => {
+      item.style.display = idx >= start && idx < end ? '' : 'none';
+    });
+  }
+
+  // 初回描画
+  renderPager();
+  showPage();
+
+  // リンククリック時
+  pagerEl.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      e.preventDefault();
+      const num = Number(e.target.textContent);
+      if (!Number.isNaN(num) && num !== currentPage) {
+        currentPage = num;    // ページ番号を更新
+        renderPager();        // ページャー再描画
+        showPage();           // 記事表示切り替え
+      }
+    }
+  });
+});
+
+
+
+// トップのスライドショー
+document.addEventListener("DOMContentLoaded", () => {
+  const track         = document.querySelector(".main__voice-container");
+  const prevBtn       = document.querySelector(".voice-arrow--prev");
+  const nextBtn       = document.querySelector(".voice-arrow--next");
+  const cards         = Array.from(track.children);
+  const slidesPerPage = 1;                         // １画面あたりの枚数
+  let pageIndex       = 0;                         // 現在の「ページ」番号
+  let step            = 0;                         // １ページ分の px 移動量
+  let maxPage         = 0;                         // 最終ページ番号
+
+  function calcSize() {
+    const style  = getComputedStyle(track);
+    const gap    = parseFloat(style.gap);
+    const cardW  = cards[0].getBoundingClientRect().width;
+    // １ページ(＝3枚分)移動する px 数
+    step     = (cardW + gap) * slidesPerPage;
+    // 全カード÷3 でページ数を出し、０スタートなので −1
+    maxPage  = Math.ceil(cards.length / slidesPerPage) - 1;
+  }
+
+  // 実際にトラックを動かす
+  function slide() {
+    track.style.transform = `translateX(-${step * pageIndex}px)`;
+  }
+
+  // 初回＆リサイズ時に再計算
+  calcSize();
+  window.addEventListener("resize", () => {
+    calcSize();
+    // リサイズで pageIndex が範囲外になっていたら修正
+    pageIndex = Math.min(pageIndex, maxPage);
+    slide();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    // 最終ページを超えないように
+    pageIndex = Math.min(pageIndex + 1, maxPage);
+    slide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    pageIndex = Math.max(pageIndex - 1, 0);
+    slide();
+  });
+});
+
+// アコーディオンメニュー
+document.addEventListener('DOMContentLoaded', () => {
+  // FAQ 内の全質問ボタンを取得
+  const questions = document.querySelectorAll('.main__faq .faq__question');
+
+  questions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel    = btn.nextElementSibling;                       // 対応する回答パネル
+      const isOpen   = btn.getAttribute('aria-expanded') === 'true'; // 今開いているか？
+
+      // ── トグル動作 ──
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      panel.hidden = isOpen;
+
+      // ── 「一度に1つだけ開く」なら他をすべて閉じる ──
+      if (!isOpen) {
+        questions.forEach(other => {
+          if (other !== btn) {
+            other.setAttribute('aria-expanded', 'false');
+            other.nextElementSibling.hidden = true;
+          }
+        });
+      }
+    });
+  });
+});

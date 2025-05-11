@@ -1,0 +1,146 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+
+.blog-list__banner {
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  picture {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .blog-list__banner-title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5rem;
+    background-color: rgba(#505050, 0.49);
+  }
+}
+
+.blog-list__container {
+  padding-top: 7rem;
+  @include sp {
+    padding-top: 5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+  }
+  .blog-list__item-box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 7rem;
+    @include sp {
+      margin-bottom: 5rem;
+    }
+    .blog-list__item-link {
+      width: 100%;
+      height: auto;
+      display: flex;
+      @include sp {
+        flex-direction: column;
+      }
+      .blog-list__item-img {
+        width: 26rem;
+        height: 18.4rem;
+        position: relative;
+        @include sp {
+          width: 100%;
+          height: auto;
+        }
+
+        p {
+          width: 8rem;
+          height: 3rem;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: #fff;
+          background-color: $color-red;
+          position: absolute;
+          top: 0;
+          @include sp {
+            width: 9rem;
+            height: 3rem;
+          }
+        }
+      }
+
+      .blog-list__item-com {
+        width: 57rem;
+        height: auto;
+        margin-left: 5rem;
+        @include sp {
+          width: 100%;
+          margin-left: 0;
+          margin-top: 2rem;
+        }
+        h3 {
+          font-size: 2rem;
+          @include sp {
+          }
+        }
+        time {
+          font-size: 1.7rem;
+          font-weight: 500;
+          display: block;
+          margin-bottom: 2rem;
+          @include sp {
+            text-align: end;
+          }
+        }
+        p {
+          font-size: 1.8rem;
+          font-weight: 500;
+          @include sp {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  padding: 0;
+  margin: 0 0 21.2rem;
+  list-style: none;
+  gap: 1rem;
+  justify-content: center;
+}
+.pagination li {
+  margin: 0;
+  padding: 0;
+}
+.pagination a,
+.pagination .ellipsis {
+  display: block;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  border: 0.1rem solid #000;
+}
+.pagination .ellipsis {
+  border: none;
+  pointer-events: none;
+}
+.pagination li.active a {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}

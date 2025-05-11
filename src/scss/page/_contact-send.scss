@@ -1,0 +1,70 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+
+.contact__send-banner {
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  picture {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .contact__send-banner-title  {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5rem;
+    background-color: rgba(#505050, 0.49);
+  }
+}
+
+  .contact__send-com {
+    padding-top: 6.9rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    @include sp {
+      padding-top: 5rem;
+      text-align: left;
+    }
+    p {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: calc(30 / 18);
+      @include sp {
+        font-size: 1.6rem;
+
+      }
+    }
+  }
+
+  .contact__send-btn {
+      width: 25rem;
+      height: 5rem;
+      background-color: $color-red;
+      display: flex;
+      margin: 0 auto;
+      margin-bottom: 9rem;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.4s;
+      @include sp {
+        width: 100%;
+      }
+      a {
+        font-size: 2rem;
+        color: #fff;
+      }
+      &:hover {
+        cursor: pointer;
+        opacity: 0.6;
+      }
+  }
+
