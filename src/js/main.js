@@ -68,63 +68,55 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
 // ブログリストページネーション
-document.addEventListener('DOMContentLoaded', () => {
-  const listEl       = document.getElementById('blog-list');
-  const pagerEl      = document.getElementById('pagination');
-  const items        = Array.from(listEl.children);
-  const itemsPerPage = 10;  // １ページに表示する記事数
-  const totalPages   = Math.ceil(items.length / itemsPerPage);
-  // URL ?page= から現在ページ取得（1～totalPagesでクランプ）
-  const params      = new URLSearchParams(location.search);
-  let currentPage   = Math.min(
+/**
+ * 汎用ページネーション
+ * options = {
+ *   listSelector:   '記事リストの親要素セレクタ',
+ *   pagerSelector:  'ページャー出力先セレクタ',
+ *   itemsPerPage:   表示件数,
+ *   delta:          前後に見せるページ数
+ * }
+ */
+function initPagination({ listSelector, pagerSelector, itemsPerPage = 10, delta = 2 }) {
+  const listEl  = document.querySelector(listSelector);
+  const pagerEl = document.querySelector(pagerSelector);
+  if (!listEl || !pagerEl) return;  // 存在しなければ何もしない
+
+  const items      = Array.from(listEl.children);
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const params     = new URLSearchParams(location.search);
+  let currentPage  = Math.min(
     Math.max(Number(params.get('page')) || 1, 1),
     totalPages
   );
-  // Δ 前後に何ページ分見せるか（ここを変えれば自由に設定可能）
-  const delta = 2;
-  /**
-   * current: 現在ページ, total: 総ページ数, delta: 前後表示数
-   * → [1, '…', 4,5,6, '…', total] のような配列を返す
-   */
+
   function getVisiblePages(current, total, delta) {
     const pages = [1];
-    const start = Math.max(2,     current - delta);
-    const end   = Math.min(total-1, current + delta);
-
-    for (let i = start; i <= end; i++) {
-      pages.push(i);
-    }
+    const start = Math.max(2, current - delta);
+    const end   = Math.min(total - 1, current + delta);
+    for (let i = start; i <= end; i++) pages.push(i);
     if (total > 1) pages.push(total);
 
-    // 差が2以上のときだけ「…」を挟む
     const result = [];
     let prev = null;
     for (const p of pages) {
-      if (prev !== null && p - prev > 1) {
-        result.push('…');
-      }
+      if (prev !== null && p - prev > 1) result.push('…');
       result.push(p);
       prev = p;
     }
     return result;
   }
 
-  // ページャー描画
   function renderPager() {
     const visible = getVisiblePages(currentPage, totalPages, delta);
     pagerEl.innerHTML = visible.map(item => {
-      if (item === '…') {
-        return `<li class="ellipsis">…</li>`;
-      }
-      const num = item;
-      if (num === currentPage) {
-        return `<li class="active"><a>${num}</a></li>`;
-      }
-      return `<li><a href="?page=${num}">${num}</a></li>`;
+      if (item === '…') return `<li class="ellipsis">…</li>`;
+      return item === currentPage
+        ? `<li class="active"><a>${item}</a></li>`
+        : `<li><a href="?page=${item}">${item}</a></li>`;
     }).join('');
   }
 
-  // 記事一覧の表示制御
   function showPage() {
     const start = (currentPage - 1) * itemsPerPage;
     const end   = start + itemsPerPage;
@@ -133,23 +125,120 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 初回描画
   renderPager();
   showPage();
 
-  // リンククリック時
   pagerEl.addEventListener('click', e => {
     if (e.target.tagName === 'A') {
       e.preventDefault();
       const num = Number(e.target.textContent);
       if (!Number.isNaN(num) && num !== currentPage) {
-        currentPage = num;    // ページ番号を更新
-        renderPager();        // ページャー再描画
-        showPage();           // 記事表示切り替え
+        currentPage = num;
+        renderPager();
+        showPage();
       }
     }
   });
+}
+
+// ：ブログリスト用
+initPagination({
+  listSelector:  '#blog-list',
+  pagerSelector: '#pagination',
+  itemsPerPage:  10,
+  delta:         2
 });
+
+// ：ブログリスト用
+initPagination({
+  listSelector:  '#search-list',
+  pagerSelector: '#pagination',
+  itemsPerPage:  10,
+  delta:         2,
+});
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const listEl       = document.getElementById('blog-list');
+//   const pagerEl      = document.getElementById('pagination');
+//   const items        = Array.from(listEl.children);
+//   const itemsPerPage = 10;  // １ページに表示する記事数
+//   const totalPages   = Math.ceil(items.length / itemsPerPage);
+//   // URL ?page= から現在ページ取得（1～totalPagesでクランプ）
+//   const params      = new URLSearchParams(location.search);
+//   let currentPage   = Math.min(
+//     Math.max(Number(params.get('page')) || 1, 1),
+//     totalPages
+//   );
+//   // Δ 前後に何ページ分見せるか（ここを変えれば自由に設定可能）
+//   const delta = 2;
+//   /**
+//    * current: 現在ページ, total: 総ページ数, delta: 前後表示数
+//    * → [1, '…', 4,5,6, '…', total] のような配列を返す
+//    */
+//   function getVisiblePages(current, total, delta) {
+//     const pages = [1];
+//     const start = Math.max(2,     current - delta);
+//     const end   = Math.min(total-1, current + delta);
+
+//     for (let i = start; i <= end; i++) {
+//       pages.push(i);
+//     }
+//     if (total > 1) pages.push(total);
+
+//     // 差が2以上のときだけ「…」を挟む
+//     const result = [];
+//     let prev = null;
+//     for (const p of pages) {
+//       if (prev !== null && p - prev > 1) {
+//         result.push('…');
+//       }
+//       result.push(p);
+//       prev = p;
+//     }
+//     return result;
+//   }
+
+//   // ページャー描画
+//   function renderPager() {
+//     const visible = getVisiblePages(currentPage, totalPages, delta);
+//     pagerEl.innerHTML = visible.map(item => {
+//       if (item === '…') {
+//         return `<li class="ellipsis">…</li>`;
+//       }
+//       const num = item;
+//       if (num === currentPage) {
+//         return `<li class="active"><a>${num}</a></li>`;
+//       }
+//       return `<li><a href="?page=${num}">${num}</a></li>`;
+//     }).join('');
+//   }
+
+//   // 記事一覧の表示制御
+//   function showPage() {
+//     const start = (currentPage - 1) * itemsPerPage;
+//     const end   = start + itemsPerPage;
+//     items.forEach((item, idx) => {
+//       item.style.display = idx >= start && idx < end ? '' : 'none';
+//     });
+//   }
+
+//   // 初回描画
+//   renderPager();
+//   showPage();
+
+//   // リンククリック時
+//   pagerEl.addEventListener('click', e => {
+//     if (e.target.tagName === 'A') {
+//       e.preventDefault();
+//       const num = Number(e.target.textContent);
+//       if (!Number.isNaN(num) && num !== currentPage) {
+//         currentPage = num;    // ページ番号を更新
+//         renderPager();        // ページャー再描画
+//         showPage();           // 記事表示切り替え
+//       }
+//     }
+//   });
+// });
 
 
 
