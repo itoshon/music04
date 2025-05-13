@@ -1,41 +1,28 @@
 @use "../global/variable" as *;
 @use "../global/mixin" as *;
 
-.blog-list__banner {
-  width: 100%;
-  height: auto;
-  position: relative;
-
-  picture {
-    width: 100%;
-    height: auto;
-    display: block;
+.search__title {
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    font-size: 1.8rem;
+    strong {
+      font-weight: 700;
+    }
+    .search__suffix {
+      font-weight: 500;
+      font-size: 1.8rem;
+    }
   }
-
-  .blog-list__banner-title {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    top: 0;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 2.5rem;
-    background-color: rgba(#505050, 0.49);
+  .search__count {
+    font-size: 1.8rem;
+    font-weight: 500;
   }
 }
 
-.blog-list__container {
-  padding-top: 7rem;
-  @include sp {
-    padding-top: 5rem;
-  }
-  h2 {
-    font-size: 2.5rem;
-    padding-bottom: 5rem;
-    text-align: center;
-  }
+.search__list {
+  margin-top: 5rem;
+
   .blog-list__item-box {
     width: 100%;
     height: auto;
@@ -58,14 +45,13 @@
         @include sp {
           width: 100%;
           height: auto;
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-          }
         }
-
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
         p {
           width: 8rem;
           height: 3rem;
@@ -83,7 +69,7 @@
           }
         }
       }
-
+  
       .blog-list__item-com {
         width: 57rem;
         height: auto;
@@ -117,36 +103,4 @@
       }
     }
   }
-}
-
-.pagination {
-  display: flex;
-  padding: 0;
-  margin: 0 0 21.2rem;
-  list-style: none;
-  gap: 1rem;
-  justify-content: center;
-}
-.pagination li {
-  margin: 0;
-  padding: 0;
-}
-.pagination a,
-.pagination .ellipsis {
-  display: block;
-  padding: 1rem 2rem;
-  font-size: 1.8rem;
-  text-align: center;
-  color: #000;
-  text-decoration: none;
-  border: 0.1rem solid #000;
-}
-.pagination .ellipsis {
-  border: none;
-  pointer-events: none;
-}
-.pagination li.active a {
-  background-color: #000;
-  color: #fff;
-  border-color: #000;
 }
