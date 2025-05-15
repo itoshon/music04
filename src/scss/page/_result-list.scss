@@ -1,0 +1,94 @@
+@use "../global/variable" as *;
+@use "../global/mixin" as *;
+
+.graduation__banner {
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  picture {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .graduation__banner-title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5rem;
+    background-color: rgba(#505050, 0.49);
+  }
+}
+
+.graduation__head {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+}
+
+.graduation__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 7rem;
+  @include sp {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5rem;
+  }
+  .graduation__item {
+    transition: transform 0.2s;
+    &:hover {
+      transform: translateY(-1rem);
+    }
+    .graduation__link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+  }
+
+  .graduation__thumb {
+    position: relative;
+    margin: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    p {
+      width: 10rem;
+      height: 3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #fff;
+      background-color: $color-red;
+      position: absolute;
+      top: 0;
+    }
+  }
+  .graduation__info {
+    margin-top: 2rem;
+    .graduation__title {
+      font-size: 2rem;
+    }
+    time {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-align: end;
+    }
+  }
+}
