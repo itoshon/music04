@@ -3,6 +3,7 @@
 
 
 #floating-btn {
+  width: 30rem;
   position: fixed;
   overflow: hidden;
   bottom: 0;
@@ -12,6 +13,7 @@
   gap: 3.1rem;
   align-items: center;
   @include sp {
+    width: 100%;
     left: 0;
     right: 0;
   }

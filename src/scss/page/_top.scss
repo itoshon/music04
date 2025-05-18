@@ -267,85 +267,94 @@
   width: 100%;
   padding: 7rem 0;
   background-color: $color-red;
+  @include sp {
+    padding: 5rem 0;
+  }
 
   h3 {
     font-size: 3rem;
     color: #fff;
     text-align: center;
-  }
-
-  /* スライド枠 */
-  .main__voice-wrapper {
-    position: relative;
-    overflow: hidden;
-    max-width: 970px;
-    margin: 0 auto;
-    padding: 5rem 3.4rem 0;
+    margin-bottom: 5rem;
     @include sp {
-      width: 100%;
+      margin-bottom: 3rem;
+      font-style: 2.5rem;
+    }
+  }
+}
+/* スライド枠 */
+.main__voice-wrapper {
+  position: relative;
+  width: 88.35rem;
+  margin: 0 auto;
+  @include sp {
+    width: 100%;
+    padding-right: 2rem;
+  }
+}
+.main__voice-card {
+  margin: 1.75rem;
+  .main__voice-card picture,img {
+    @include sp {
+      width: 33.5rem;
+      height: 20rem;
+      object-fit: cover;
+      object-position: center;
     }
   }
 
-  .main__voice-container {
-    display: flex;
-    gap: 3.5rem;
-    transition: transform 0.4s ease;
-    padding-left: 4.4rem;
-    padding-right: 4.4rem;
+  .main__voice-card-com {
     @include sp {
-      padding-left: 0;
-      padding-right: 0;
+      width: 33.5rem;
     }
-  }
-
-  /* カード幅＝（全幅－gap×2）÷3 */
-  .main__voice-card {
-    flex: 0 0 calc((100% - 2 * 3.5rem) / 3);
-    @include sp {
-      flex: 0 0 100%;
-    }
-
     h4 {
       color: #fff;
       font-size: 2.2rem;
-      margin: 2rem 0;
+      text-align: center;
+      margin-top: 2rem;
+      @include sp {
+        margin-top: 3rem;
+      }
     }
-
     p {
       font-size: 1.8rem;
       font-weight: 500;
       color: #fff;
       line-height: calc(30 / 18);
+      margin-top: 2rem;
     }
   }
+}
 
-  /* 矢印ボタン */
-  .voice-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-    z-index: 10;
+/* 矢印ボタン */
+.voice-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  z-index: 10;
+  @include sp {
+    top: 35%;
+    transform: translateY(-35%);
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+  }
+  &--prev {
+    left: -2rem;
     @include sp {
-      top: 45%;
-      transform: translateY(-45%);
+      left: 2rem;
     }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      opacity: 0.5;
-    }
-
-    // &--prev {
-    //   left: 0;
-    // }
-
-    &--next {
-      right: 3.5rem;
+  }
+  &--next {
+    right: -2rem;
+    @include sp {
+      right: 2rem;
     }
   }
 }

@@ -35,37 +35,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTopBtn  = document.getElementById('page-top');
     const footer      = document.querySelector('footer');
     const threshold   = 200;  // 何pxスクロールしたら表示するか
-    const baseMargin  = 16;   // 画面下からの基本余白(px)。1rem=16pxなら16。
-  
+
     window.addEventListener('scroll', () => {
       const scY = window.scrollY;
-  
-      // ── 1) 200px超えたら表示・それ以下で非表示
+
+      // 200px超えたら表示
       if (scY > threshold) {
         floatingBtn.style.display = 'flex';
       } else {
         floatingBtn.style.display = 'none';
-        return;  // 非表示なら底位置の調整は不要
+        return;
       }
-  
-      // ── 2) フッターが画面内に入ってきたら overlap が正になる
+
+      // フッターと重なっているか判定
       const footRect = footer.getBoundingClientRect();
       const overlap  = window.innerHeight - footRect.top;
-  
-      // overlap>0 ならフッターとかぶっているので、上に押し上げる
-      const newBottom = overlap > 0
-        ? overlap
-        : baseMargin;
-  
-      floatingBtn.style.bottom = newBottom + 'px';
+
+      if (overlap > 0) {
+        // フッターにかかった分だけ上に浮かす
+        floatingBtn.style.bottom = `${overlap}px`;
+      } else {
+        // 通常時は画面下
+        floatingBtn.style.bottom = '0px';
+      }
     });
-  
-    // トップへ戻る（スムーススクロール）
+
+    // トップへ戻る
     pageTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
-  
+
 
 // リストページネーション
 /**
@@ -163,53 +163,6 @@ initPagination({
   pagerSelector: '#graduation-pagination',
   itemsPerPage:  10,
   delta:         2,
-});
-
-// トップのスライドショー
-document.addEventListener("DOMContentLoaded", () => {
-  const track         = document.querySelector(".main__voice-container");
-  const prevBtn       = document.querySelector(".voice-arrow--prev");
-  const nextBtn       = document.querySelector(".voice-arrow--next");
-  const cards         = Array.from(track.children);
-  const slidesPerPage = 1;                         // １画面あたりの枚数
-  let pageIndex       = 0;                         // 現在の「ページ」番号
-  let step            = 0;                         // １ページ分の px 移動量
-  let maxPage         = 0;                         // 最終ページ番号
-
-  function calcSize() {
-    const style  = getComputedStyle(track);
-    const gap    = parseFloat(style.gap);
-    const cardW  = cards[0].getBoundingClientRect().width;
-    // １ページ(＝3枚分)移動する px 数
-    step     = (cardW + gap) * slidesPerPage;
-    // 全カード÷3 でページ数を出し、０スタートなので −1
-    maxPage  = Math.ceil(cards.length / slidesPerPage) - 1;
-  }
-
-  // 実際にトラックを動かす
-  function slide() {
-    track.style.transform = `translateX(-${step * pageIndex}px)`;
-  }
-
-  // 初回＆リサイズ時に再計算
-  calcSize();
-  window.addEventListener("resize", () => {
-    calcSize();
-    // リサイズで pageIndex が範囲外になっていたら修正
-    pageIndex = Math.min(pageIndex, maxPage);
-    slide();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    // 最終ページを超えないように
-    pageIndex = Math.min(pageIndex + 1, maxPage);
-    slide();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    pageIndex = Math.max(pageIndex - 1, 0);
-    slide();
-  });
 });
 
 // アコーディオンメニュー
