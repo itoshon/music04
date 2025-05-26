@@ -1,3 +1,5 @@
+console.log('現在の innerWidth:', window.innerWidth);
+
 $('.main__voice-container').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -10,7 +12,8 @@ $('.main__voice-container').slick({
       breakpoint: 768,
       settings: {
         slidesToShow: 1,    // SP は 1 枚
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        infinite: true,
       }
     }
   ]

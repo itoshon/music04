@@ -12,22 +12,30 @@
     width: 100%;
     height: 100%;
   }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(80, 80, 80, 0.49);
+  }
   h2 {
     position: absolute;
     display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
     font-size: 4rem;
     line-height: calc(60 / 40);
-    background-color: rgba(#505050, 0.49);
+
     @include sp {
+      top: 51%;
+      white-space: nowrap;
       font-size: 3rem;
       line-height: calc(50 / 30);
     }
@@ -38,30 +46,36 @@
   width: 100%;
   height: auto;
   background-color: #fff;
-  padding-top: 7rem;
+  padding-top: 6.5rem;
+  @include sp {
+    padding-top: 4.7rem;
+  }
   h3 {
     font-size: 3.5rem;
     color: $color-red;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.8rem;
     @include sp {
       font-size: 2.5rem;
+      margin-bottom: 1.2rem;
     }
   }
   p {
     font-size: 1.8rem;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 4.4rem;
+    margin-bottom: 3.4rem;
     @include sp {
-      margin-bottom: 3rem;
+      margin-bottom: 2.3rem;
+      text-align: start;
     }
   }
   picture,
   img {
     display: block;
-    width: 100%;
+    width: 99%;
     height: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -70,17 +84,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8rem;
-  margin-top: 3rem;
+  gap: 4rem;
+  margin-left: -3rem;
   @include sp {
-    gap: 4rem;
+    margin-top: 1.1rem;
+    margin-left: -1.3rem;
+    gap: 3.8rem;
   }
   .about__label-en {
     display: flex;
     flex-direction: column;
-    gap: 4.2rem;
+    gap: 3rem;
     margin: 0;
     text-align: right;
+    @include sp {
+      margin-top: 0.8rem;
+      gap: 3.8rem;
+    }
     span {
       font-size: 2.5rem;
       color: $color-red;
@@ -97,9 +117,9 @@
     .arrow {
       position: relative;
       width: 0.3rem;
-      height: 19rem;
+      height: 19.5rem;
       background-color: $color-red;
-      margin-bottom: 3rem;
+      margin-bottom: 3.95rem;
       &::before {
         content: "";
         width: 2.5rem;
@@ -128,9 +148,11 @@
     .dot-box {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 5rem;
+      gap: 4.9rem;
       position: absolute;
+      @include sp {
+        margin-top: 1rem;
+      }
     }
     .dot {
       width: 2rem;
@@ -142,8 +164,12 @@
   .about__label-jp {
     display: flex;
     flex-direction: column;
-    gap: 4.4rem;
+    gap: 3.4rem;
     text-align: left;
+    @include sp {
+      margin-top: 0.7rem;
+      gap: 3.8rem;
+    }
     span {
       font-size: 2.3rem;
       font-weight: 500;
@@ -156,13 +182,15 @@
 
 // 音楽業界初！
 .main__about-com-section {
-  padding: 7rem 0;
+  margin-top: 3.3rem;
+  padding: 6.8rem 0 6rem;
   width: 100%;
   height: auto;
   background-color: $color-red;
-  margin-top: 7rem;
   @include sp {
-    padding: 5rem 0;
+    margin-top: 1.38rem;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
   }
   .main__about-com {
     text-align: center;
@@ -170,11 +198,11 @@
       font-size: 3rem;
       line-height: calc(50 / 30);
       color: #fff;
-      margin-bottom: 5rem;
+      margin-bottom: 3rem;
       @include sp {
         font-size: 2.5rem;
         line-height: calc(40 / 25);
-        margin-bottom: 3rem;
+        margin-bottom: 1.3rem;
       }
     }
     p {
@@ -190,16 +218,21 @@
 .main__reason {
   width: 100%;
   height: auto;
-  padding: 7rem 0;
+  padding: 6.5rem 0;
+  margin-bottom: 2.5rem;
   @include sp {
-    padding: 5rem 0;
+    padding-top: 5rem;
+    padding-bottom: 3.9rem;
+    margin-bottom: 0;
   }
   h3 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 4.2rem;
+    margin-bottom: 3.2rem;
     @include sp {
       font-size: 2.5rem;
+      line-height: calc(40 / 25);
+      margin-bottom: 3.5rem;
     }
   }
   .main__reason-container {
@@ -208,24 +241,29 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    @include sp {
+      gap: 3.9rem;
+    }
     .main__reason-box {
       width: 100%;
       height: auto;
       display: flex;
-      column-gap: 5rem;
       @include sp {
         flex-direction: column;
       }
-      picture {
-        width: 35%;
+      picture,
+      img {
+        width: 35rem;
         height: auto;
+        object-fit: cover;
+        object-position: center;
+
         @include sp {
           width: 100%;
           height: auto;
         }
       }
       .main__reason-box-com-area {
-        width: 65%;
         height: auto;
         @include sp {
           width: 100%;
@@ -236,25 +274,42 @@
           font-size: 2.2rem;
           display: inline-block;
           position: relative;
+          padding-top: 0.9rem;
           padding-left: 5rem;
-          padding-bottom: 2rem;
           @include sp {
-            padding: 2rem 0;
+            padding: 0;
             font-size: 2rem;
             margin-top: 3rem;
           }
         }
         .main__reason-box-com {
-          width: 100%;
+          width: 53rem;
+          margin-top: 0.9rem;
           border-top: $color-red 0.2rem solid;
-          padding: 4rem 5rem;
+          padding-top: 3.7rem;
+          padding-left: 5rem;
           @include sp {
+            width: 100%;
             padding: 0;
-            padding-top: 2rem;
+            padding-top: 1.7rem;
+            margin-top: 0.8rem;
           }
           p {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 500;
+            line-height: calc(33 / 18);
+            @include sp {
+              font-size: 1.6rem;
+              line-height: calc(30 / 16);
+            }
+          }
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(3) {
+        .main__reason-box-com-area {
+          h4 {
+            padding-top: 0rem;
           }
         }
       }
@@ -265,20 +320,23 @@
 // 生徒さんたちの声
 .main__voice {
   width: 100%;
-  padding: 7rem 0;
+  padding-top: 4.7rem;
+  padding-bottom: 6.3rem;
   background-color: $color-red;
   @include sp {
-    padding: 5rem 0;
+    padding-top: 4.8rem;
+    padding-bottom: 0;
   }
 
   h3 {
     font-size: 3rem;
     color: #fff;
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 2.2rem;
     @include sp {
-      margin-bottom: 3rem;
-      font-style: 2.5rem;
+      margin-bottom: 2.4rem;
+      font-size: 2.5rem;
+      font-weight: 500;
     }
   }
 }
@@ -287,33 +345,60 @@
   position: relative;
   width: 88.35rem;
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow: visible;
   @include sp {
     width: 100%;
-    padding-right: 2rem;
+    padding: 0 1.5rem;
+  }
+  .slick-list {
+    margin: 0 -1.6rem;
+    overflow: hidden;
+    width: calc(100% + 3.2rem);
+    @include sp {
+      margin: 0;
+      width: 100%;
+    }
+  }
+  .slick-slide {
+    padding: 0 1.7rem;
+    box-sizing: border-box;
+    @include sp {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      padding: 0;
+    }
   }
 }
 .main__voice-card {
-  margin: 1.75rem;
-  .main__voice-card picture,img {
+  margin: 1.6rem 0;
+  @include sp {
+    width: 100%;
+  }
+  .main__voice-card picture,
+  img {
+    width: 27rem;
     @include sp {
-      width: 33.5rem;
-      height: 20rem;
-      object-fit: cover;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
       object-position: center;
     }
   }
 
   .main__voice-card-com {
+    width: 27rem;
     @include sp {
-      width: 33.5rem;
+      width: 100%;
+      height: 100%;
     }
     h4 {
       color: #fff;
       font-size: 2.2rem;
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 1.8rem;
       @include sp {
-        margin-top: 3rem;
+        margin-top: 2.8rem;
       }
     }
     p {
@@ -321,7 +406,7 @@
       font-weight: 500;
       color: #fff;
       line-height: calc(30 / 18);
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
   }
 }
@@ -329,15 +414,13 @@
 /* 矢印ボタン */
 .voice-arrow {
   position: absolute;
-  top: 50%;
+  top: 43%;
   transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
   cursor: pointer;
   z-index: 10;
   @include sp {
-    top: 35%;
-    transform: translateY(-35%);
+    top: 37.3%;
+    transform: translateY(-37.3%);
   }
   img {
     display: block;
@@ -346,13 +429,13 @@
     opacity: 0.5;
   }
   &--prev {
-    left: -2rem;
+    left: -4rem;
     @include sp {
       left: 2rem;
     }
   }
   &--next {
-    right: -2rem;
+    right: -4rem;
     @include sp {
       right: 2rem;
     }
@@ -361,13 +444,13 @@
 
 // ご利用の流れ
 .usage__flow {
+  // position: relative;
   width: 100%;
   height: auto;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
+  margin: 3.7rem 0 6rem;
+
   @include sp {
-    margin-top: 5rem;
-    margin-bottom: 7rem;
+    margin: 4.6rem 0 6rem;
   }
 
   h3 {
@@ -378,52 +461,71 @@
     }
   }
 
+  .usage__flow-container {
+    position: relative;
+  }
+  .usage__flow-img {
+    // position: relative;
+    // left: 6rem;
+    // top: 1rem;
+    @include sp {
+      left: 1.6rem;
+    }
+    .arrow {
+      position: absolute;
+      left: 6rem;
+      top: 1rem;
+      bottom: -1.9rem;
+      width: 0.3rem;
+      background-color: $color-red;
+      @include sp {
+        left: 1.7rem;
+        bottom: 1rem;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 2.5rem;
+        height: 0.3rem;
+        background-color: $color-red;
+        border-radius: 0.9rem;
+      }
+
+      &::before {
+        bottom: 0.4rem;
+        right: -0.3rem;
+        transform: rotate(45deg);
+        @include sp {
+          bottom: 0.5rem;
+        }
+      }
+
+      &::after {
+        bottom: 0.4rem;
+        left: -0.3rem;
+        transform: rotate(-45deg);
+        @include sp {
+          bottom: 0.5rem;
+        }
+      }
+    }
+  }
   .usage__flow-list {
     position: relative;
-    padding-left: calc(4rem + 4rem - 0.15rem);
+    padding-left: calc(3.2rem + 3.2rem - 0.175rem);
     @include sp {
+      margin-top: 3.6rem;
       padding-left: calc(1rem + 1rem - 0.15rem);
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      top: 3rem;
-      bottom: 0;
-      left: calc(4rem + 4rem - 0.15rem);
-      width: 0.3rem;
-      height: 100%;
-      background-color: $color-red;
-      margin-left: -0.15rem;
-      @include sp {
-        left: calc(1rem + 1rem - 0.15rem);
-        top: 2rem;
-      }
-    }
-    &::after {
-      // 先端は菱形
-      content: "";
-      position: absolute;
-      bottom: -1.5rem;
-      left: calc(4rem + 4rem - 0.15rem);
-      width: 2.4rem;
-      height: 2.4rem;
-      background-color: transparent;
-      border-bottom: 0.3rem solid $color-red;
-      border-right: 0.3rem solid $color-red;
-      transform: translate(-50%, 50%) rotate(45deg);
-      border-radius: 0.3rem;
-      @include sp {
-        left: calc(1rem + 1rem - 0.15rem);
-        bottom: -0.8rem;
-      }
     }
 
     li {
       display: flex;
-      align-items: center;
-      margin-top: 7rem;
+      margin-top: 5.65rem;
       @include sp {
-        margin-top: 5rem;
+        margin-top: 0rem;
+        margin-bottom: 3.6rem;
         flex-direction: column;
         align-items: flex-start;
       }
@@ -431,24 +533,27 @@
       h4 {
         position: relative;
         width: 22rem;
-        padding-left: 5rem;
-        margin-right: 3.8rem;
+        padding-left: 6rem;
+        margin-right: 3rem;
         color: $color-red;
         font-size: 2.2rem;
         @include sp {
-          padding-left: 2.3rem;
+          padding-left: 2.9rem;
         }
 
         &::before {
           content: "";
           position: absolute;
           left: 0;
-          top: 50%;
+          top: 30%;
           transform: translate(-50%, -50%);
           width: 2rem;
           height: 2rem;
           background-color: $color-red;
           border-radius: 50%;
+          @include sp {
+            top: 50%;
+          }
         }
       }
 
@@ -460,7 +565,7 @@
         @include sp {
           font-size: 1.6rem;
           line-height: calc(30 / 16);
-          margin-top: 2rem;
+          margin-top: 0.8rem;
           padding-left: 3rem;
         }
       }
@@ -468,23 +573,31 @@
   }
 }
 
+
 // よくある質問
 .main__faq {
   width: 100%;
   height: auto;
-  padding-top: 6rem;
-  padding-bottom: 10rem;
+  padding-top: 5.5rem;
+  padding-bottom: 7rem;
   @include sp {
-    padding-bottom: 5rem;
+    padding-top: 0;
+    padding-bottom: 5.3rem;
   }
   h3 {
     text-align: center;
     font-size: 3rem;
+    @include sp {
+      font-size: 2.5rem;
+    }
   }
   .main__faq-list {
     width: 100%;
     height: auto;
-    margin-top: 5rem;
+    margin-top: 3.6rem;
+    @include sp {
+      margin-top: 3.9rem;
+    }
   }
   .main__faq-item {
     border-top: 0.05rem solid #000;
@@ -497,7 +610,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 2.4rem 3rem 2.3rem 2rem;
+    padding: 1.5rem 3rem 1.4rem 2rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -507,7 +620,8 @@
     transition: background-color 0.2s;
     @include sp {
       font-size: 1.6rem;
-      padding: 2rem 1.5rem 2rem 0rem;
+      line-height: calc(30 / 16);
+      padding: 1.5rem 1.5rem 0.9rem 0rem;
     }
   }
   .faq__question:hover {
@@ -545,30 +659,30 @@
 
   /* ▼矢印 */
   .faq__question-arrow {
+    display: inline-block;
     width: 1.2rem;
     height: 1.2rem;
     margin-left: 1rem;
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000;
-    transform: rotate(45deg);
-    // transition: transform 0.3s;
+    background: url("../../images/top/faq-arrow.svg") no-repeat center center;
+    background-size: contain;
+    transition: transform 0.3s;
     @include sp {
       margin-left: 1.8rem;
     }
   }
   .faq__question[aria-expanded="true"] .faq__question-arrow {
-    transform: rotate(-135deg);
+    transform: rotate(-180deg);
   }
 
   /* ── 回答 ── */
   .faq__answer {
     display: none;
     border-bottom: 1px solid #ddd;
-    padding: 2.4rem 2rem;
+    padding: 1.7rem 3rem 1.4rem 2rem;
     background-color: rgba(203, 0, 0, 0.1);
     max-height: 100%;
     @include sp {
-      padding: 2rem 4.7rem 2rem 0rem;
+      padding: 1.6rem 5rem 0.7rem 0rem;
     }
     p {
       display: flex;
@@ -578,6 +692,7 @@
       line-height: calc(30 / 17);
       @include sp {
         font-size: 1.6rem;
+        line-height: calc(30 / 16);
       }
     }
     .faq__answer-icon {
@@ -605,9 +720,9 @@
 
 // ブログ
 .main__blog-list {
-  padding-bottom: 21.3rem;
+  padding-bottom: 20.7rem;
   @include sp {
-    padding-bottom: 19.9rem;
+    padding-bottom: 19.2rem;
   }
   h3 {
     text-align: center;
@@ -617,12 +732,15 @@
     }
   }
   .main__blog-list__item {
-    margin-top: 5rem;
-    padding-bottom: 5rem;
+    margin-top: 3.8rem;
+    padding-bottom: 4rem;
     display: flex;
+    justify-content: center;
     gap: 5rem;
     @include sp {
       flex-direction: column;
+      margin-top: 4rem;
+      gap: 4.4rem;
     }
     .main__blog-list__item-box {
       width: 26rem;
@@ -642,10 +760,12 @@
           width: 100%;
           margin-bottom: 1rem;
         }
+        picture,
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center;
         }
         p {
           width: 8rem;
@@ -658,19 +778,27 @@
           background-color: $color-red;
           position: absolute;
           top: 0;
+          @include sp {
+            width: 9rem;
+          }
         }
       }
       .main__blog-list__item-com {
         h4 {
           font-size: 2rem;
+          line-height: calc(25 / 20);
+          @include sp {
+            line-height: calc(30 / 20);
+          }
         }
         time {
           display: block;
           font-size: 1.7rem;
           font-weight: 500;
           text-align: end;
+          margin-top: 1.3rem;
           @include sp {
-            margin-top: 2rem;
+            margin-top: 0.8rem;
           }
         }
       }

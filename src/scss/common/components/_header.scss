@@ -50,6 +50,7 @@
     }
     h1 {
       font-size: 2rem;
+      line-height: calc(23 / 20);
       @include sp {
         font-size: 1.3rem;
       }
