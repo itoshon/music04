@@ -30,10 +30,10 @@
   font-size: 1.8rem;
   font-weight: 500;
   text-align: center;
-  margin-top: 7rem;
+  margin-top: 6.3rem;
   line-height: calc(30 / 18);
   @include sp {
-    margin-top: 5rem;
+    margin-top: 4.7rem;
     text-align: left;
     font-size: 1.6rem;
     line-height: calc(30 / 16);
@@ -41,11 +41,11 @@
 }
 
 .contact__form {
-  margin-top: 7.5rem;
+  margin-top: 6.9rem;
   width: 100%;
   height: auto;
   @include sp {
-    margin-top: 5rem;
+    margin-top: 3.9rem;
   }
   /* ── テキスト入力用ブロック ── */
   .contact__form-block {
@@ -61,16 +61,16 @@
     }
 
     .contact__form-label {
-      width: 18rem;
+      width: 14.9rem;
       font-size: 2rem;
       font-weight: 500;
       margin: 0;
       padding: 0;
-      line-height: calc(33 / 20);
+      line-height: calc(26 / 20);
       @include sp {
         width: 100%;
         font-size: 1.6rem;
-        margin-bottom: 1.2rem;
+        margin-bottom: 0.8rem;
       }
     }
     .contact__form-input {
@@ -83,7 +83,7 @@
         width: 100%;
         height: auto;
         margin: 0;
-        padding: 1.3rem 2rem;
+        padding: 1.2rem 2rem 0.1rem;
       }
 
       &::placeholder {
@@ -96,10 +96,16 @@
 
   /* ── テキストエリア用ブロック ── */
   .contact__form-block--textarea {
-    align-items: flex-start; /* 上揃え */
-    height: auto; /* 高さ可変 */
+    align-items: flex-start;
+    height: auto;
+    margin-top: 3.4rem;
     margin-bottom: 3rem;
-
+    @include sp {
+      margin-top: 0;
+    }
+    .contact__form-label {
+      padding-top: 0.5rem;
+    }
     .contact__form-textarea {
       flex: 1; /* ラベル横の残り幅 */
       min-height: 30rem; /* 必要に応じて調整 */
@@ -109,6 +115,8 @@
       font-size: 1.5rem;
       @include sp {
         width: 100%;
+        padding-top: 1.2rem;
+        padding-left: 1.9rem;
         min-height: 19rem;
         margin: 0;
       }
@@ -123,6 +131,9 @@
     align-items: flex-start;
     height: auto;
     margin-bottom: 3rem;
+    @include sp {
+      margin-bottom: 1.1rem;
+    }
     .contact__form-checkboxes {
       flex: 1;
       margin-left: 2rem;
@@ -131,6 +142,7 @@
       gap: 1rem;
       @include sp {
         margin: 0;
+        gap: 1.6rem;
       }
       .checkboxItem {
         display: flex;
@@ -163,12 +175,16 @@
     justify-content: center;
     margin-top: 5rem;
     margin-bottom: 10rem;
+    @include sp {
+      margin-top: 4.9rem;
+      margin-bottom: 10.8rem;
+    }
   }
   .contact__form-btn {
     background-color: #cb0000;
     color: #fff;
     font-size: 2.5rem;
-    padding: 1.3rem 9.7rem;
+    padding: 0.6rem 9.7rem;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -178,6 +194,7 @@
       height: 5rem;
       padding: 0;
       text-align: center;
+      font-size: 2rem;
     }
     &:hover {
       opacity: 0.7;

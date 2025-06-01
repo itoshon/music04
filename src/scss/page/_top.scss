@@ -34,7 +34,7 @@
     line-height: calc(60 / 40);
 
     @include sp {
-      top: 51%;
+      top: 51.5%;
       white-space: nowrap;
       font-size: 3rem;
       line-height: calc(50 / 30);
@@ -57,7 +57,8 @@
     margin-bottom: 1.8rem;
     @include sp {
       font-size: 2.5rem;
-      margin-bottom: 1.2rem;
+      line-height: calc(40 / 25);
+      margin-bottom: 0.6rem;
     }
   }
   p {
@@ -66,7 +67,8 @@
     text-align: center;
     margin-bottom: 3.4rem;
     @include sp {
-      margin-bottom: 2.3rem;
+      line-height: calc(30 / 18);
+      margin-bottom: 2rem;
       text-align: start;
     }
   }
@@ -349,7 +351,7 @@
   overflow: visible;
   @include sp {
     width: 100%;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
   .slick-list {
     margin: 0 -1.6rem;
@@ -465,9 +467,7 @@
     position: relative;
   }
   .usage__flow-img {
-    // position: relative;
-    // left: 6rem;
-    // top: 1rem;
+
     @include sp {
       left: 1.6rem;
     }
@@ -565,7 +565,7 @@
         @include sp {
           font-size: 1.6rem;
           line-height: calc(30 / 16);
-          margin-top: 0.8rem;
+          margin-top: 0.9rem;
           padding-left: 3rem;
         }
       }
@@ -596,7 +596,7 @@
     height: auto;
     margin-top: 3.6rem;
     @include sp {
-      margin-top: 3.9rem;
+      margin-top: 3.5rem;
     }
   }
   .main__faq-item {

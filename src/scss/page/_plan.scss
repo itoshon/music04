@@ -24,12 +24,20 @@
     font-size: 2.5rem;
     background-color: rgba(#505050, 0.49);
   }
+  @include sp {
+    h1 {
+      padding-top: 1rem;
+    }
+  }
 }
 
 .plan__type {
-  padding: 7rem 0;
+  padding-top: 6.3rem;
+  padding-bottom: 5.8rem;
   @include sp {
-    padding: 5rem 0;
+    padding-top: 4.8rem;
+    padding-bottom: 4rem;
+    // padding: 5rem 0;
   }
   h2 {
     text-align: center;
@@ -42,8 +50,11 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 4.3rem;
+    margin-left: -0.6rem;
     @include sp {
+      margin-top: 3.9rem;
+      margin-left: 0;
       flex-direction: column;
       gap: 1.98rem;
     }
@@ -61,7 +72,7 @@
       position: relative;
       width: 1.85rem;
       height: 1.85rem;
-      margin: 0 3rem;
+      margin: 0 3.1rem 0 2.9rem;
     }
     .plus::before,
     .plus::after {
@@ -87,12 +98,14 @@
     }
   }
   p {
-    margin-top: 5rem;
+    margin-top: 4.4rem;
     font-size: 1.8rem;
     line-height: calc(30 / 18);
     font-weight: 500;
     @include sp {
+      margin-top: 4.7rem;
       font-size: 1.6rem;
+      line-height: calc(30 / 16);
     }
   }
 }
@@ -102,7 +115,10 @@
   width: 100%;
   height: auto;
   padding-bottom: 7rem;
-  margin-bottom: 14rem;
+  margin-bottom: 15.5rem;
+  @include sp {
+    margin-bottom: 11.6rem;
+  }
   .inner {
     overflow-x: auto; /* ★横スクロールを許可 */
     -webkit-overflow-scrolling: touch;
@@ -113,16 +129,20 @@
   }
 
   .table-wrapper {
+    margin-top: 0.4rem;
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
     @include sp {
+      margin-top: -4.3rem;
       padding-bottom: 1.75rem;
     }
     .simplebar-scrollbar::before {
       position: absolute;
       background: rgba(80, 80, 80, 0.25);
       border-radius: 0;
+      width: 10rem;
+      margin-left: 1rem;
     }
     .simplebar-scrollbar.simplebar-visible::before {
       opacity: 1 !important;
@@ -140,7 +160,7 @@
     min-width: 67.5rem;
     border-collapse: collapse;
     margin-top: 8rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     border-bottom: 0.05rem solid #000;
     th,
     td {
@@ -148,9 +168,6 @@
       vertical-align: middle;
       text-align: center;
       border-right: 0.05rem solid #000;
-      @include sp {
-        width: 16.7rem;
-      }
       &:last-child {
         border: none;
       }
@@ -160,28 +177,32 @@
       position: relative;
       height: 5rem;
       border-bottom: 0.05rem solid #000;
+      @include sp {
+        height: 6.5rem;
+      }
       &:last-child {
         border-right: none;
       }
     }
     th.plan__table-header {
       background: transparent;
-      border: none;
     }
     .plan-basic,
     .plan-premium {
       background-color: #000;
       color: #fff;
       font-size: 2rem;
+      line-height: calc(25 / 20);
     }
     .plan-standard {
       background-color: $color-red;
       color: #fff;
       font-size: 2rem;
-
+      line-height: calc(25 / 20);
       .badge {
         position: absolute;
         top: -3rem;
+        padding-top: 1.1rem;
         left: 0;
         width: 100%;
         height: 3rem;
@@ -197,18 +218,25 @@
         background: rgba(80, 80, 80, 0.15);
       }
       .monthly-fee th {
+        width: 22rem;
         font-size: 1.7rem;
         font-weight: 700;
-        padding: 3.4rem 2rem;
+        padding: 2.9rem 2rem;
         text-align: left;
         border-top: 0.05rem solid #000;
         @include sp {
+          width: 21.1rem;
           font-size: 1.6rem;
-          padding: 0 1rem;
+          padding-left: 1rem;
+          padding-top: 3.2rem;
         }
       }
       .monthly-fee td {
+        width: 22rem;
         font-size: 2.2rem;
+        @include sp {
+          padding-top: 0.9rem;
+        }
       }
       tr:not(.monthly-fee) th {
         font-size: 1.7rem;
@@ -217,8 +245,11 @@
         padding: 2rem;
         @include sp {
           font-size: 1.6rem;
+          line-height: calc(25 / 16);
           text-align: left;
           padding-left: 1rem;
+          padding-top: 1.7rem;
+          padding-bottom: 1rem;
         }
       }
       tr:not(.monthly-fee) td {
@@ -237,8 +268,8 @@
       height: 0.8em;
       background: #000;
       border-radius: 50%;
-      margin-right: 0.5em;
       vertical-align: middle;
+      margin-top: -0.3rem;
       &.red {
         background: $color-red;
       }
@@ -256,7 +287,9 @@
     font-size: 1.7rem;
     font-weight: 400;
     @include sp {
-      padding-top: 2rem;
+      font-size: 1.6rem;
+      line-height: calc(30 / 16);
+      padding-top: 1.6rem;
     }
   }
 }

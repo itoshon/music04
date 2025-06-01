@@ -27,11 +27,12 @@
 }
 
   .contact__send-com {
-    padding-top: 6.9rem;
-    padding-bottom: 5rem;
+    padding-top: 6.3rem;
+    padding-bottom: 4.4rem;
     text-align: center;
     @include sp {
       padding-top: 5rem;
+      padding-bottom: 3.6rem;
       text-align: left;
     }
     p {
@@ -40,6 +41,7 @@
       line-height: calc(30 / 18);
       @include sp {
         font-size: 1.6rem;
+        line-height: calc(30 / 16);
 
       }
     }
@@ -61,6 +63,9 @@
       a {
         font-size: 2rem;
         color: #fff;
+        @include sp {
+          // font-size: 1.6rem;
+        }
       }
       &:hover {
         cursor: pointer;

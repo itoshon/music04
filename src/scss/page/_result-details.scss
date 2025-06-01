@@ -4,14 +4,20 @@
 .graduation__pops-banner {
   width: 100%;
   height: auto;
-  margin-top: 5rem;
+  margin-top: 7rem;
   position: relative;
+  @include sp {
+    margin-top: 5.1rem;
+  }
 
   picture {
     display: block;
     width: 100%;
     height: 40rem;
     overflow: hidden;
+    @include sp {
+      height: auto;
+    }
     img {
       display: block;
       width: 100%;
@@ -34,7 +40,10 @@
   }
 }
 .graduation__pops-info {
-  margin-top: 5rem;
+  margin-top: 5.2rem;
+  @include sp {
+    margin-top: 3rem;
+  }
   h3 {
     font-size: 2.5rem;
     @include sp {
@@ -43,22 +52,21 @@
   }
   time {
     display: block;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 500;
-    margin-top: 3rem;
-
+    margin-top: 1.7rem;
     @include sp {
       font-size: 1.7rem;
-      margin-top: 2rem;
+      margin-top: 0.8rem;
     }
   }
 }
 
 .profile-container {
-  margin-top: 7rem;
+  margin-top: 5.9rem;
   display: flex;
   @include sp {
-    margin-top: 3rem;
+    margin-top: 2.4rem;
     flex-direction: column;
   }
   .profile-list {
@@ -77,35 +85,38 @@
       width: 14rem;
       background-color: #e5e5e5;
       display: table-cell;
-      padding: 1rem 2rem;
+      padding: 1rem 2rem 0rem;
       border: 0.05rem solid #707070;
       margin: 0;
       font-size: 1.8rem;
       @include sp {
         width: 12rem;
+        padding-left: 0.9rem;
       }
     }
     dd {
       width: 26rem;
       display: table-cell;
-      padding: 1rem 2rem;
+      padding: 0rem 2rem;
       border: 0.05rem solid #707070;
       margin: 0;
       font-size: 1.8rem;
       font-weight: 500;
       @include sp {
         width: 21.5rem;
+        padding-left: 0.9rem;
       }
     }
   }
   p {
     display: block;
     font-size: 1.8rem;
+    line-height: calc(30 / 18);
     font-weight: 500;
     margin-left: 4rem;
     @include sp{
       margin-left: 0;
-      margin-top: 3rem;
+      margin-top: 2.7rem;
     }
   }
 }
@@ -118,7 +129,7 @@
   display: flex;
   gap: 19.9rem;
   @include sp {
-    margin-top: 5rem;
+    margin-top: 4rem;
     gap: 2.2rem;
   }
   .p-blog__pager-item {
@@ -129,7 +140,7 @@
       position: relative;
       display: block;
       width: 100%;
-      padding: 1rem 3.5rem;
+      padding: 0.6rem 4.1rem;
       background-color: #000;
       color: #fff;
       font-size: 1.7rem;
@@ -142,7 +153,7 @@
       &::before {
         content: "";
         position: absolute;
-        left: 1.3rem;
+        left: 2.3rem;
         top: 50%;
         transform: translateY(-50%);
         border-width: 0.85rem 1.2rem 0.85rem 0;
@@ -155,7 +166,7 @@
       &::after {
         content: "";
         position: absolute;
-        right: 1.3rem;
+        right: 2.3rem;
         top: 50%;
         transform: translateY(-50%);
         border-width: 0.85rem 0 0.85rem 1.2rem;
@@ -182,12 +193,13 @@
 }
 
 .p-blog__related {
-  margin-top: 10rem;
-  margin-bottom: 18.8rem;
+  margin-top: 9.9rem;
+  margin-bottom: 15.7rem;
   width: 100%;
   height: auto;
   @include sp {
-    margin-top: 7rem;
+    margin-top: 6.2rem;
+    margin-bottom: 19.8rem;
   }
   .c-title-black {
     justify-content: flex-start;
@@ -207,16 +219,19 @@
       margin-top: 3rem;
       gap: 3rem;
       @include sp {
+        margin-top: 2rem;
         gap: 2rem;
       }
     }
     .p-blog__related-img {
       position: relative;
-      width: 26rem;
+      width: 29.6%;
       height: 18.3rem;
       @include sp {
-        width: 16rem;
-        height: 11rem;
+        width: 51.4%;
+        height: auto;
+        // width: 16rem;
+        // height: 11rem;
       }
       img {
         width: 100%;
@@ -224,19 +239,38 @@
         object-fit: cover;
         object-position: center;
       }
+      .c-tag {
+        width: 10rem;
+        @include sp {
+          width: 8rem;
+        }
+      }
     }
     .p-blog__text {
+      width: 66.9%;
       height: auto;
-      font-size: 2rem;
-      font-weight: 700;
       @include sp {
-        width: 15.5rem;
-        font-size: 1.7rem;
+        width: 50%;
+      }
+      p {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: calc(25 / 20);
+        @include sp {
+          height: 5.5rem;
+          font-size: 1.7rem;
+          line-height: calc(28 / 17);
+          white-space: wrap;
+          overflow: hidden;
+        }
       }
       .c-date {
-        margin-top: 2.2rem;
+        margin-left: 0.4rem;
+        margin-top: 1.5rem;
         @include sp {
-          margin-top: 1.79rem;
+          margin-left: 0;
+          margin-top: 0.3rem;
         }
       }
     }

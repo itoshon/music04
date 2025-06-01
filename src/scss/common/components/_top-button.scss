@@ -24,13 +24,15 @@
     height: 6.8rem;
     border-radius: 50%;
     transition: all 0.4s;
+    margin-left: 3rem;
     &:hover {
       cursor: pointer;
       opacity: 0.6;
     }
     @include sp {
       align-self: flex-end;
-      margin-right: 2rem;
+      margin-right: 3rem;
+      margin-bottom: 1.8rem;
     }
   }
 

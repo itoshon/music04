@@ -29,18 +29,18 @@
 .graduation__head {
   font-size: 2.5rem;
   text-align: center;
-  margin-top: 7rem;
-  margin-bottom: 5rem;
+  margin-top: 6.7rem;
+  margin-bottom: 4rem;
 }
 
 .graduation__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10.6rem;
+  column-gap: 10.6rem;
+  row-gap: 7rem;
   list-style: none;
-  margin: 0;
+  margin: 0 0 7.7rem;
   padding: 0;
-  margin-bottom: 7rem;
   @include sp {
     grid-template-columns: repeat(1, 1fr);
     gap: 5rem;
@@ -83,8 +83,13 @@
     margin-top: 2rem;
     .graduation__title {
       font-size: 2rem;
+      line-height: calc(25 / 20);
+    }
+    .graduation__title {
+      font-size: 2rem;
     }
     time {
+      margin-top: 1.3rem;
       display: block;
       font-size: 1.8rem;
       font-weight: 500;
