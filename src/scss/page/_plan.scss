@@ -137,12 +137,17 @@
       margin-top: -4.3rem;
       padding-bottom: 1.75rem;
     }
+    // .simplebar-scrollbar::before {
+    //   position: absolute;
+    //   background: rgba(80, 80, 80, 0.25);
+    //   border-radius: 0;
+    //   width: 10rem;
+    //   margin-left: 1rem;
+    // }
     .simplebar-scrollbar::before {
       position: absolute;
       background: rgba(80, 80, 80, 0.25);
       border-radius: 0;
-      width: 10rem;
-      margin-left: 1rem;
     }
     .simplebar-scrollbar.simplebar-visible::before {
       opacity: 1 !important;
