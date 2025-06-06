@@ -1,10 +1,10 @@
-console.log('現在の innerWidth:', window.innerWidth);
-
 $('.main__voice-container').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   infinite: true,
   arrows: true,
+  draggable: true,
+  swipe: true,
   prevArrow: $('.voice-arrow--prev'),
   nextArrow: $('.voice-arrow--next'),
   responsive: [
@@ -14,6 +14,8 @@ $('.main__voice-container').slick({
         slidesToShow: 1,    // SP は 1 枚
         slidesToScroll: 1,
         infinite: true,
+        draggable: true,
+        swipe: true,
       }
     }
   ]

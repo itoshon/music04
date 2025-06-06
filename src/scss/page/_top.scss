@@ -357,6 +357,10 @@
     margin: 0 -1.6rem;
     overflow: hidden;
     width: calc(100% + 3.2rem);
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
     @include sp {
       margin: 0;
       width: 100%;
