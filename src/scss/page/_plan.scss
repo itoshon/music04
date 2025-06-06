@@ -120,7 +120,7 @@
     margin-bottom: 11.6rem;
   }
   .inner {
-    overflow-x: auto; /* ★横スクロールを許可 */
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
   h2 {
@@ -133,17 +133,19 @@
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
+    cursor: default;
     @include sp {
       margin-top: -4.3rem;
       padding-bottom: 1.75rem;
+
+      &:has(.simplebar-scrollbar.simplebar-visible) {
+        cursor: grab;
+        &:active {
+          cursor: grabbing;
+        }
+      }
     }
-    // .simplebar-scrollbar::before {
-    //   position: absolute;
-    //   background: rgba(80, 80, 80, 0.25);
-    //   border-radius: 0;
-    //   width: 10rem;
-    //   margin-left: 1rem;
-    // }
+
     .simplebar-scrollbar::before {
       position: absolute;
       background: rgba(80, 80, 80, 0.25);

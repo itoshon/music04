@@ -135,6 +135,10 @@
   .p-blog__pager-item {
     width: 100%;
     height: auto;
+    transition: all 0.4s;
+    &:hover {
+      opacity: 0.6;
+    }
     .prev,
     .next {
       position: relative;
@@ -218,6 +222,10 @@
       display: flex;
       margin-top: 3rem;
       gap: 3rem;
+      transition: all 0.4s;
+      &:hover {
+        opacity: 0.6;
+      }
       @include sp {
         margin-top: 2rem;
         gap: 2rem;

@@ -744,9 +744,13 @@
     }
     .main__blog-list__item-box {
       width: 26rem;
+      transition: transform 0.2s;
       @include sp {
         width: 100%;
       }
+      &:hover {
+      transform: translateY(-1.5rem);
+    }
       .main__blog-list__item-link {
         display: flex;
         flex-direction: column;

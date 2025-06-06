@@ -1,7 +1,12 @@
-// ここから──「ドラッグでグリグリ横スクロール」の実装
-document.addEventListener("DOMContentLoaded", function(){
-  // SimpleBarが適用された内部の content 要素を取得
-  // SimpleBar は data-simplebar をつけた要素の直下に .simplebar-content-wrapper が自動で生成される
+document.addEventListener("DOMContentLoaded", function() {
+  // まず SP かどうかを判定する
+  const isSP = window.matchMedia("(max-width: 767px)").matches;
+  if (!isSP) {
+    // PC ならここで処理を打ち切って何もしない
+    return;
+  }
+
+  // ここ以降は SP のときのみ実行される
   const wrappers = document.querySelectorAll(".table-wrapper[data-simplebar]");
 
   wrappers.forEach(wrapper => {
@@ -9,33 +14,40 @@ document.addEventListener("DOMContentLoaded", function(){
     let isDragging = false;
     let startX, scrollLeft;
 
-    // マウスダウンした瞬間
+    // マウスダウンまたはタッチスタート時（SP の場合、タッチ操作も考えたい場合は touchstart を追加してもOK）
     content.addEventListener("mousedown", (e) => {
       isDragging = true;
       startX = e.pageX - content.offsetLeft;
-      // 現在のスクロール位置を保存
       scrollLeft = content.scrollLeft;
+      // SP のときだけ grab → grabbing に切り替える
       content.style.cursor = "grabbing";
-      e.preventDefault(); // テキスト選択などを抑制
+      e.preventDefault();
     });
 
-    // マウスを動かしている間
+    // マウス移動時
     content.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
       const x = e.pageX - content.offsetLeft;
-      const walk = (startX - x); // どれだけ移動したか
+      const walk = (startX - x);
       content.scrollLeft = scrollLeft + walk;
     });
 
-    // マウスアップ or マウスが外れたときにドラッグを終了
+    // マウスアップまたはマウスが外れたとき
     ["mouseup", "mouseleave"].forEach(evt => {
       content.addEventListener(evt, () => {
         isDragging = false;
-        content.style.cursor = "grab";
+        // SP であっても、ドラッグが終わったら cursor を空文字にして CSS に戻す
+        content.style.cursor = "";
       });
     });
+  });
+  
+  // 画面がリサイズされて PC ⇄ SP が切り替わったときにも再判定したい場合
+  window.addEventListener("resize", () => {
+    const nowSP = window.matchMedia("(max-width: 767px)").matches;
 
-    // 最初は「つまむ」イメージとしてカーソルを grab にしておく
-    content.style.cursor = "grab";
+    if (nowSP !== isSP) {
+      window.location.reload();
+    }
   });
 });

@@ -1,8 +1,8 @@
 <section id="contact__form">
   <div class="contact__form-banner">
     <picture>
-      <source media="(min-width: 768px)" srcset="/images/banner/Contact.jpg" type="image/jpg">
-      <img src="/images/banner/Contact-sp.jpg" alt="バナー" width="375" height="300" decoding="async">
+      <source media="(min-width: 768px)" srcset="images/banner/Contact.jpg" type="image/jpg">
+      <img src="images/banner/Contact-sp.jpg" alt="バナー" width="375" height="300" decoding="async">
     </picture>
     <div class="contact__form-banner-title">
       <h1>お問い合わせ</h1>
@@ -15,8 +15,8 @@
         <li class="breadcrumb__item">
           <a href="/" class="breadcrumb__link">ホーム</a>
         </li>
-        <li class="breadcrumb__item">
-          <a href="./contact-form.html" class="breadcrumb__link">お問い合わせ</a>
+        <li class="breadcrumb__item" aria-current="page">
+          お問い合わせ
         </li>
       </ol>
     </div>
@@ -29,7 +29,7 @@
     </div>
 
     <main class="contact">
-      <form action="./contact-send.html" method="get" class="contact__form">
+      <form action="contact-send.html" method="get" class="contact__form">
         <div class="contact__form-block">
           <label for="company" class="contact__form-label">会社名</label>
           <input type="text" id="company" name="company" placeholder="きたむらミュージックスクール" class="contact__form-input">

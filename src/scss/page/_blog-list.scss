@@ -44,6 +44,10 @@
     height: auto;
     display: flex;
     margin-bottom: 7rem;
+    transition: all 0.4s;
+    &:hover {
+      opacity: 0.6;
+    }
     @include sp {
       margin-bottom: 4rem;
     }
