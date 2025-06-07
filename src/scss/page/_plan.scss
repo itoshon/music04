@@ -18,21 +18,17 @@
     position: absolute;
     display: flex;
     top: 0;
+    padding-top: 1rem;
     justify-content: center;
     align-items: center;
     color: #fff;
     font-size: 2.5rem;
     background-color: rgba(#505050, 0.49);
   }
-  @include sp {
-    h1 {
-      padding-top: 1rem;
-    }
-  }
 }
 
 .plan__type {
-  padding-top: 6.3rem;
+  padding-top: 6.7rem;
   padding-bottom: 5.8rem;
   @include sp {
     padding-top: 4.8rem;
@@ -50,8 +46,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-top: 4.3rem;
-    margin-left: -0.6rem;
+    margin-top: 3.9rem;
     @include sp {
       margin-top: 3.9rem;
       margin-left: 0;
@@ -72,7 +67,10 @@
       position: relative;
       width: 1.85rem;
       height: 1.85rem;
-      margin: 0 3.1rem 0 2.9rem;
+      margin: 0.9rem 3.1rem 0 2.9rem;
+      @include sp {
+        margin: 0;
+      }
     }
     .plus::before,
     .plus::after {
@@ -98,12 +96,14 @@
     }
   }
   p {
-    margin-top: 4.4rem;
+    margin-top: 4.8rem;
+    margin-left: -0.4rem;
     font-size: 1.8rem;
     line-height: calc(30 / 18);
     font-weight: 500;
     @include sp {
       margin-top: 4.7rem;
+      margin-left: 0;
       font-size: 1.6rem;
       line-height: calc(30 / 16);
     }
@@ -114,7 +114,7 @@
 .plan__month {
   width: 100%;
   height: auto;
-  padding-bottom: 7rem;
+  padding-bottom: 6.9rem;
   margin-bottom: 15.5rem;
   @include sp {
     margin-bottom: 11.6rem;
@@ -129,7 +129,6 @@
   }
 
   .table-wrapper {
-    margin-top: 0.4rem;
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
@@ -148,6 +147,7 @@
 
     .simplebar-scrollbar::before {
       position: absolute;
+      display: block;
       background: rgba(80, 80, 80, 0.25);
       border-radius: 0;
     }
@@ -199,13 +199,13 @@
       background-color: #000;
       color: #fff;
       font-size: 2rem;
-      line-height: calc(25 / 20);
+      line-height: calc(30 / 20);
     }
     .plan-standard {
       background-color: $color-red;
       color: #fff;
       font-size: 2rem;
-      line-height: calc(25 / 20);
+      line-height: calc(30 / 20);
       .badge {
         position: absolute;
         top: -3rem;
@@ -241,6 +241,7 @@
       .monthly-fee td {
         width: 22rem;
         font-size: 2.2rem;
+        line-height: calc(30 / 22);
         @include sp {
           padding-top: 0.9rem;
         }

@@ -327,7 +327,7 @@
   background-color: $color-red;
   @include sp {
     padding-top: 4.8rem;
-    padding-bottom: 0;
+    padding-bottom: 3.25rem;
   }
 
   h3 {
@@ -425,7 +425,7 @@
   cursor: pointer;
   z-index: 10;
   @include sp {
-    top: 37.3%;
+    top: 40.4%;
     transform: translateY(-37.3%);
   }
   img {
@@ -454,9 +454,8 @@
   width: 100%;
   height: auto;
   margin: 3.7rem 0 6rem;
-
   @include sp {
-    margin: 4.6rem 0 6rem;
+    margin: 4.9rem 0 6rem;
   }
 
   h3 {
@@ -520,12 +519,13 @@
     position: relative;
     padding-left: calc(3.2rem + 3.2rem - 0.175rem);
     @include sp {
-      margin-top: 3.6rem;
+      margin-top: 3.7rem;
       padding-left: calc(1rem + 1rem - 0.15rem);
     }
 
     li {
       display: flex;
+      align-items: center;
       margin-top: 5.65rem;
       @include sp {
         margin-top: 0rem;
@@ -556,7 +556,7 @@
           background-color: $color-red;
           border-radius: 50%;
           @include sp {
-            top: 50%;
+            top: 48%;
           }
         }
       }
@@ -726,7 +726,7 @@
 .main__blog-list {
   padding-bottom: 20.7rem;
   @include sp {
-    padding-bottom: 19.2rem;
+    padding-bottom: 19.1rem;
   }
   h3 {
     text-align: center;

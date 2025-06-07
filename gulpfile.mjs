@@ -1,10 +1,7 @@
-// gulpfile.mjs
-
 // --- モジュール読み込み ---
 import gulp from 'gulp';
 import { deleteSync } from 'del';
 import fileInclude from 'gulp-file-include';
-// import sass from 'sass';
 import * as sass from 'sass';
 import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
@@ -23,18 +20,18 @@ const compileSass = gulpSass(sass);
 // --- パス設定 ---
 const paths = {
   html: {
-    pages:  'src/html/pages/**/*.html',
+    pages:   'src/html/pages/**/*.html',
     partials:'src/html/partials/**/*.html',
-    dest:   'dist'
+    dest:    'dist'
   },
   styles: {
-    entry:  'src/scss/style.scss',
-    watch:  'src/scss/**/*.scss',
-    dest:   'dist/css'
+    entry: 'src/scss/style.scss',
+    watch: 'src/scss/**/*.scss',
+    dest:  'dist/css'
   },
   scripts: {
-    src:    'src/js/**/*.js',
-    dest:   'dist/js'
+    src:  'src/js/**/*.js',
+    dest: 'dist/js'
   },
   clean: {
     targets: [
@@ -65,11 +62,16 @@ export function styles() {
   return src(paths.styles.entry, { sourcemaps: true })
     .pipe(sourcemaps.init())
     .pipe(
-      compileSass({ includePaths: ['src/scss'] })
-        .on('error', compileSass.logError)
+      compileSass({
+        includePaths: ['src/scss'],
+        outputStyle: 'expanded'
+      }).on('error', compileSass.logError)
     )
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write('.'))
+    // マップファイルも同じ dist/css に書き出す
+    .pipe(sourcemaps.write('.', {
+      sourceRoot: '../scss'
+    }))
     .pipe(dest(paths.styles.dest))
     .pipe(bs.stream());
 }
@@ -89,11 +91,11 @@ export function scripts() {
 export function serve() {
   bs.init({
     server: { baseDir: paths.html.dest },
-    port: 3000,
-    notify: false
+    port:    3000,
+    notify:  false
   });
 
-  watch(paths.html.pages,   html);
+  watch(paths.html.pages,    html);
   watch(paths.html.partials, html);
   watch(paths.styles.watch,  styles);
   watch(paths.scripts.src,   scripts);
@@ -104,8 +106,8 @@ export const build = series(
   clean,
   parallel(html, styles, scripts)
 );
-export const dev   = series(
-  clean,               // ← clean を追加
+export const dev = series(
+  clean,
   parallel(html, styles, scripts),
   serve
 );

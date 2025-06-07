@@ -10,13 +10,13 @@
   right: 0;
   display: flex;
   flex-direction: column;
-  gap: 3.1rem;
+  // gap: 3.1rem;
   align-items: center;
   @include sp {
     width: 100%;
     left: 0;
     right: 0;
-    gap: 1.8rem;
+    // gap: 1.8rem;
   }
 
   #page-top {
@@ -25,6 +25,7 @@
     border-radius: 50%;
     transition: all 0.4s;
     margin-left: 3rem;
+    margin-bottom: 3.1rem;
     &:hover {
       cursor: pointer;
       opacity: 0.6;

@@ -85,6 +85,7 @@
         position: relative;
         @include sp {
           height: 20rem;
+        }
         img {
           width: 100%;
           height: 100%;
@@ -96,7 +97,7 @@
         }
       }
       .p-blog__head-title {
-        margin-top: 4.4rem;
+        margin-top: 4.8rem;
         font-size: 2.5rem;
         @include sp {
           margin-top: 3rem;
@@ -110,8 +111,8 @@
     }
 
     .p-blog__sns-area {
-      margin-top: 2.6rem;
-      margin-bottom: 4.4rem;
+      margin-top: 2.2rem;
+      margin-bottom: 4.8rem;
       display: flex;
       gap: 0.3rem;
       @include sp {
@@ -144,7 +145,7 @@
         margin-bottom: 2.2rem;
       }
       h2 {
-        margin-top: 3.9rem;
+        margin-top: 3.8rem;
         font-size: 2rem;
         @include sp {
           margin-top: 3.6rem;
@@ -152,19 +153,24 @@
         }
       }
       .p-blog__text {
-        margin-top: 2.1rem;
+        margin-top: 2rem;
         @include sp {
           margin-top: 2.5rem;
         }
+        li {
+          padding-top: 0.4rem;
+          @include sp {
+            padding-top: 0;
+          }
+        }
       }
       .p-blog__text-img {
-        margin-top: 2.1rem;
+        margin-top: 1.7rem;
         width: 30rem;
         height: 20rem;
         @include sp {
           margin-top: 3.6rem;
           width: 100%;
-          // height: auto;
         }
         img {
           width: 100%;
@@ -183,11 +189,15 @@
       width: 100%;
       border: none;
       border-top: 0.05rem solid #000;
+      padding-top: 0.9rem;
+      @include sp {
+        padding-top: 0;
+      }
     }
 
     .p-blog__quotation {
       .p-blog__quotation-head {
-        margin-top: 4.4rem;
+        margin-top: 3.7rem;
         font-size: 2rem;
         border-left: 0.3rem solid #000;
         padding-left: 0.95rem;
@@ -195,17 +205,17 @@
         @include sp {
           margin-top: 4.4rem;
           padding-left: 0.6rem;
-          line-height: calc(30 / 20);
+          line-height: calc(26 / 20);
         }
       }
       .p-blog__quotation-area {
-        margin-top: 3rem;
+        margin-top: 2.8rem;
         width: 100%;
         height: auto;
         background-color: #e8e8e8;
-        padding: 1.4rem 3rem 1.4rem 6.7rem;
+        padding: 1.7rem 3rem 1.1rem 6.7rem;
         @include sp {
-          margin-top: 1.9rem;
+          margin-top: 2.7rem;
           padding: 1.7rem 2rem 1.1rem 7rem;
         }
         .p-blog__text {
@@ -219,7 +229,7 @@
             margin-left: -3.6rem;
             margin-top: 0.6rem;
             position: absolute;
-            background-image: url("/images/blog/blockquote.png");
+            background-image: url("images/blog/blockquote.png");
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
@@ -235,7 +245,7 @@
         font-weight: 700;
         color: $color-red;
         border-bottom: 0.1rem solid $color-red;
-        margin-top: 2.5rem;
+        margin-top: 2.7rem;
         transition: all 0.4s;
         &:hover {
           opacity: 0.6;
@@ -248,7 +258,7 @@
     }
 
     .p-blog__pager {
-      margin-top: 5.8rem;
+      margin-top: 5.6rem;
       width: 100%;
       height: auto;
       display: flex;
@@ -327,7 +337,7 @@
 
     .p-blog__related {
       margin-top: 9.7rem;
-      margin-bottom: 18.8rem;
+      margin-bottom: 18.7rem;
       width: 100%;
       height: auto;
       @include sp {
