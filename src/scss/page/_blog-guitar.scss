@@ -85,12 +85,14 @@
         position: relative;
         @include sp {
           height: 20rem;
-        }
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
+          @include sp {
+            height: 100%;
+          }
         }
       }
       .p-blog__head-title {
@@ -162,6 +164,7 @@
         @include sp {
           margin-top: 3.6rem;
           width: 100%;
+          // height: auto;
         }
         img {
           width: 100%;
