@@ -168,13 +168,13 @@
     border-collapse: collapse;
     margin-top: 8rem;
     margin-bottom: 2.5rem;
-    border-bottom: 0.5px solid #000;
+    border-bottom: 1px solid #000;
     th,
     td {
       height: 8.5rem;
       vertical-align: middle;
       text-align: center;
-      border-right: 0.5px solid #000;
+      border-right: 1px solid #000;
       &:last-child {
         border: none;
       }
@@ -183,7 +183,7 @@
     thead th {
       position: relative;
       height: 5rem;
-      border-bottom: 0.5px solid #000;
+      border-bottom: 1px solid #000;
       @include sp {
         height: 6.5rem;
       }
@@ -230,7 +230,7 @@
         font-weight: 700;
         padding: 2.9rem 2rem;
         text-align: left;
-        border-top: 0.05rem solid #000;
+        border-top: 1px solid #000;
         @include sp {
           width: 21.1rem;
           font-size: 1.6rem;
