@@ -188,7 +188,7 @@
       display: inline-block;
       width: 100%;
       border: none;
-      border-top: 0.05rem solid #000;
+      border-top: 0.5px solid #000;
       padding-top: 0.9rem;
       @include sp {
         padding-top: 0;
@@ -229,7 +229,7 @@
             margin-left: -3.6rem;
             margin-top: 0.6rem;
             position: absolute;
-            background-image: url("images/blog/blockquote.png");
+            background-image: url("/images/blog/blockquote.png");
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
@@ -425,7 +425,7 @@
     height: auto;
     margin-bottom: 3rem;
     background-color: #fff;
-    border: 0.05rem solid #000;
+    border: 0.5px solid #000;
     @include sp {
       margin-bottom: 2.8rem;
     }
