@@ -35,6 +35,10 @@
     width: 3.2rem;
     height: 4.1rem;
     margin: 2.5rem auto 0;
+    transition: all 0.4s;
+    &:hover {
+      opacity: 0.6;
+    }
     @include sp {
       margin-top: 2rem;
     }

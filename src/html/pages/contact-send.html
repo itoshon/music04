@@ -2,7 +2,17 @@
 <html lang="ja">
 <head>
   <!-- head.html の中身を展開 -->
-  @@include('../partials/head.html')
+  @@include('../partials/head.html', {
+    pageTitle: '送信完了｜きたむらミュージックスクール',
+    pageDesc: 'お問い合わせいただきありがとうございました。内容確認後、担当者よりメールにてご連絡いたします。',
+    pageKeywords: '送信完了,きたむらミュージックスクール',
+    ogTitle: '送信完了｜きたむらミュージックスクール',
+    ogUrl: 'http://localhost:3000/contact-send.html',
+    ogImage: 'http://localhost:3000/images/ogp/ogp-contact.jpg',
+    ogImageAlt: 'パソコンと楽譜とマイク｜きたむらミュージックスクール',
+    ogSiteName: 'きたむらミュージックスクール',
+    twitterSite: '@YourXAccount'
+  })
 </head>
 
 <body>

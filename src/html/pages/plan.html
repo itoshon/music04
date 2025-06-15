@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  @@include('../partials/head.html')
+  @@include('../partials/head.html', {
+    pageTitle: 'プラン・料金｜きたむらミュージックスクール',
+    pageDesc: '個人に合わせたサポートを行う完全オーダーメイドのプラン！担当者があなたに最適なプランを提案いたします',
+    pageKeywords: 'プラン,料金体系,入会金,月額料金,マンツーマン,ビジネスコンサル,練習,きたむらミュージックスクール',
+    ogTitle: 'プラン・料金｜きたむらミュージックスクール',
+    ogUrl: 'http://localhost:3000/plan.html',
+    ogImage: 'http://localhost:3000/images/ogp/ogp-plan.jpg',
+    ogImageAlt: 'アコースティックギターとエレキギター｜きたむらミュージックスクール',
+    ogSiteName: 'きたむらミュージックスクール',
+    twitterSite: '@YourXAccount'
+  })
 </head>
 <body>
   @@include('../partials/header.html')

@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  @@include('../partials/head.html')
+  @@include('../partials/head.html', {
+    pageTitle: '検索結果｜きたむらミュージックスクール',
+    pageDesc: 'きたむらミュージックスクールのキーワード検索ページです。',
+    pageKeywords: '検索結果,ギター,集客方法,SNS,アルペジオ,フォロワー,ファン,集客,きたむらミュージックスクール',
+    ogTitle: '検索結果｜きたむらミュージックスクール',
+    ogUrl: 'http://localhost:3000/search.html',
+    ogImage: 'http://localhost:3000/images/ogp/ogp-blog.jpg',
+    ogImageAlt: 'ギターを弾く人の手元｜きたむらミュージックスクール',
+    ogSiteName: 'きたむらミュージックスクール',
+    twitterSite: '@YourXAccount'
+  })
 </head>
 <body>
   @@include('../partials/header.html')

@@ -160,6 +160,10 @@
   color: #000;
   text-decoration: none;
   border: 0.1rem solid #000;
+  transition: all 0.4s ease;
+  &:hover {
+    opacity: 0.6;
+  }
   @include sp {
     padding: 0.8rem 1.7rem;
   }
@@ -170,7 +174,7 @@
  padding: 1rem 0.8rem;
 }
 .pagination li.active a {
-  background-color: #000;
+  background-color: $color-red;
   color: #fff;
-  border-color: #000;
+  border-color: $color-red;
 }

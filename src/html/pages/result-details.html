@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  @@include('../partials/head.html')
+  @@include('../partials/head.html', {
+    pageTitle: '卒業生紹介｜きたむらミュージックスクール',
+    pageDesc: 'きたむらミュージックスクールの卒業生の紹介です。SNSフォローよろしくお願いします！',
+    pageKeywords: '丸山,証券会社,ポップス,SNS,副収入,きたむらミュジックスクール',
+    ogTitle: '卒業生紹介｜きたむらミュージックスクール',
+    ogUrl: 'http://localhost:3000/result-details.html',
+    ogImage: 'http://localhost:3000/images/ogp/ogp-result.jpg',
+    ogImageAlt: '片手をあげて元気よく歌う人｜きたむらミュージックスクール',
+    ogSiteName: 'きたむらミュージックスクール',
+    twitterSite: '@YourXAccount'
+  })
 </head>
 <body>
   @@include('../partials/header.html')

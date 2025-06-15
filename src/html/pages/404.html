@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  @@include('../partials/head.html')
+  @@include('../partials/head.html', {
+    pageTitle: 'お探しのページが見つかりませんでした。｜きたむらミュージックスクール',
+    pageDesc: '申し訳ございませんが、お探しのページが見つかりませんでした。お探しのページは一時的に表示ができない状態にあるか、移動または削除された可能性があります。',
+    pageKeywords: '404,きたむらミュージックスクール,ページが見つかりません',
+    ogTitle: 'お探しのページが見つかりませんでした。｜きたむらミュージックスクール',
+    ogUrl: 'http://localhost:3000/404.html',
+    ogImage: 'http://localhost:3000/images/ogp/ogp-404.jpg',
+    ogImageAlt: 'お探しのページが見つかりませんでした。｜きたむらミュージックスクール',
+    ogSiteName: 'きたむらミュージックスクール',
+    twitterSite: '@YourXAccount'
+  })
 </head>
 <body>
   @@include('../partials/header.html')

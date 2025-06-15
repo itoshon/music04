@@ -1,6 +1,6 @@
 // --- モジュール読み込み ---
 import gulp from 'gulp';
-import { deleteSync } from 'del';
+import del from 'del';
 import fileInclude from 'gulp-file-include';
 import * as sass from 'sass';
 import gulpSass from 'gulp-sass';
@@ -44,9 +44,8 @@ const paths = {
 };
 
 // --- タスク1: distフォルダのクリーン（images を除外） ---
-export function clean(cb) {
-  deleteSync(paths.clean.targets, { force: true });
-  cb();
+export async function clean() {
+  await del(paths.clean.targets, { force: true });
 }
 
 // --- タスク2: HTMLビルド ---

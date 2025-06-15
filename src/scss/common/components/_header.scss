@@ -156,9 +156,12 @@
           color: #fff;
           font-size : 1.5rem;
           justify-content: center;
+          border: 0.1rem solid transparent;
           transition: all 0.4s;
           &:hover {
-            opacity: 0.7;
+            color: $color-red;
+            background-color: #fff;
+            border: 0.1rem solid $color-red;
           }
         }
       }

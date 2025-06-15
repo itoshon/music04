@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  @@include('../partials/head.html')
+  @@include('../partials/head.html', {
+    pageTitle: '卒業実績一覧｜きたむらミュージックスクール',
+    pageDesc: '卒業生の実績です。各ジャンルの卒業生の生の声を集めました！',
+    pageKeywords: 'ポップス,ロック,ジャズ,ラテン,クラシック,きたむらミュージックスクール',
+    ogTitle: '卒業実績一覧｜きたむらミュージックスクール',
+    ogUrl: 'http://localhost:3000/result-list.html',
+    ogImage: 'http://localhost:3000/images/ogp/ogp-result.jpg',
+    ogImageAlt: 'ピアノを弾く人の手元｜きたむらミュージックスクール',
+    ogSiteName: 'きたむらミュージックスクール',
+    twitterSite: '@YourXAccount'
+  })
 </head>
 <body>
   @@include('../partials/header.html')
