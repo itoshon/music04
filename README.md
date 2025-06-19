@@ -10,4 +10,6 @@
 
 ## 使い方
 1. `npm install` で依存をインストール  
-2. `npm run build` でビルド  
+2. `npm run build` でビルド
+3. `rsync -av --delete src/images/ dist/images/`で画像ファイルをdistファイルへコピー。
+4. `npx gulp` で表示  
