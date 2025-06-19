@@ -41,22 +41,22 @@
   }
 
   #contact-btn {
-    width: 30rem;
-    height: 6rem;
     background-color: $color-red;
     color: #fff;
     font-size: 2rem;
+    width: 30rem;
+    height: 6rem;
     letter-spacing: 0.29rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: color 0.4s, background-color 0.4s, border-color 0.4s;
     border: 0.1rem solid transparent;
-    transition: all 0.4s;
     &:hover {
-      cursor: pointer;
-      color: $color-red;
       background-color: #fff;
-      border: 0.1rem solid $color-red;
+      color: $color-red;
+      border-color: $color-red;
     }
     @include sp {
       width: 33.5rem;

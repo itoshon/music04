@@ -51,28 +51,26 @@
   }
 
   .contact__send-btn {
-      width: 25rem;
-      height: 5rem;
-      background-color: $color-red;
-      display: flex;
-      margin: 0 auto;
-      margin-bottom: 9rem;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.4s;
-      @include sp {
-        width: 100%;
-        margin-bottom: 5rem;
-      }
-      a {
-        font-size: 2.5rem;
-        color: #fff;
-        @include sp {
-          font-size: 2rem;
-        }
-      }
-      &:hover {
-        cursor: pointer;
-        opacity: 0.6;
-      }
+  margin: 0 auto;
+  margin-bottom: 9rem;
+  background-color: $color-red;
+  color: #fff;
+  font-size: 2.5rem;
+  width: 25rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.4s, background-color 0.4s, border-color 0.4s;
+  border: 0.1rem solid transparent;
+  &:hover {
+    background-color: #fff;
+    color: $color-red;
+    border-color: $color-red;
   }
+  @include sp {
+    width: 100%;
+    font-size: 2rem;
+  }
+}
