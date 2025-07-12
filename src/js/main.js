@@ -171,23 +171,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const questions = document.querySelectorAll('.main__faq .faq__question');
 
   questions.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const panel    = btn.nextElementSibling;                       // 対応する回答パネル
-      const isOpen   = btn.getAttribute('aria-expanded') === 'true'; // 今開いているか？
-
-      // ── トグル動作 ──
+    const panel  = btn.nextElementSibling;
+    // トグル動作をまとめた関数
+    function toggle() {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!isOpen));
       panel.hidden = isOpen;
+    }
 
-      // ── 「一度に1つだけ開く」なら他をすべて閉じる ──
-      if (!isOpen) {
-        questions.forEach(other => {
-          if (other !== btn) {
-            other.setAttribute('aria-expanded', 'false');
-            other.nextElementSibling.hidden = true;
-          }
-        });
-      }
-    });
+    // 質問ボタンをタップで開閉
+    btn.addEventListener('click', toggle);
+
+    // 回答パネルをタップしても閉じる
+    panel.addEventListener('click', toggle);
   });
 });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // FAQ 内の全質問ボタンを取得
+//   const questions = document.querySelectorAll('.main__faq .faq__question');
+
+//   questions.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//       const panel    = btn.nextElementSibling;                       // 対応する回答パネル
+//       const isOpen   = btn.getAttribute('aria-expanded') === 'true'; // 今開いているか？
+
+//       // ── トグル動作 ──
+//       btn.setAttribute('aria-expanded', String(!isOpen));
+//       panel.hidden = isOpen;
+
+//       // ── 「一度に1つだけ開く」なら他をすべて閉じる ──
+//       if (!isOpen) {
+//         questions.forEach(other => {
+//           if (other !== btn) {
+//             other.setAttribute('aria-expanded', 'false');
+//             other.nextElementSibling.hidden = true;
+//           }
+//         });
+//       }
+//     });
+//   });
+// });

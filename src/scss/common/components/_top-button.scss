@@ -11,6 +11,7 @@
   flex-direction: column;
   // gap: 3.1rem;
   align-items: center;
+  pointer-events: none;
   @include sp {
     width: 100%;
     left: 0;
@@ -24,6 +25,7 @@
     border-radius: 50%;
     transition: all 0.4s;
     margin-bottom: 3.1rem;
+    pointer-events: auto;
     img {
       width: 6.8rem;
       height: 6.8rem;
@@ -35,12 +37,13 @@
     }
     @include sp {
       align-self: flex-end;
-      // margin-right: 3rem;
+      margin-right: 2rem;
       margin-bottom: 1.8rem;
     }
   }
 
   #contact-btn {
+    pointer-events: auto;
     background-color: $color-red;
     color: #fff;
     font-size: 2rem;
@@ -63,11 +66,7 @@
       height: 5.9rem;
       padding-top: 0;
     }
-    // a {
-    //   letter-spacing: 0.29rem;
-    //   font-size: 2rem;
-    //   color: #fff;
-    // }
+
     @include sp {
       align-self: center;
     }
