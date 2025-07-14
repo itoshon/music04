@@ -3,7 +3,7 @@
 
 .c-tag {
   width: 8rem;
-  height: 3rem;
+  height: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -28,9 +28,19 @@
   font-size: 1.8rem;
   font-weight: 500;
   line-height: calc(30 / 18);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @include sp {
     font-size: 1.6rem;
     line-height: calc(30 / 16);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 .c-title-black {
@@ -166,8 +176,9 @@
       }
       .p-blog__text-img {
         margin-top: 1.7rem;
-        width: 30rem;
-        height: 20rem;
+        width: 33.5rem;
+        aspect-ratio: 33.5 / 20;
+        overflow: hidden;
         @include sp {
           margin-top: 3.6rem;
           width: 100%;
@@ -209,34 +220,33 @@
         }
       }
       .p-blog__quotation-area {
+        position: relative;
         margin-top: 2.8rem;
         width: 100%;
-        height: auto;
         background-color: #e8e8e8;
         padding: 1.7rem 3rem 1.1rem 6.7rem;
         @include sp {
           margin-top: 2.7rem;
           padding: 1.7rem 2rem 1.1rem 7rem;
         }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 1.2rem;
+          left: 1.5rem;
+          width: 2.7rem;
+          height: 2.3rem;
+          background: url("/images/details/icon-blockquote.svg") no-repeat center/contain;
+          pointer-events: none;
+        }
         .p-blog__text {
-          display: inline-block;
-          position: relative;
-          &::before {
-            content: "";
-            display: inline-block;
-            width: 2.7rem;
-            height: 2.3rem;
-            margin-left: -3.6rem;
-            margin-top: 0.6rem;
-            position: absolute;
-            background-image: url("../images/blog/blockquote.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            @include sp {
-              margin-left: -4.5rem;
-            }
-          }
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
+          margin: 0;
         }
       }
       .c-text-link {
@@ -245,6 +255,7 @@
         font-weight: 700;
         color: $color-red;
         border-bottom: 0.1rem solid $color-red;
+        padding-bottom: 1rem;
         margin-top: 2.7rem;
         transition: all 0.4s;
         &:hover {
@@ -274,7 +285,8 @@
         }
       }
       .p-blog__pager-item {
-        width: 100%;
+        background-color: #fff;
+        width: 26rem;
         height: auto;
         .prev,
         .next {
@@ -439,6 +451,10 @@
       align-items: center;
       justify-content: center;
       border: solid 1.5rem #fff;
+      transition: all 0.4s;
+      &:hover {
+        opacity: 0.6;
+      }
       @include sp {
         height: 26.8rem;
         border: solid 2rem #fff;
@@ -449,7 +465,6 @@
       width: 100%;
       height: 7rem;
       display: flex;
-      text-align: center;
       align-items: center;
       justify-content: center;
       padding-left: 1.5rem;
@@ -462,6 +477,7 @@
       input {
         width: 100%;
         height: 4rem;
+        padding-left: 1rem;
         background-color: #e8e8e8;
         @include sp {
           height: 5.4rem;
@@ -494,6 +510,7 @@
     margin-bottom: 3rem;
     .p-widget__recommend-article {
       display: flex;
+      background-color: red;
       gap: 1.5rem;
       margin-top: 1.5rem;
       transition: all 0.4s;
@@ -517,6 +534,14 @@
         margin-top: -0.4rem;
         width: 14rem;
         font-size: 1.7rem;
+        line-height: calc(28 / 17);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        white-space: normal;
+        overflow: hidden;
+        max-height: calc( (28 / 17) * 2 * 1em );
+        text-overflow: ellipsis;
         @include sp {
           margin-top: 0.6rem;
         }

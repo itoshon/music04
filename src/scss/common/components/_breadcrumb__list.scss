@@ -41,8 +41,13 @@
 
     .breadcrumb__item {
       .breadcrumb__link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 5rem;
         color: #000;
         font-weight: 500;
+        line-height: calc(33 / 16);
         text-decoration: none;
         transition: all 0.4s;
         &:hover {
@@ -53,7 +58,7 @@
 
       &[aria-current="page"] {
         font-weight: 500;
-        line-height: calc(20 / 16);
+        line-height: calc(33 / 16);
         color: #000;
         .breadcrumb__link {
           pointer-events: none;

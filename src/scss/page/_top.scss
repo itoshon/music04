@@ -365,9 +365,11 @@
   flex-direction: column;
 
   .main__voice-card-img {
+    width: 27rem;
     aspect-ratio: 27 / 19;
     overflow: hidden;
     @include sp {
+      width: 33.5rem;
       aspect-ratio: 34.3 / 20;
     }
     picture,
