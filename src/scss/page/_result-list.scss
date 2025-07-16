@@ -6,12 +6,26 @@
   height: auto;
   position: relative;
 
-  picture {
+  picture img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
+    object-fit: cover;
   }
 
+  @include sp {
+    aspect-ratio: 375 / 300;
+
+    picture,
+    picture img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   .graduation__banner-title {
     width: 100%;
     height: 100%;
@@ -23,7 +37,7 @@
     padding-top: 1rem;
     color: #fff;
     font-size: 2.5rem;
-    background-color: rgba(#505050, 0.49);
+    background-color: rgba(#505050, 0.4863);
   }
 }
 
@@ -47,9 +61,9 @@
     gap: 5rem;
   }
   .graduation__item {
-    transition: transform 0.2s;
+    transition: all 0.4s;
     &:hover {
-      transform: translateY(-1.5rem);
+      opacity: 0.6;
     }
     .graduation__link {
       text-decoration: none;
@@ -59,21 +73,31 @@
   }
 
   .graduation__thumb {
+    aspect-ratio: 387 / 273;
     position: relative;
-    margin: 0;
-    img {
+    @include sp {
+      width: 100%;
+    }
+    .graduation__thumb-img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
     }
+
     p {
       width: 10rem;
-      height: 3rem;
       display: inline-flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
+      height: auto;
       font-size: 1.5rem;
+      font-weight: 500;
+      line-height: calc(20 / 15);
+      padding: 0.54rem;
       color: #fff;
       background-color: $color-red;
       position: absolute;
@@ -85,9 +109,11 @@
     .graduation__title {
       font-size: 2rem;
       line-height: calc(25 / 20);
-    }
-    .graduation__title {
-      font-size: 2rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     time {
       margin-top: 1.3rem;
