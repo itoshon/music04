@@ -212,7 +212,7 @@
         font-size: 2rem;
         border-left: 0.3rem solid #000;
         padding-left: 0.95rem;
-        line-height: calc(20 / 20);
+        line-height: calc(40 / 20);
         @include sp {
           margin-top: 4.4rem;
           padding-left: 0.6rem;
@@ -245,10 +245,11 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          display: block;
+          white-space: normal;
           margin: 0;
         }
       }
+
       .c-text-link {
         display: inline-block;
         font-size: 2rem;
@@ -334,11 +335,18 @@
             height: 6.8rem;
           }
           .p-blog__text {
+            height: 4.5rem;
             margin-top: -0.4rem;
             padding-left: 0.1rem;
             font-size: 1.6rem;
             font-weight: 700;
             line-height: calc(25 / 16);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
             @include sp {
               margin-top: 0;
             }
@@ -478,6 +486,7 @@
         width: 100%;
         height: 4rem;
         padding-left: 1rem;
+        font-weight: 500;
         background-color: #e8e8e8;
         @include sp {
           height: 5.4rem;
@@ -510,7 +519,6 @@
     margin-bottom: 3rem;
     .p-widget__recommend-article {
       display: flex;
-      background-color: red;
       gap: 1.5rem;
       margin-top: 1.5rem;
       transition: all 0.4s;
@@ -540,7 +548,7 @@
         -webkit-line-clamp: 2;
         white-space: normal;
         overflow: hidden;
-        max-height: calc( (28 / 17) * 2 * 1em );
+        max-height: calc((28 / 17) * 2 * 1em);
         text-overflow: ellipsis;
         @include sp {
           margin-top: 0.6rem;
@@ -553,12 +561,15 @@
     height: auto;
     .p-widget__category-li {
       li {
-        font-size: 1.7rem;
-        font-weight: 500;
-        border-bottom: 0.05rem solid #000;
-        padding-top: 0.9rem;
-        padding-bottom: 1.1rem;
-        transition: all 0.4s;
+        padding: 0.2rem;
+        position: relative;
+        a {
+          display: block;
+          padding: 0.9rem 1rem 1.1rem;
+          font-size: 1.7rem;
+          font-weight: 500;
+          transition: color 0.4s, background-color 0.4s;
+          position: relative;
         &:hover {
           color: $color-red;
           background-color: rgba(203, 0, 0, 0.1);
@@ -566,6 +577,17 @@
         @include sp {
           padding-top: 1.5rem;
           padding-bottom: 0.6rem;
+        }
+      }
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #000;
+          pointer-events: none; // ←★これが超重要！クリック対象にならない！
         }
       }
     }
