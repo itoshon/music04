@@ -9,14 +9,12 @@
   bottom: 0;
   right: 0;
   flex-direction: column;
-  // gap: 3.1rem;
   align-items: center;
   pointer-events: none;
   @include sp {
     width: 100%;
     left: 0;
     right: 0;
-    // gap: 1.8rem;
   }
 
   #page-top {
@@ -70,5 +68,8 @@
     @include sp {
       align-self: center;
     }
+  }
+  .top-btn {
+    margin-left: 3rem;
   }
 }

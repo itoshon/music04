@@ -8,7 +8,7 @@
   @include sp {
     margin-top: 3.8rem;
   }
-  h1 {
+  h2 {
     font-size: 1.8rem;
     strong {
       font-weight: 700;
@@ -41,7 +41,7 @@
       opacity: 0.6;
     }
     @include sp {
-      margin-bottom: 3.9rem;
+      margin-bottom: 3.7rem;
     }
     .blog-list__item-link {
       display: flex;
@@ -51,19 +51,20 @@
         flex-direction: column;
       }
       .blog-list__item-img {
-        flex: 0 0 26rem;
-        // width: 26rem;
-        height: 18.4rem;
+        width: 26rem;
+        aspect-ratio: 260 / 184;
         position: relative;
         @include sp {
           width: 100%;
-          height: auto;
         }
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
+          @include sp {
+            height: auto;
+          }
         }
         p {
           width: 8rem;
@@ -92,9 +93,9 @@
         @include sp {
           width: 100%;
           margin-left: 0;
-          margin-top: 3rem;
         }
         h3 {
+          padding-top: 0.4rem;
           font-size: 2rem;
           line-height: calc(25 / 20);
           display: -webkit-box;
@@ -103,21 +104,20 @@
           overflow: hidden;
           text-overflow: ellipsis;
           @include sp {
-            margin-bottom: 0.7rem;
+            padding-bottom: 0.7rem;
           }
         }
         time {
           font-size: 1.7rem;
           font-weight: 500;
           display: block;
-          margin-bottom: 1.6rem;
+          padding-top: 0.6rem;
           @include sp {
-            margin-bottom: 1.2rem;
             text-align: end;
           }
         }
         p {
-          color: red;
+          padding-top: 1rem;
           font-size: 1.8rem;
           font-weight: 500;
           line-height: calc(30 / 18);
@@ -129,10 +129,16 @@
           @include sp {
             font-size: 1.6rem;
             line-height: calc(30 / 16);
+            padding-top: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-top: 1rem;
           }
         }
       }
     }
   }
 }
-

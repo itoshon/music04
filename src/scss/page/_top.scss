@@ -312,7 +312,7 @@
 .main__voice {
   width: 100%;
   padding-top: 4.7rem;
-  padding-bottom: 7.9rem;
+  padding-bottom: 8.2rem;
   background-color: $color-red;
   @include sp {
     padding-top: 4.8rem;
@@ -355,7 +355,7 @@
     }
   }
   .slick-slide {
-    margin: 0 1.6rem;
+    margin: 0 1.7rem;
     box-sizing: border-box;
   }
 }
@@ -363,14 +363,17 @@
 .main__voice-card {
   display: flex;
   flex-direction: column;
-
+  transition: all 0.4s;
+  &:hover {
+    opacity: 0.6;
+  }
   .main__voice-card-img {
     width: 27rem;
     aspect-ratio: 27 / 19;
     overflow: hidden;
     @include sp {
       width: 33.5rem;
-      aspect-ratio: 34.3 / 20;
+      aspect-ratio: 34.3 / 20.5;
     }
     picture,
     img {
@@ -538,17 +541,19 @@
       h4 {
         position: relative;
         width: 22rem;
+        top: -1.3rem;
         color: $color-red;
         font-size: 2.2rem;
         padding-left: 2.6rem;
         @include sp {
+          top: 0;
           padding-left: 2.9rem;
         }
 
         &::before {
           content: "";
           position: absolute;
-          top: 36%;
+          top: 54%;
           left: -3.4rem;
           transform: translate(-50%, -50%);
           width: 2rem;
