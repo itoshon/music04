@@ -25,6 +25,9 @@
     padding-top: 1rem;
     background-color: rgba(#505050, 0.4863);
   }
+  h1 {
+    margin-top: 1rem;
+  }
 }
 
 .contact__form-com {
@@ -58,7 +61,7 @@
       width: 100%;
       height: auto;
       flex-direction: column;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
     }
 
     .contact__form-label {
@@ -72,7 +75,6 @@
       @include sp {
         width: 100%;
         font-size: 1.6rem;
-        // margin-bottom: 0.8rem;
       }
     }
     .contact__form-input {
@@ -94,6 +96,7 @@
         height: auto;
         padding: 0.7rem 2rem;
         line-height: normal;
+        margin-left: 0;
       }
     }
   }
@@ -116,7 +119,7 @@
       font-weight: 500;
       @include sp {
         margin-left: 0;
-        margin-top: 0.6rem;
+        margin-top: 0.4rem;
         width: 100%;
         padding-top: 1.2rem;
         padding-left: 1.9rem;
@@ -157,6 +160,7 @@
         cursor: pointer;
         @include sp {
           font-size: 1.6rem;
+          padding-top: 0.1rem;
         }
         .checkbox {
           appearance: auto;
@@ -180,7 +184,6 @@
     margin-top: 4.8rem;
     margin-bottom: 10rem;
     @include sp {
-      margin-top: 5rem;
       margin-bottom: 10.8rem;
     }
   }

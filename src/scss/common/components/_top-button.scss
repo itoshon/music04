@@ -40,6 +40,12 @@
     }
   }
 
+  @include sp {
+    body.contact-page & #page-top {
+      margin-right: 3rem;
+    }
+  }
+
   #contact-btn {
     pointer-events: auto;
     background-color: $color-red;
@@ -63,13 +69,7 @@
       width: 33.5rem;
       height: 5.9rem;
       padding-top: 0;
-    }
-
-    @include sp {
       align-self: center;
     }
-  }
-  .top-btn {
-    margin-left: 3rem;
   }
 }
