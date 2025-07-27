@@ -38,7 +38,7 @@
     font-size: 1.6rem;
     line-height: calc(30 / 16);
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -88,14 +88,16 @@
       width: 100%;
       height: auto;
       @include sp {
-        padding-top: 5.3rem;
+        padding-top: 5rem;
       }
       .p-blog__head {
         width: 100%;
         height: 35rem;
         position: relative;
         @include sp {
-          height: 20rem;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 335 / 200;
         }
         img {
           width: 100%;
@@ -122,13 +124,13 @@
     }
 
     .p-blog__sns-area {
+      width: 78.6%;
       margin-top: 2.2rem;
       margin-bottom: 4.8rem;
       display: flex;
       gap: 0.3rem;
       @include sp {
         justify-content: space-between;
-        gap: 0;
         width: 100%;
         margin-top: 2.3rem;
         margin-bottom: 3rem;
@@ -183,6 +185,7 @@
         @include sp {
           margin-top: 3.6rem;
           width: 100%;
+          // aspect-ratio: auto;
         }
         img {
           width: 100%;
@@ -209,15 +212,16 @@
 
     .p-blog__quotation {
       .p-blog__quotation-head {
-        margin-top: 3.7rem;
+        margin-top: 3.6rem;
+        margin-left: 0.2rem;
         font-size: 2rem;
         border-left: 0.3rem solid #000;
-        padding-left: 0.95rem;
-        line-height: calc(40 / 20);
+        padding-left: 0.65rem;
+        line-height: calc(20 / 20);
         @include sp {
           margin-top: 4.4rem;
           padding-left: 0.6rem;
-          line-height: calc(26 / 20);
+          line-height: calc(27 / 20);
         }
       }
       .p-blog__quotation-area {
@@ -227,18 +231,21 @@
         background-color: #e8e8e8;
         padding: 1.7rem 3rem 1.1rem 6.7rem;
         @include sp {
-          margin-top: 2.7rem;
+          margin-top: 2.5rem;
           padding: 1.7rem 2rem 1.1rem 7rem;
         }
         &::before {
           content: "";
           position: absolute;
-          top: 1.2rem;
-          left: 1.5rem;
+          top: 2.2rem;
+          left: 3.1rem;
           width: 2.7rem;
           height: 2.3rem;
           background: url("/images/details/icon-blockquote.svg") no-repeat center/contain;
           pointer-events: none;
+          @include sp {
+            left: 2.5rem;
+          }
         }
         .p-blog__text {
           display: -webkit-box;
@@ -248,6 +255,9 @@
           text-overflow: ellipsis;
           white-space: normal;
           margin: 0;
+          @include sp {
+            -webkit-line-clamp: 6;
+          }
         }
       }
 
@@ -257,8 +267,8 @@
         font-weight: 700;
         color: $color-red;
         border-bottom: 0.1rem solid $color-red;
-        padding-bottom: 1rem;
-        margin-top: 2.7rem;
+        line-height: calc(20 / 20);
+        margin-top: 3.4rem;
         transition: all 0.4s;
         &:hover {
           opacity: 0.6;
@@ -271,11 +281,11 @@
     }
 
     .p-blog__pager {
-      margin-top: 5.6rem;
+      margin-top: 5.7rem;
       width: 100%;
       height: auto;
       display: flex;
-      gap: 8rem;
+      gap: 7.9rem;
       @include sp {
         margin-top: 4.8rem;
         gap: 2.2rem;
@@ -288,7 +298,7 @@
       }
       .p-blog__pager-item {
         background-color: #fff;
-        width: 26rem;
+        width: 100%;
         height: auto;
         .prev,
         .next {
@@ -336,14 +346,15 @@
             height: 6.8rem;
           }
           .p-blog__text {
-            height: 4.5rem;
+            height: 7.5rem;
             margin-top: -0.4rem;
             padding-left: 0.1rem;
+            padding-top: 0.1rem;
             font-size: 1.6rem;
             font-weight: 700;
             line-height: calc(25 / 16);
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -387,7 +398,7 @@
             opacity: 0.6;
           }
           @include sp {
-            margin-top: 1.8rem;
+            margin-top: 2.1rem;
             gap: 2.1rem;
           }
         }
@@ -396,7 +407,7 @@
           width: 20rem;
           height: 14rem;
           @include sp {
-            width: 104%;
+            width: 100%;
             height: auto;
           }
           img {
@@ -408,6 +419,7 @@
         }
         .c-tag {
           width: 8rem;
+          line-height: calc(25 / 15);
         }
         .p-blog__text {
           width: 36rem;
@@ -438,8 +450,8 @@
   margin-top: 6.9rem;
   @include sp {
     width: 100%;
-    margin-top: 3rem;
-    margin-bottom: 19.6rem;
+    margin-top: 3.2rem;
+    margin-bottom: 19.4rem;
   }
   .p-widget {
     width: 100%;
@@ -479,7 +491,7 @@
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       @include sp {
-        height: 9.4rem;
+        height: 9.1rem;
         padding-left: 2rem;
         padding-right: 2rem;
       }
@@ -496,15 +508,15 @@
       button {
         width: 4rem;
         height: 4rem;
-        padding: 0.8rem;
+        padding: 1.1rem;
         background-color: #000;
         transition: all 0.4s;
         &:hover {
           opacity: 0.6;
         }
         @include sp {
-          width: 5.4rem;
-          height: 5.4rem;
+          width: 6.1rem;
+          height: 5.5rem;
         }
         img {
           width: 100%;
@@ -517,7 +529,7 @@
   .p-widget__recommend {
     width: 100%;
     height: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 2.8rem;
     .p-widget__recommend-article {
       display: flex;
       gap: 1.5rem;
@@ -527,7 +539,7 @@
         opacity: 0.6;
       }
       @include sp {
-        margin-top: 2rem;
+        padding-top: 0.7rem;
         gap: 2rem;
       }
       .p-widget__recommend-img {
@@ -566,20 +578,19 @@
         position: relative;
         a {
           display: block;
-          padding: 0.9rem 1rem 1.1rem;
+          padding: 0.9rem 0;
+          // padding: 0.9rem 1rem 1.1rem;
+          // padding-top: 0.9rem;
+          // padding-bottom: 0.9rem;
           font-size: 1.7rem;
           font-weight: 500;
           transition: color 0.4s, background-color 0.4s;
           position: relative;
-        &:hover {
-          color: $color-red;
-          background-color: rgba(203, 0, 0, 0.1);
+          &:hover {
+            color: $color-red;
+            background-color: rgba(203, 0, 0, 0.1);
+          }
         }
-        @include sp {
-          padding-top: 1.5rem;
-          padding-bottom: 0.6rem;
-        }
-      }
         &::after {
           content: "";
           position: absolute;
@@ -588,7 +599,7 @@
           width: 100%;
           height: 1px;
           background-color: #000;
-          pointer-events: none; // ←★これが超重要！クリック対象にならない！
+          pointer-events: none;
         }
       }
     }
