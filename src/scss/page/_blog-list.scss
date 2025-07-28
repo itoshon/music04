@@ -188,6 +188,8 @@
   transition: all 0.4s ease;
   &:hover {
     opacity: 0.6;
+    background-color: #000;
+    color: #fff;
   }
   @include sp {
     padding: 0.8rem 1.7rem;
@@ -199,7 +201,8 @@
   padding: 1rem 0.8rem;
 }
 .pagination li.active a {
-  background-color: $color-red;
+  background-color: #000000;
   color: #fff;
-  border-color: $color-red;
+  opacity: 1 !important;
+  pointer-events: none;
 }
