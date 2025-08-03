@@ -70,7 +70,7 @@
   margin-top: 5.9rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 8.8rem;
+  gap: 4rem;
   @include sp {
     margin-top: 2.4rem;
     flex-direction: column;
@@ -79,7 +79,7 @@
   .profile-list {
     display: table;
     table-layout: fixed;
-    flex-basis: 40%;
+    flex-basis: 45.5%;
     min-width: 0;
     border-collapse: collapse;
     border: 1px solid #707070;
@@ -90,7 +90,7 @@
       display: table-row;
     }
     dt {
-      width: 17rem;
+      width: 14rem;
       background-color: #e5e5e5;
       display: table-cell;
       border: 1px solid #707070;
@@ -257,8 +257,7 @@
       @include sp {
         width: 51.4%;
         height: auto;
-        // width: 16rem;
-        // height: 11rem;
+
       }
       img {
         width: 100%;

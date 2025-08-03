@@ -40,11 +40,13 @@
     }
   }
 
-  @include sp {
-    body.contact-page & #page-top {
-      margin-right: 3rem;
+  body.contact-page & #page-top{
+    padding-left: 1.5rem;
+    @include sp {
+      margin-right: 4.5rem;
     }
   }
+
 
   #contact-btn {
     pointer-events: auto;
