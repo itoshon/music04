@@ -54,7 +54,7 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10.6rem;
   row-gap: 7.1rem;
-  list-style: none;
+  justify-items: center;
   margin: 0 0 7.3rem;
   padding: 0;
   @include sp {
@@ -62,6 +62,8 @@
     gap: 5rem;
   }
   .graduation__item {
+    width: 100%;
+    max-width: 38.7rem;
     transition: all 0.4s;
     &:hover {
       opacity: 0.6;
@@ -74,7 +76,7 @@
   }
 
   .graduation__thumb {
-    width: 38.7rem;
+    width: 100%;
     aspect-ratio: 387 / 273;
     position: relative;
     overflow: hidden;

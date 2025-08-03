@@ -340,6 +340,7 @@
   overflow: visible;
   @include sp {
     width: 100%;
+    height: auto;
   }
   .slick-list {
     margin: 0 -1.6rem;
@@ -372,8 +373,8 @@
     aspect-ratio: 27 / 19;
     overflow: hidden;
     @include sp {
-      width: 33.5rem;
-      aspect-ratio: 34.3 / 20.5;
+      width: 100%;
+      aspect-ratio: 34 / 20;
     }
     picture,
     img {
@@ -770,10 +771,11 @@
       }
       .main__blog-list__item-img {
         width: 26rem;
-        height: 20rem;
+        aspect-ratio: 13 / 10;
         position: relative;
         @include sp {
           width: 100%;
+          aspect-ratio: 67 / 40;
           margin-bottom: 1rem;
         }
         picture,

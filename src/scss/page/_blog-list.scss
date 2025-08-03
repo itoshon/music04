@@ -50,6 +50,9 @@
       opacity: 0.6;
     }
     @include sp {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 3.9rem;
       margin-bottom: 3.9rem;
     }
     .blog-list__item-link {
@@ -70,9 +73,9 @@
         overflow: hidden;
         position: relative;
         @include sp {
-          height: 20rem;
+          width: 100%;
           aspect-ratio:335 / 200;
-          // height: auto;
+          height: auto;
           img {
             display: block;
             width: 100%;
