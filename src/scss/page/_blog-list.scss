@@ -5,27 +5,38 @@
   width: 100%;
   height: auto;
   position: relative;
+  overflow: hidden;
+  z-index: 0;
 
-  picture {
+  picture,
+  img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(80, 80, 80, 0.4863);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .blog-list__banner-title {
-    width: 100%;
-    height: 100%;
     position: absolute;
+    inset: 0;
     display: flex;
-    top: 0;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #ffffff;
+    padding-top: 1rem;
     font-size: 2.5rem;
-    background-color: rgba(#505050, 0.4863);
-  }
-  span {
-    margin-top: 1rem;
+    z-index: 1;
+    text-align: center;
   }
 }
 
@@ -57,7 +68,7 @@
     }
     .blog-list__item-link {
       display: flex;
-      flex: 0 0 26rem;
+      align-items: flex-start;
       max-width: 88rem;
       width: 100%;
       height: auto;
@@ -68,44 +79,48 @@
         margin: 0;
       }
       .blog-list__item-img {
-        height: 18.4rem;
+        width: 26rem;
         aspect-ratio: 260 / 184;
         overflow: hidden;
         position: relative;
+        flex: 0 0 auto;
+
+        picture,
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
         @include sp {
           width: 100%;
-          aspect-ratio:335 / 200;
-          height: auto;
-          img {
-            display: block;
-            width: 100%;
-            object-fit: cover;
-            object-position: center;
-          }
+          aspect-ratio: 335 / 200;
         }
 
         p {
-          width: 8rem;
+          min-width: 8rem;
+          width: auto;
           height: auto;
+          padding: 0 0.5rem;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 0.2rem 0.3rem;
           font-size: 1.5rem;
-          line-height: calc(25 / 15);
+          line-height: calc(30 / 15);
           color: #fff;
           background-color: $color-red;
           position: absolute;
           top: 0;
           @include sp {
-            width: 9rem;
+            min-width: 9rem;
           }
         }
       }
 
       .blog-list__item-com {
         width: 57rem;
-        height: auto;
+        flex: 1 1 auto;
         margin-left: 5rem;
         @include sp {
           width: 100%;
@@ -142,7 +157,7 @@
           font-weight: 500;
           line-height: calc(30 / 18);
           display: -webkit-box;
-          -webkit-line-clamp: 4;
+          -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -190,7 +205,6 @@
   border: 0.1rem solid #000;
   transition: all 0.4s ease;
   &:hover {
-    opacity: 0.6;
     background-color: #000;
     color: #fff;
   }

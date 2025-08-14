@@ -5,25 +5,36 @@
   width: 100%;
   height: auto;
   position: relative;
+  overflow: hidden;
+  z-index: 0;
 
-  picture {
+  picture,
+  img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
+    object-fit: cover;
+    object-position: center;
   }
-
-  .contact__send-banner-title {
-    width: 100%;
-    height: 100%;
+  &::before {
+    content: "";
     position: absolute;
+    inset: 0;
+    background-color: rgba(80, 80, 80, 0.4863);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .contact__send-banner-title {
+    position: absolute;
+    inset: 0;
     display: flex;
-    top: 0;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
     padding-top: 1rem;
-    color: #fff;
     font-size: 2.5rem;
-    background-color: rgba(#505050, 0.49);
+    z-index: 1;
+    text-align: center;
   }
 }
 

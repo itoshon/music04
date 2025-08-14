@@ -8,7 +8,7 @@
   @include sp {
     margin-top: 3.8rem;
   }
-  h2 {
+  h1 {
     font-size: 1.8rem;
     strong {
       font-weight: 700;
@@ -67,12 +67,14 @@
           }
         }
         p {
-          width: 8rem;
-          height: 3rem;
+          min-width: 8rem;
+          width: auto;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           font-size: 1.5rem;
+          line-height: calc(30 / 15);
+          padding: 0 0.5rem;
           color: #fff;
           background-color: $color-red;
           position: absolute;
@@ -94,7 +96,7 @@
           width: 100%;
           margin-left: 0;
         }
-        h3 {
+        h2 {
           padding-top: 0.4rem;
           font-size: 2rem;
           line-height: calc(25 / 20);

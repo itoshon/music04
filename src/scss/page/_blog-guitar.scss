@@ -2,8 +2,10 @@
 @use "../global/mixin" as *;
 
 .c-tag {
-  width: 8rem;
+  min-width: 8rem;
+  width: auto;
   height: auto;
+  padding: 0 0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +17,7 @@
   top: 0;
   left: 0;
   @include sp {
-    width: 9rem;
+    min-width: 9rem;
   }
 }
 
@@ -185,7 +187,6 @@
         @include sp {
           margin-top: 3.6rem;
           width: 100%;
-          // aspect-ratio: auto;
         }
         img {
           width: 100%;
@@ -212,11 +213,11 @@
 
     .p-blog__quotation {
       .p-blog__quotation-head {
-        margin-top: 2.8rem;
+        margin-top: 3.5rem;
         position: relative;
         font-size: 2rem;
         padding-left: 1.1rem;
-        line-height: calc(40 / 20);
+        line-height: calc(25 / 20);
         @include sp {
           margin-top: 4.4rem;
           padding-left: 0.9rem;
@@ -225,21 +226,19 @@
         &::before {
           content: "";
           position: absolute;
-          top: 0.7rem;
+          top: 0;
           left: 0.1rem;
           width: 0.3rem;
-          bottom: 1.3rem;
+          bottom: 0;
           background-color: #000;
           @include sp {
-            top: 0;
             left: 0;
-            bottom: 1.1rem;
           }
         }
       }
       .p-blog__quotation-area {
         position: relative;
-        margin-top: 1.7rem;
+        margin-top: 2.5rem;
         width: 100%;
         background-color: #e8e8e8;
         padding: 1.7rem 3rem 1.1rem 6.7rem;
@@ -297,13 +296,16 @@
       margin-top: 5.7rem;
       width: 100%;
       height: auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 7.9rem;
+
       @include sp {
         margin-top: 4.9rem;
         gap: 2.2rem;
       }
       a {
+        display: block;
         transition: all 0.4s;
         &:hover {
           opacity: 0.6;
@@ -313,14 +315,20 @@
         background-color: #fff;
         width: 100%;
         height: auto;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
         .prev,
         .next {
           position: relative;
           display: block;
           width: 100%;
+          height: 3.7rem;
           background-color: #000;
           color: #fff;
           font-size: 1.7rem;
+          line-height: calc(30 / 17);
           font-weight: 500;
           margin-bottom: 1.5rem;
           text-decoration: none;
@@ -352,14 +360,13 @@
         .p-blog__page {
           display: flex;
           width: 100%;
-          height: auto;
+          height: 5rem;
           gap: 1.6rem;
           img {
             width: 9.8rem;
             height: 6.8rem;
           }
           .p-blog__text {
-            height: 7.5rem;
             margin-top: -0.4rem;
             padding-left: 0.1rem;
             padding-top: 0.1rem;
@@ -372,6 +379,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: normal;
+            min-width: 0;
             @include sp {
               margin-top: 0;
             }
@@ -381,12 +389,12 @@
     }
 
     .p-blog__related {
-      margin-top: 9.7rem;
+      margin-top: 11.8rem;
       margin-bottom: 18.7rem;
       width: 100%;
       height: auto;
       @include sp {
-        margin-top: 6.4rem;
+        margin-top: 9.1rem;
         margin-bottom: -2.2rem;
       }
       .c-title-black {
@@ -399,6 +407,7 @@
           padding-left: 0;
         }
       }
+
       .p-blog__related-list {
         width: 100%;
         height: auto;
@@ -418,21 +427,27 @@
         .p-blog__related-img {
           position: relative;
           width: 20rem;
-          height: 14rem;
-          @include sp {
-            width: 100%;
-            height: auto;
-          }
+          height: auto;
+          aspect-ratio: 200 / 140;
+          overflow: hidden;
           img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
           }
+          @include sp {
+            width: 100%;
+            height: auto;
+          }
         }
         .c-tag {
-          width: 8rem;
-          line-height: calc(25 / 15);
+          min-width: 8rem;
+          width: auto;
+          height: auto;
+          padding: 0 0.5rem;
+          line-height: calc(30 / 15);
         }
         .p-blog__text {
           width: 36rem;
@@ -463,7 +478,7 @@
   margin-top: 6.9rem;
   @include sp {
     width: 100%;
-    margin-top: 3.2rem;
+    margin-top: 3rem;
     margin-bottom: 19.4rem;
   }
   .p-widget {
@@ -473,25 +488,24 @@
     background-color: #fff;
     border: 0.5px solid #000;
     @include sp {
-      margin-bottom: 2.9rem;
+      margin-bottom: 3rem;
     }
     .p-widget__body {
       display: flex;
-      width: 100%;
-      height: 20rem;
+      margin: 1.5rem;
+      height: 17rem;
       font-size: 1.8rem;
       background-color: #e8e8e8;
       text-align: center;
       align-items: center;
       justify-content: center;
-      border: solid 1.5rem #fff;
       transition: all 0.4s;
       &:hover {
         opacity: 0.6;
       }
       @include sp {
-        height: 26.8rem;
-        border: solid 2rem #fff;
+        margin: 1.9rem;
+        height: 22.7rem;
       }
     }
 
@@ -521,7 +535,7 @@
       button {
         width: 4rem;
         height: 4rem;
-        padding: 1.1rem;
+        padding: 0.6rem;
         background-color: #000;
         transition: all 0.4s;
         &:hover {
@@ -587,23 +601,8 @@
     height: auto;
     .p-widget__category-li {
       li {
-        padding: 0.2rem;
         position: relative;
-        a {
-          display: block;
-          padding: 0.9rem 0;
-          // padding: 0.9rem 1rem 1.1rem;
-          // padding-top: 0.9rem;
-          // padding-bottom: 0.9rem;
-          font-size: 1.7rem;
-          font-weight: 500;
-          transition: color 0.4s, background-color 0.4s;
-          position: relative;
-          &:hover {
-            color: $color-red;
-            background-color: rgba(203, 0, 0, 0.1);
-          }
-        }
+        padding-bottom: 2px;
         &::after {
           content: "";
           position: absolute;
@@ -613,6 +612,19 @@
           height: 1px;
           background-color: #000;
           pointer-events: none;
+        }
+        a {
+          display: block;
+          // padding: 0.9rem 0 0.9rem 0;
+          font-size: 1.7rem;
+          line-height: calc(45 / 17);
+          font-weight: 500;
+          transition: color 0.4s, background-color 0.4s;
+          position: relative;
+          &:hover {
+            color: $color-red;
+            background-color: rgba(203, 0, 0, 0.1);
+          }
         }
       }
     }
