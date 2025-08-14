@@ -28,7 +28,7 @@
 .search__list-container {
   margin-top: 4.5rem;
   @include sp {
-    margin-top: 4.3rem;
+    margin-top: 4.2rem;
   }
 
   .blog-list__item-box {
@@ -41,7 +41,7 @@
       opacity: 0.6;
     }
     @include sp {
-      margin-bottom: 3.7rem;
+      margin-bottom: 4.2rem;
     }
     .blog-list__item-link {
       display: flex;
@@ -69,6 +69,7 @@
         p {
           min-width: 8rem;
           width: auto;
+          height: auto;
           display: inline-flex;
           align-items: center;
           justify-content: center;
@@ -80,8 +81,7 @@
           position: absolute;
           top: 0;
           @include sp {
-            width: 9rem;
-            height: 3rem;
+            min-width: 9rem;
           }
         }
       }
@@ -94,6 +94,7 @@
         margin-left: 5rem;
         @include sp {
           width: 100%;
+          margin-top: -1.2rem;
           margin-left: 0;
         }
         h2 {
@@ -106,7 +107,8 @@
           overflow: hidden;
           text-overflow: ellipsis;
           @include sp {
-            padding-bottom: 0.7rem;
+            line-height: calc(30 / 20);
+            padding-bottom: 0;
           }
         }
         time {

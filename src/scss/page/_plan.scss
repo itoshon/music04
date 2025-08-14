@@ -213,6 +213,9 @@
       font-size: 2rem;
       line-height: calc(30 / 20);
       border-right: none;
+      @include sp {
+        line-height: calc(25 / 20);
+      }
     }
     .plan-standard {
       position: relative;
@@ -222,6 +225,9 @@
       font-size: 2rem;
       line-height: calc(30 / 20);
       border: 1px solid $color-red;
+      @include sp {
+        line-height: calc(25 / 20);
+      }
       .badge {
         box-sizing: border-box;
         position: absolute;
@@ -236,7 +242,7 @@
         color: #fff;
         font-size: 1.7rem;
         @include sp {
-          line-height: calc(20 / 17);
+          line-height: calc(25 / 17);
         }
       }
     }

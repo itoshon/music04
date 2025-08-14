@@ -73,7 +73,9 @@
       display: flex;
       align-items: center;
       transition: 0.4s all ease;
-
+      @include sp {
+        height: 5rem;
+      }
       &:hover {
         opacity: 0.6;
       }
