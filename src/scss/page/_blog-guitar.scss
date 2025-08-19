@@ -38,7 +38,7 @@
   text-overflow: ellipsis;
   @include sp {
     font-size: 1.6rem;
-    line-height: calc(30 / 16);
+    line-height: calc(29 / 16);
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
@@ -163,14 +163,14 @@
         margin-top: 3.8rem;
         font-size: 2rem;
         @include sp {
-          margin-top: 3.6rem;
+          margin-top: 4rem;
           margin-bottom: -0.4rem;
         }
       }
       .p-blog__text {
         margin-top: 2rem;
         @include sp {
-          margin-top: 2.5rem;
+          margin-top: 2.7rem;
         }
         li {
           padding-top: 0.4rem;
@@ -185,7 +185,7 @@
         aspect-ratio: 33.5 / 20;
         overflow: hidden;
         @include sp {
-          margin-top: 3.6rem;
+          margin-top: 4rem;
           width: 100%;
         }
         img {
@@ -287,7 +287,6 @@
           opacity: 0.6;
         }
         @include sp {
-          margin-top: 2.8rem;
           line-height: calc(25 / 20);
         }
       }
@@ -618,7 +617,7 @@
           position: relative;
           z-index: 1;
           font-size: 1.7rem;
-          line-height: calc(45 / 17);
+          line-height: calc(47 / 17);
           font-weight: 500;
           transition: color 0.4s, background-color 0.4s;
           &:hover {
