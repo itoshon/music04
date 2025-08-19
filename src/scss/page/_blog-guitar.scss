@@ -602,7 +602,6 @@
     .p-widget__category-li {
       li {
         position: relative;
-        padding-bottom: 2px;
         &::after {
           content: "";
           position: absolute;
@@ -611,16 +610,17 @@
           width: 100%;
           height: 1px;
           background-color: #000;
-          pointer-events: none;
+          z-index: 2;
+          pointer-events: auto;
         }
         a {
           display: block;
-          // padding: 0.9rem 0 0.9rem 0;
+          position: relative;
+          z-index: 1;
           font-size: 1.7rem;
           line-height: calc(45 / 17);
           font-weight: 500;
           transition: color 0.4s, background-color 0.4s;
-          position: relative;
           &:hover {
             color: $color-red;
             background-color: rgba(203, 0, 0, 0.1);

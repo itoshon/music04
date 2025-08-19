@@ -7,7 +7,7 @@
   height: auto;
   position: relative;
   overflow: hidden;
-  z-index: 0;
+  isolation: isolate;
 
   picture,
   img {
@@ -23,22 +23,23 @@
     position: absolute;
     inset: 0;
     background-color: rgba(80, 80, 80, 0.502);
+    mix-blend-mode: multiply;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
 
-  h1 {
+  h2 {
     position: absolute;
-    display: block;
-    display: flex;
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: block;
+    display: flex;
     text-align: center;
     color: #ffffff;
     font-size: 4rem;
     line-height: calc(60 / 40);
-    z-index: 1;
+    z-index: 2;
 
     @include sp {
       top: 51.5%;
@@ -49,6 +50,7 @@
   }
 }
 
+// 全人類ミュージシャン計画
 .main__about {
   width: 100%;
   height: auto;
@@ -57,7 +59,7 @@
   @include sp {
     padding-top: 4.7rem;
   }
-  h2 {
+  h3 {
     font-size: 3.5rem;
     color: $color-red;
     text-align: center;
@@ -88,7 +90,6 @@
   }
 }
 
-// 全人類ミュージシャン計画
 .about__timeline-container {
   width: 100%;
   position: relative;

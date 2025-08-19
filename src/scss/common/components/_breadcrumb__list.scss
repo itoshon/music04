@@ -9,14 +9,11 @@
   align-items: center;
   justify-content: center;
   @include sp {
-    // background-color: red;
     height: auto;
   }
   .inner {
     width: 100%;
     display: flex;
-    // padding-top: 0.7rem;
-    padding-bottom: 0.2rem;
     @include sp {
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;

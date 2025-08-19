@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
   z-index: 0;
+  isolation: isolate;
 
   picture,
   img {
@@ -21,8 +22,9 @@
     position: absolute;
     inset: 0;
     background-color: rgba(80, 80, 80, 0.4863);
+    mix-blend-mode: multiply;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
 
   .plan__banner-title {
@@ -34,7 +36,7 @@
     color: #ffffff;
     padding-top: 1rem;
     font-size: 2.5rem;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
   }
 }
@@ -47,7 +49,7 @@
     padding-bottom: 4rem;
     // padding: 5rem 0;
   }
-  h2 {
+  h3 {
     text-align: center;
     font-size: 2.5rem;
   }
@@ -135,7 +137,7 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  h2 {
+  h3 {
     text-align: center;
     font-size: 2.5rem;
   }

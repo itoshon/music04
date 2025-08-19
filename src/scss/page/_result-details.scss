@@ -40,7 +40,7 @@
 }
 
 .graduation__pops-info {
-  h1 {
+  p {
     font-size: 2.5rem;
     line-height: calc(40 / 25);
     margin-top: 5.2rem;
@@ -206,12 +206,15 @@
     }
     .p-blog__page {
       display: flex;
+      align-items: flex-start;
       width: 100%;
-      height: 5rem;
       gap: 1.6rem;
       img {
         width: 9.8rem;
         height: 6.8rem;
+        flex: 0 0 9.8rem;
+        object-fit: cover;
+        display: block;
       }
       .p-blog__text {
         font-size: 1.6rem;
@@ -222,6 +225,8 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
         text-overflow: ellipsis;
+        min-width: 0;
+        min-height: 0;
         @include sp {
           height: 7.5rem;
           -webkit-line-clamp: 3;

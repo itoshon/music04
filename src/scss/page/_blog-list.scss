@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
   z-index: 0;
+  isolation: isolate;
 
   picture,
   img {
@@ -22,8 +23,9 @@
     position: absolute;
     inset: 0;
     background-color: rgba(80, 80, 80, 0.4863);
+    mix-blend-mode: multiply;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
 
   .blog-list__banner-title {
@@ -35,8 +37,8 @@
     color: #ffffff;
     padding-top: 1rem;
     font-size: 2.5rem;
-    z-index: 1;
     text-align: center;
+    z-index: 2;
   }
 }
 
@@ -45,7 +47,7 @@
   @include sp {
     padding-top: 4.8rem;
   }
-  h2 {
+  h3 {
     font-size: 2.5rem;
     padding-bottom: 3.9rem;
     text-align: center;
@@ -130,7 +132,7 @@
           margin-left: 0;
           margin-top: 2.3rem;
         }
-        h3 {
+        h4 {
           margin-bottom: 0.3rem;
           font-size: 2rem;
           line-height: calc(25 / 20);
