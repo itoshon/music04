@@ -59,7 +59,7 @@
   @include sp {
     padding-top: 4.7rem;
   }
-  h3 {
+  h2 {
     font-size: 3.5rem;
     color: $color-red;
     text-align: center;
@@ -194,7 +194,7 @@
   }
   .main__about-com {
     text-align: center;
-    h3 {
+    h2 {
       font-size: 3rem;
       line-height: calc(50 / 30);
       color: #fff;
@@ -225,7 +225,7 @@
     padding-bottom: 3.9rem;
     margin-bottom: 0;
   }
-  h3 {
+  h2 {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 3.2rem;
@@ -269,7 +269,7 @@
           width: 100%;
           height: auto;
         }
-        h4 {
+        h3 {
           width: 100%;
           font-size: 2.2rem;
           display: inline-block;
@@ -327,7 +327,7 @@
     padding-bottom: 4.85rem;
   }
 
-  h3 {
+  h2 {
     font-size: 3rem;
     color: #fff;
     text-align: center;
@@ -398,7 +398,7 @@
       width: 99.4%;
       height: 100%;
     }
-    h4 {
+    h3 {
       color: #fff;
       font-size: 2.2rem;
       font-weight: 700;
@@ -462,7 +462,7 @@
     margin: 4.9rem 0 2rem;
   }
 
-  h3 {
+  h2 {
     text-align: center;
     font-size: 3rem;
     @include sp {
@@ -548,7 +548,7 @@
         align-items: flex-start;
       }
 
-      h4 {
+      h3 {
         position: relative;
         width: 22rem;
         top: -1.3rem;
@@ -604,7 +604,7 @@
     padding-top: 3.3rem;
     padding-bottom: 4.6rem;
   }
-  h3 {
+  h2 {
     text-align: center;
     font-size: 3rem;
     @include sp {
@@ -743,7 +743,7 @@
   @include sp {
     padding-bottom: 19.1rem;
   }
-  h3 {
+  h2 {
     text-align: center;
     font-size: 3rem;
     @include sp {
@@ -813,7 +813,7 @@
         }
       }
       .main__blog-list__item-com {
-        h4 {
+        h3 {
           font-size: 2rem;
           line-height: calc(25 / 20);
           display: -webkit-box;

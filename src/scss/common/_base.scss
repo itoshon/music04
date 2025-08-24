@@ -58,11 +58,19 @@ img {
   max-width: 920px;
   padding-left: 20px;
   padding-right: 20px;
-  // width: min(vw(1000), 1000px);
+  width: min(vw(1000), 1000px);
   margin: 0 auto;
+  @media (max-width: 1080px) and (min-width: 768px) {
+    font-size: 10px;
+    // font-size: vw(10);
+    // font-size: calc(10 / 1080 * 100vw);
+  }
   @include sp {
     padding-left: 2rem;
     padding-right: 2rem;
+    width: 100%;
+    max-width: none;
+    font-size: min(vw(10, 375), 500 / 375 * 10px);
     // max-width: 460px;
   }
 }
