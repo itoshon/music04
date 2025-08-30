@@ -36,7 +36,7 @@
     height: auto;
     display: flex;
     margin-bottom: 7rem;
-    transition: all 0.4s;
+    transition: 0.4s ease;
     &:hover {
       opacity: 0.6;
     }

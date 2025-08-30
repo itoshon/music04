@@ -2,7 +2,10 @@ $('.main__voice-container').slick({
   slidesToShow: 3,
   slidesToScroll: 1,
   infinite: true,
+  variableWidth: false,
+  centerMode: false,
   arrows: true,
+  adaptiveHeight: false,
   draggable: true,
   swipe: true,
   prevArrow: $('.voice-arrow--prev'),
@@ -16,6 +19,8 @@ $('.main__voice-container').slick({
         infinite: true,
         draggable: true,
         swipe: true,
+        centerMode: false,
+        variableWidth: false,
       }
     }
   ]

@@ -17,7 +17,7 @@
     object-fit: cover;
     object-position: center;
   }
-&::before {
+  &::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -41,12 +41,11 @@
 }
 
 .not-found__404-com {
-  padding-top: 6.8rem;
-  padding-bottom: 4rem;
+  margin-top: 6.8rem;
   text-align: center;
   @include sp {
-    padding-top: 2.7em;
-    padding-bottom: 0.9rem;
+    margin-top: 2.7em;
+    margin-bottom: 0.9rem;
     text-align: left;
   }
   p {
@@ -62,7 +61,6 @@
 
 .contact__send-btn {
   margin: 0 auto;
-  margin-bottom: 9rem;
   background-color: $color-red;
   color: #fff;
   font-size: 2.5rem;

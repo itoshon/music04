@@ -39,21 +39,26 @@
     text-align: center;
   }
 }
-
+.contact__send-container {
+  margin-top: 6.7rem;
+  margin-bottom: 9rem;
+  @include sp {
+    margin-top: 4.7rem;
+    margin-bottom: 5rem;
+  }
+}
 .contact__send-com {
-  padding-top: 6.7rem;
-  padding-bottom: 4rem;
   text-align: center;
   @include sp {
-    padding-top: 4.7rem;
-    padding-bottom: 3.9rem;
     text-align: left;
   }
   p {
+    padding-bottom: 4rem;
     font-size: 1.8rem;
     font-weight: 500;
     line-height: calc(30 / 18);
     @include sp {
+      padding-bottom: 3.8rem;
       font-size: 1.6rem;
       line-height: calc(30 / 16);
     }

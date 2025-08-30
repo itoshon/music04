@@ -2,35 +2,40 @@
 @use "../../global/mixin" as *;
 
 #floating-btn {
-  display: none;
-  width: 30rem;
   position: fixed;
-  overflow: hidden;
   bottom: 0;
   right: 0;
+  width: 30rem;
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  visibility: hidden;
   pointer-events: none;
   @include sp {
     width: 100%;
     left: 0;
     right: 0;
   }
-
+  &.is-visible {
+    visibility: visible;
+    pointer-events: none;
+  }
   #page-top {
     width: 6.8rem;
     height: 6.8rem;
     border-radius: 50%;
-    transition: all 0.4s;
     margin-bottom: 3.1rem;
     pointer-events: auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
     img {
-      width: 6.8rem;
-      height: 6.8rem;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
+      display: block;
     }
     &:hover {
-      cursor: pointer;
       opacity: 0.6;
     }
     @include sp {
@@ -40,28 +45,29 @@
     }
   }
 
-  body.contact-page & #page-top{
-    padding-left: 1.5rem;
+  body.contact-page & #page-top {
+    margin-left: 3.2rem;
     @include sp {
-      margin-right: 4.5rem;
+      margin-right: 3rem;
     }
   }
 
-
   #contact-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     pointer-events: auto;
+    line-height: 1;
+    padding: 0;
     background-color: $color-red;
     color: #fff;
     font-size: 2rem;
     width: 30rem;
     height: 6rem;
     letter-spacing: 0.29rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     transition: color 0.4s, background-color 0.4s, border-color 0.4s;
-    border: 0.1rem solid transparent;
+    border: 0.1rem solid $color-red;
     &:hover {
       background-color: #fff;
       color: $color-red;
@@ -70,7 +76,6 @@
     @include sp {
       width: 33.5rem;
       height: 5.9rem;
-      padding-top: 0;
       align-self: center;
     }
   }

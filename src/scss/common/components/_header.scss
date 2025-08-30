@@ -55,13 +55,15 @@
               font-size: 1.8rem;
               color: #fff;
               background-color: $color-red;
-              transition: background-color 0.8s ease, opacity 0.8s ease;
-              // transition: all 0.4s ease;
+              transition:
+              opacity 0.4s ease,
+              color 0.4s ease,
+              background-color 0.4s ease,
+              border-color 0.4s ease,
             }
             &:hover a {
               background-color: #000;
               opacity: 1 !important;
-              color: rgba(255, 255, 255, 0.5);
             }
           }
         }
@@ -70,14 +72,17 @@
 
     .header__logo {
       height: 8rem;
-      display: flex;
-      align-items: center;
-      transition: 0.4s all ease;
+      transition: opacity 0.4s ease;
       @include sp {
         height: 5rem;
       }
       &:hover {
         opacity: 0.6;
+      }
+      .header__logo-link {
+        display: flex;
+        align-items: center;
+        height: 100%;
       }
 
       img {
@@ -118,7 +123,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.4s ease;
+      transition: background-color 0.4s ease, opacity 0.4s ease;
       z-index: 999;
       &:hover {
         opacity: 0.6;
@@ -140,7 +145,7 @@
           border-radius: 10px;
           position: relative;
           left: 0;
-          transition: all 0.4s;
+          transition: transform 0.4s ease, opacity 0.4s ease;
         }
       }
 
@@ -178,6 +183,11 @@
           height: 8rem;
           font-size: 1.7rem;
           position: relative;
+          transition: opacity 0.4s ease,
+          color 0.4s ease,
+          background 0.8s ease,
+          border-color 0.4s ease,
+          transform 0.4s ease;
           @include sp {
             height: 5.8rem;
           }
@@ -192,7 +202,7 @@
             background-color: #000;
             transform: scaleX(0);
             transform-origin: left;
-            transition: all 0.4s ease;
+            transition: 0.4s ease;
 
             @include sp {
               display: none;
@@ -220,8 +230,8 @@
             font-size: 1.5rem;
             justify-content: center;
             border: 0.1rem solid transparent;
-            transition: all 0.4s;
-
+            transition: background-color 0.4s ease,
+            color 0.4s ease, border-color 0.4s ease;
             &:hover {
               background-color: #fff;
               color: $color-red;

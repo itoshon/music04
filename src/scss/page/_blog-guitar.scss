@@ -86,11 +86,11 @@
       width: 100%;
     }
     .p-blog {
-      padding-top: 7rem;
+      margin-top: 7rem;
       width: 100%;
       height: auto;
       @include sp {
-        padding-top: 5.2rem;
+        margin-top: 5.2rem;
       }
       .p-blog__head {
         width: 100%;
@@ -139,7 +139,8 @@
         gap: 0.3rem;
       }
       a {
-        transition: all 0.4s;
+        display: block;
+        transition: opacity 0.8s ease;
         &:hover {
           opacity: 0.6;
         }
@@ -182,7 +183,7 @@
       .p-blog__text-img {
         margin-top: 1.7rem;
         width: 33.5rem;
-        aspect-ratio: 33.5 / 20;
+        aspect-ratio: 335 / 200;
         overflow: hidden;
         @include sp {
           margin-top: 4rem;
@@ -205,21 +206,21 @@
       width: 100%;
       border: none;
       border-top: 0.5px solid #000;
-      padding-top: 0.9rem;
+      margin: 0.7rem 0;
       @include sp {
-        padding-top: 0;
+        margin: 1.9rem 0;
       }
     }
 
     .p-blog__quotation {
       .p-blog__quotation-head {
-        margin-top: 3.5rem;
+        margin-top: 3.6rem;
         position: relative;
         font-size: 2rem;
         padding-left: 1.1rem;
         line-height: calc(25 / 20);
         @include sp {
-          margin-top: 4.4rem;
+          margin-top: 2.5rem;
           padding-left: 0.9rem;
           line-height: calc(30 / 20);
         }
@@ -244,7 +245,7 @@
         padding: 1.7rem 3rem 1.1rem 6.7rem;
         @include sp {
           margin-top: 2rem;
-          padding: 1.7rem 2rem 1.1rem 7rem;
+          padding: 1.7rem 2rem 1.6rem 7rem;
         }
         &::before {
           content: "";
@@ -280,14 +281,14 @@
         font-weight: 700;
         color: $color-red;
         border-bottom: 0.1rem solid $color-red;
-        line-height: calc(20 / 20);
+        line-height: calc(18 / 20);
         margin-top: 3.4rem;
-        transition: all 0.4s;
+        transition: opacity 0.8s ease;
         &:hover {
           opacity: 0.6;
         }
         @include sp {
-          line-height: calc(25 / 20);
+          line-height: calc(21 / 20);
         }
       }
     }
@@ -301,12 +302,12 @@
       gap: 7.9rem;
 
       @include sp {
-        margin-top: 4.9rem;
+        margin-top: 4.7rem;
         gap: 2.2rem;
       }
       a {
         display: block;
-        transition: all 0.4s;
+        transition: opacity 0.8s ease;
         &:hover {
           opacity: 0.6;
         }
@@ -325,12 +326,12 @@
           display: block;
           width: 100%;
           height: 3.7rem;
+          margin-bottom: 1.6rem;
           background-color: #000;
           color: #fff;
           font-size: 1.7rem;
           line-height: calc(30 / 17);
           font-weight: 500;
-          margin-bottom: 1.5rem;
           text-decoration: none;
         }
         .prev {
@@ -393,7 +394,7 @@
       width: 100%;
       height: auto;
       @include sp {
-        margin-top: 9.1rem;
+        margin-top: 8.8rem;
         margin-bottom: -2.2rem;
       }
       .c-title-black {
@@ -414,7 +415,7 @@
           display: flex;
           margin-top: 3rem;
           gap: 3rem;
-          transition: all 0.4s;
+          transition: opacity 0.8s ease;
           &:hover {
             opacity: 0.6;
           }
@@ -487,7 +488,7 @@
     background-color: #fff;
     border: 0.5px solid #000;
     @include sp {
-      margin-bottom: 3rem;
+      margin-bottom: 3.2rem;
     }
     .p-widget__body {
       display: flex;
@@ -498,7 +499,8 @@
       text-align: center;
       align-items: center;
       justify-content: center;
-      transition: all 0.4s;
+      transition: opacity 0.8s ease, background-color 0.8s ease;
+
       &:hover {
         opacity: 0.6;
       }
@@ -525,6 +527,8 @@
         width: 100%;
         height: 4rem;
         padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1.8rem;
         font-weight: 500;
         background-color: #e8e8e8;
         @include sp {
@@ -536,7 +540,7 @@
         height: 4rem;
         padding: 0.6rem;
         background-color: #000;
-        transition: all 0.4s;
+        transition: opacity 0.8s ease, background-color 0.8s ease;
         &:hover {
           opacity: 0.6;
         }
@@ -560,7 +564,8 @@
       display: flex;
       gap: 1.5rem;
       margin-top: 1.5rem;
-      transition: all 0.4s;
+      transition: opacity 0.8s ease;
+
       &:hover {
         opacity: 0.6;
       }
@@ -570,16 +575,17 @@
       }
       .p-widget__recommend-img {
         background-color: #e8e8e8;
+        flex: 0 0 9.5rem;
         width: 9.5rem;
         height: 7.5rem;
         @include sp {
+          flex: 0 0 16rem;
           width: 16rem;
           height: 11rem;
         }
       }
       .p-blog__text {
         margin-top: -0.4rem;
-        width: 14rem;
         font-size: 1.7rem;
         line-height: calc(28 / 17);
         display: -webkit-box;
@@ -619,7 +625,8 @@
           font-size: 1.7rem;
           line-height: calc(47 / 17);
           font-weight: 500;
-          transition: color 0.4s, background-color 0.4s;
+          transition: color 0.4s ease, background-color 0.4s ease;
+
           &:hover {
             color: $color-red;
             background-color: rgba(203, 0, 0, 0.1);

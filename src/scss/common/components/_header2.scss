@@ -56,7 +56,6 @@
               color: #fff;
               background-color: $color-red;
               transition: background-color 0.8s ease, opacity 0.8s ease;
-              // transition: all 0.4s ease;
             }
             &:hover a {
               background-color: #000;
@@ -72,7 +71,7 @@
       height: 8rem;
       display: flex;
       align-items: center;
-      transition: 0.4s all ease;
+      transition: 0.4s ease;
       @include sp {
         height: 5rem;
       }
@@ -118,7 +117,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.4s ease;
+      transition: 0.4s ease;
       z-index: 999;
       &:hover {
         opacity: 0.6;
@@ -140,7 +139,7 @@
           border-radius: 10px;
           position: relative;
           left: 0;
-          transition: all 0.4s;
+          transition: 0.4s;
         }
       }
 
@@ -192,7 +191,7 @@
             background-color: #000;
             transform: scaleX(0);
             transform-origin: left;
-            transition: all 0.4s ease;
+            transition: 0.4s ease;
 
             @include sp {
               display: none;
@@ -220,7 +219,7 @@
             font-size: 1.5rem;
             justify-content: center;
             border: 0.1rem solid transparent;
-            transition: all 0.4s;
+            transition: 0.4s;
 
             &:hover {
               background-color: #fff;

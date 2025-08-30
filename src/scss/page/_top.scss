@@ -33,7 +33,6 @@
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: block;
     display: flex;
     text-align: center;
     color: #ffffff;
@@ -55,8 +54,9 @@
   width: 100%;
   height: auto;
   background-color: #fff;
-  padding-top: 6.5rem;
+  margin-top: 6.5rem;
   @include sp {
+    margin-top: 0;
     padding-top: 4.7rem;
   }
   h2 {
@@ -144,7 +144,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 1.7rem;
+      // padding-top: 1.7rem;
       .eng {
         flex: 1;
         text-align: right;
@@ -152,7 +152,7 @@
         line-height: calc(50 / 25);
         color: $color-red;
         margin-right: 3rem;
-        padding-top: 0.2rem;
+        padding-top: 1.9rem;
         @include sp {
           font-size: 2rem;
           line-height: calc(50 / 20);
@@ -164,6 +164,7 @@
         height: 2rem;
         border-radius: 50%;
         background-color: $color-red;
+        margin-top: 1.9rem;
       }
       .jpn {
         flex: 1;
@@ -172,6 +173,7 @@
         line-height: calc(50 / 23);
         font-weight: 500;
         margin-left: 3rem;
+        padding-top: 1.9rem;
         @include sp {
           font-size: 2rem;
         }
@@ -182,14 +184,12 @@
 
 // 音楽業界初！
 .main__about-com-section {
-  margin-top: 3.3rem;
   padding: 6.8rem 0 6rem;
   width: 100%;
   height: auto;
   background-color: $color-red;
   @include sp {
     margin-top: 1.38rem;
-    padding-top: 5rem;
     padding-bottom: 4rem;
   }
   .main__about-com {
@@ -218,8 +218,7 @@
 .main__reason {
   width: 100%;
   height: auto;
-  padding: 6.5rem 0;
-  margin-bottom: 2.5rem;
+  margin-top: 6.5rem;
   @include sp {
     padding-top: 5rem;
     padding-bottom: 3.9rem;
@@ -228,7 +227,8 @@
   h2 {
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 3.2rem;
+    line-height: calc(33 / 20);
+    margin-bottom: 2.8rem;
     @include sp {
       font-size: 2.5rem;
       line-height: calc(40 / 25);
@@ -241,6 +241,7 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    margin-bottom: 9rem;
     @include sp {
       gap: 3.9rem;
     }
@@ -274,7 +275,7 @@
           font-size: 2.2rem;
           display: inline-block;
           position: relative;
-          padding-top: 0.9rem;
+          padding-top: 0.7rem;
           padding-left: 5rem;
           @include sp {
             padding: 0;
@@ -284,7 +285,7 @@
         }
         .main__reason-box-com {
           margin-top: 0.9rem;
-          border-top: $color-red 0.2rem solid;
+          border-top: 2px solid $color-red;
           padding-top: 3.7rem;
           padding-left: 5rem;
           @include sp {
@@ -307,7 +308,7 @@
       &:nth-child(2),
       &:nth-child(3) {
         .main__reason-box-com-area {
-          h4 {
+          h3 {
             padding-top: 0rem;
           }
         }
@@ -319,8 +320,8 @@
 // 生徒さんたちの声
 .main__voice {
   width: 100%;
-  padding-top: 4.7rem;
-  padding-bottom: 8.2rem;
+  padding-top: 4.5rem;
+  padding-bottom: 8rem;
   background-color: $color-red;
   @include sp {
     padding-top: 4.8rem;
@@ -331,7 +332,7 @@
     font-size: 3rem;
     color: #fff;
     text-align: center;
-    margin-bottom: 3.8rem;
+    margin-bottom: 4rem;
     @include sp {
       margin-bottom: 4rem;
       font-size: 2.5rem;
@@ -342,51 +343,52 @@
 /* スライド枠 */
 .main__voice-wrapper {
   position: relative;
-  width: 88.35rem;
+  max-width: 88rem;
   margin: 0 auto;
-  box-sizing: border-box;
   overflow: visible;
   @include sp {
     width: 100%;
-    height: auto;
   }
   .slick-list {
-    margin: 0 -1.6rem;
     overflow: hidden;
-    width: calc(100% + 3.2rem);
+    margin: 0 -1.75rem;
+    padding: 0;
+    box-sizing: border-box;
     cursor: grab;
+
     &:active {
       cursor: grabbing;
     }
-    @include sp {
-      margin: 0;
-      width: 100%;
-    }
   }
+
   .slick-slide {
-    margin: 0 1.7rem;
+    padding: 0 1.75rem;
     box-sizing: border-box;
+    float: left;
   }
 }
 
 .main__voice-card {
   display: flex;
   flex-direction: column;
-  transition: all 0.4s;
+  gap: 1.6rem;
+  transition: opacity 0.4s ease;
   &:hover {
     opacity: 0.6;
   }
   .main__voice-card-img {
-    width: 27rem;
-    aspect-ratio: 27 / 19;
+    width: 100%;
     overflow: hidden;
+    position: relative;
+    padding-top: calc(100% * 19 / 27);
     @include sp {
-      width: 100%;
       aspect-ratio: 34 / 20;
     }
     picture,
     img {
-      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -394,19 +396,12 @@
     }
   }
   .main__voice-card-com {
-    @include sp {
-      width: 99.4%;
-      height: 100%;
-    }
     h3 {
       color: #fff;
       font-size: 2.2rem;
       font-weight: 700;
       text-align: center;
       margin-top: 1.5rem;
-      @include sp {
-        margin-top: 2.8rem;
-      }
     }
     p {
       font-size: 1.8rem;
@@ -421,11 +416,11 @@
 /* 矢印ボタン */
 .voice-arrow {
   position: absolute;
-  top: 42.1%;
+  top: 42.6%;
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 10;
-  transition: all 0.4s ease;
+  transition: opacity 0.4s ease;
   &:hover {
     opacity: 0.6;
   }
@@ -438,18 +433,18 @@
     width: 100%;
     height: auto;
   }
-  &--prev {
-    left: -4rem;
-    @include sp {
-      left: 2rem;
-    }
-  }
-  &--next {
-    right: -4rem;
-    @include sp {
-      right: 2rem;
-    }
-  }
+  // &--prev {
+  //   left: -4.2rem;
+  //   @include sp {
+  //     left: 2rem;
+  //   }
+  // }
+  // &--next {
+  //   right: -4.2rem;
+  //   @include sp {
+  //     right: 2rem;
+  //   }
+  // }
 }
 
 // ご利用の流れ
@@ -474,8 +469,8 @@
     display: flex;
     justify-content: center;
     position: relative;
-    padding-left: 1rem;
-    padding-top: 5.5rem;
+    margin-left: 1rem;
+    margin-top: 5.5rem;
     align-items: stretch;
     @include sp {
       padding-left: 1.2rem;
@@ -598,8 +593,8 @@
 .main__faq {
   width: 100%;
   height: auto;
-  padding-top: 5.2rem;
-  padding-bottom: 7rem;
+  margin-top: 5.2rem;
+  margin-bottom: 7rem;
   @include sp {
     padding-top: 3.3rem;
     padding-bottom: 4.6rem;
@@ -607,6 +602,7 @@
   h2 {
     text-align: center;
     font-size: 3rem;
+    padding-top: 5rem;
     @include sp {
       font-size: 2.5rem;
     }
@@ -614,7 +610,7 @@
   .main__faq-list {
     width: 100%;
     height: auto;
-    margin-top: 3.6rem;
+    margin-top: 3.9rem;
     @include sp {
       margin-top: 3.5rem;
     }
@@ -694,7 +690,7 @@
   /* ── 回答 ── */
   .faq__answer {
     display: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: none;
     padding: 1.7rem 3rem 1.4rem 2rem;
     background-color: rgba(203, 0, 0, 0.1);
     cursor: pointer;
@@ -735,11 +731,14 @@
   .faq__question[aria-expanded="true"] + .faq__answer {
     display: block;
   }
+  .faq__question[aria-expanded="true"] + .faq__answer[hidden] {
+    display: block;
+  }
 }
 
 // ブログ
 .main__blog-list {
-  padding-bottom: 20.7rem;
+  padding-bottom: 20.9rem;
   @include sp {
     padding-bottom: 19.1rem;
   }
@@ -751,26 +750,29 @@
     }
   }
   .main__blog-list__item {
-    margin-top: 3.8rem;
-    padding-bottom: 4rem;
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
+    justify-content: flex-start;
+    margin-top: 3.8rem;
+    margin-bottom: 4rem;
     @include sp {
       flex-direction: column;
       margin-top: 4.3rem;
       gap: 4.4rem;
     }
     .main__blog-list__item-box {
-      flex-basis: calc((100% - 10rem) / 3);
-      width: 26rem;
-      transform: all 0.4s ease;
-      @include sp {
-        width: 100%;
-        flex-basis: 100%;
-      }
+      flex: 0 0 calc((100% - 10rem) / 3);
+      max-width: calc((100% - 10rem) / 3);
+      transition: opacity 0.4s ease;
       &:hover {
-        opacity: 0.6;
+        opacity: 0.4;
+      }
+
+      @include sp {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: 100%;
       }
       .main__blog-list__item-link {
         display: flex;
@@ -778,7 +780,7 @@
         gap: 2rem;
       }
       .main__blog-list__item-img {
-        width: 26rem;
+        width: 100%;
         aspect-ratio: 13 / 10;
         position: relative;
         @include sp {
@@ -802,7 +804,7 @@
           align-items: center;
           justify-content: center;
           font-size: 1.5rem;
-          line-height: calc(25/ 15);
+          line-height: calc(30 / 15);
           color: #fff;
           background-color: $color-red;
           position: absolute;
@@ -849,7 +851,7 @@
   text-decoration: underline;
   text-decoration-color: #000;
   text-underline-offset: 0.3rem;
-  transition: all 0.4s;
+  transition: opacity 0.4s ease;
   &:hover {
     opacity: 0.6;
   }

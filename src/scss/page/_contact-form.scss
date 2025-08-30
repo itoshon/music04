@@ -41,15 +41,18 @@
     text-align: center;
   }
 }
-
+.contact {
+  margin-top: 6.7rem;
+  @include sp {
+    margin-top: 4.7rem;
+  }
+}
 .contact__form-com {
   font-size: 1.8rem;
   font-weight: 500;
   text-align: center;
-  margin-top: 6.7rem;
   line-height: calc(30 / 18);
   @include sp {
-    margin-top: 4.7rem;
     text-align: left;
     font-size: 1.6rem;
     line-height: calc(30 / 16);
@@ -61,7 +64,7 @@
   width: 100%;
   height: auto;
   @include sp {
-    margin-top: 3.9rem;
+    margin-top: 3.6rem;
   }
   /* ── テキスト入力用ブロック ── */
   .contact__form-block {
@@ -73,7 +76,7 @@
       width: 100%;
       height: auto;
       flex-direction: column;
-      margin-bottom: 2.2rem;
+      margin-bottom: 1.7rem;
     }
 
     .contact__form-label {
@@ -87,6 +90,7 @@
       @include sp {
         width: 100%;
         font-size: 1.6rem;
+        margin-bottom: 0.2rem;
       }
     }
     .contact__form-input {
@@ -106,7 +110,7 @@
       @include sp {
         width: 100%;
         height: auto;
-        padding: 0.7rem 2rem;
+        padding: 0.9rem 2rem;
         line-height: normal;
         margin-left: 0;
       }
@@ -117,7 +121,6 @@
   .contact__form-block--textarea {
     align-items: flex-start;
     height: auto;
-    margin-bottom: 3rem;
     .contact__form-label {
       padding-top: 0.5rem;
     }
@@ -157,19 +160,21 @@
       margin-left: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.3rem;
+      gap: 2.1rem;
       align-items: flex-start;
       @include sp {
         margin: 0;
-        gap: 1.6rem;
+        gap: 2rem;
       }
       .checkboxItem {
         display: flex;
         align-items: center;
         font-size: 1.8rem;
+        line-height: calc(18 / 18);
         font-weight: 500;
         color: #000;
         cursor: pointer;
+
         @include sp {
           font-size: 1.6rem;
           padding-top: 0.1rem;
@@ -193,8 +198,8 @@
   .contact__form-group--submit {
     display: flex;
     justify-content: center;
-    margin-top: 4.8rem;
-    margin-bottom: 10rem;
+    margin-top: 5.3rem;
+    margin-bottom: 9.9rem;
     @include sp {
       margin-top: 5.1rem;
       margin-bottom: 10.7rem;

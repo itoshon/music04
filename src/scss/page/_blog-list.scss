@@ -43,16 +43,23 @@
 }
 
 .blog-list__container {
-  padding-top: 6.7rem;
+  margin-top: 6.7rem;
+  margin-bottom: 21.1rem;
   @include sp {
-    padding-top: 4.8rem;
+    margin-top: 4.8rem;
+    margin-bottom: 20.1rem;
   }
   h2 {
     font-size: 2.5rem;
-    padding-bottom: 3.9rem;
+    margin-bottom: 3.9rem;
     text-align: center;
     @include sp {
-      padding-bottom: 3.6rem;
+      margin-bottom: 3.8rem;
+    }
+  }
+  .blog-list__item {
+    @include sp {
+      margin-bottom: 5.3rem;
     }
   }
   .blog-list__item-box {
@@ -61,7 +68,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 7rem;
-    transition: all 0.4s;
+    transition: opacity 0.4s ease;
     &:hover {
       opacity: 0.6;
     }
@@ -117,6 +124,7 @@
           background-color: $color-red;
           position: absolute;
           top: 0;
+          left: 0;
           @include sp {
             min-width: 9rem;
           }
@@ -183,15 +191,10 @@
 
 .pagination {
   display: flex;
-  padding: 0;
-  margin-top: -0.3rem;
-  margin-bottom: 21.1rem;
   list-style: none;
   gap: 1rem;
   justify-content: center;
   @include sp {
-    margin-top: 6.5rem;
-    margin-bottom: 20.2rem;
     gap: 0.3rem;
   }
 }
@@ -208,7 +211,7 @@
   color: #000;
   text-decoration: none;
   border: 0.1rem solid #000;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
   &:hover {
     background-color: #000;
     color: #fff;

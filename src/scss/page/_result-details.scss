@@ -4,13 +4,11 @@
 .graduation__pops-banner {
   width: 100%;
   height: 40rem;
-  aspect-ratio: 880 / 400;
   margin-top: 7rem;
   position: relative;
 
   @include sp {
     height: 23.6rem;
-    aspect-ratio: 335 / 236;
     margin-top: 5rem;
   }
 
@@ -36,6 +34,7 @@
   background-color: $color-red;
   position: absolute;
   top: 0;
+  left: 0;
   padding: 0 0.5rem;
 }
 
@@ -51,7 +50,7 @@
     }
   }
 
-  h3 {
+  h2 {
     display: block;
     font-size: 2.5rem;
     justify-content: center;
@@ -102,6 +101,7 @@
       padding-left: 2rem;
       font-size: 1.8rem;
       line-height: calc(37 / 18);
+      vertical-align: middle;
       @include sp {
         width: 12rem;
         padding-left: 0.9rem;
@@ -115,6 +115,7 @@
       margin: 0;
       font-size: 1.8rem;
       font-weight: 500;
+      vertical-align: middle;
       @include sp {
         width: 21.5rem;
         padding-left: 0.9rem;
@@ -150,7 +151,7 @@
   }
   a {
     display: block;
-    transition: all 0.4s;
+    transition: opacity 0.4s ease;
     &:hover {
       opacity: 0.6;
     }
@@ -262,7 +263,7 @@
       display: flex;
       margin-top: 3rem;
       gap: 3rem;
-      transition: all 0.4s;
+      transition: opacity 0.4s ease;
       &:hover {
         opacity: 0.6;
       }
@@ -286,6 +287,9 @@
         object-position: center;
       }
       .c-tag {
+        position: absolute;
+        top: 0;
+        left: 0;
         min-width: 10rem;
         width: auto;
         height: auto;
@@ -316,10 +320,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
         @include sp {
+          white-space: wrap;
           height: 5.5rem;
           font-size: 1.7rem;
           line-height: calc(28 / 17);
-          white-space: wrap;
           overflow: hidden;
         }
       }

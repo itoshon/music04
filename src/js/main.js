@@ -30,41 +30,64 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
   // トップボタンとお問い合わせボタン
-  document.addEventListener('DOMContentLoaded', () => {
-    const floatingBtn = document.getElementById('floating-btn');
-    const pageTopBtn  = document.getElementById('page-top');
-    const footer      = document.querySelector('footer');
-    const threshold   = 200;  // 何pxスクロールしたら表示するか
+document.addEventListener('DOMContentLoaded', () => {
+  const floatingBtn = document.getElementById('floating-btn');
+  const pageTopBtn  = document.getElementById('page-top');
+  const footer      = document.querySelector('footer');
 
-    window.addEventListener('scroll', () => {
-      const scY = window.scrollY;
+  // 何pxスクロールしたら表示するか
+  const threshold   = 200;
 
-      // 200px超えたら表示
-      if (scY > threshold) {
-        floatingBtn.style.display = 'flex';
-      } else {
-        floatingBtn.style.display = 'none';
-        return;
-      }
+  const SAFE_GAP    = 0;
 
-      // フッターと重なっているか判定
+  let ticking = false;
+
+  function update() {
+    const scY = window.scrollY || window.pageYOffset;
+
+    // 即時の表示/非表示（アニメなし）
+    if (scY > threshold) {
+      floatingBtn.classList.add('is-visible');
+    } else {
+      floatingBtn.classList.remove('is-visible');
+      floatingBtn.style.bottom = '0px'; // 画面下に固定へ戻す
+      ticking = false;
+      return;
+    }
+
+
+    if (footer) {
       const footRect = footer.getBoundingClientRect();
       const overlap  = window.innerHeight - footRect.top;
 
-      if (overlap > 0) {
-        // フッターにかかった分だけ上に浮かす
-        floatingBtn.style.bottom = `${overlap}px`;
-      } else {
-        // 通常時は画面下
-        floatingBtn.style.bottom = '0px';
-      }
-    });
+      const offset = overlap > 0 ? Math.max(0, Math.floor(overlap - SAFE_GAP)) : 0;
 
-    // トップへ戻る
-    pageTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      floatingBtn.style.bottom = offset + 'px';
+    } else {
+      floatingBtn.style.bottom = '0px';
+    }
+
+    ticking = false;
+  }
+
+  function onScrollOrResize() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(update); // 同一フレームで確定値のみ反映（カチッ挙動）
+    }
+  }
+
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize);
+
+  // 初期反映
+  update();
+
+  // トップへ戻る（カチッと戻す場合は 'auto'）
+  pageTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
   });
+});
 
 
 // リストページネーション
@@ -77,92 +100,141 @@ document.addEventListener('DOMContentLoaded', () => {
  *   delta:          前後に見せるページ数
  * }
  */
-function initPagination({ listSelector, pagerSelector, itemsPerPage = 10, delta = 2 }) {
+function initPagination({
+  listSelector,
+  pagerSelector,
+  itemsPerPage = 10,
+  delta = 2,
+  pageParam = 'page'
+}) {
   const listEl  = document.querySelector(listSelector);
   const pagerEl = document.querySelector(pagerSelector);
-  if (!listEl || !pagerEl) return;  // 存在しなければ何もしない
+  if (!listEl || !pagerEl) return;
 
-  const items      = Array.from(listEl.children);
-  const totalPages = Math.ceil(items.length / itemsPerPage);
-  const params     = new URLSearchParams(location.search);
-  let currentPage  = Math.min(
-    Math.max(Number(params.get('page')) || 1, 1),
-    totalPages
-  );
+  const items = Array.from(listEl.children);
+  const totalItems  = items.length;
+  const totalPages  = Math.ceil(totalItems / itemsPerPage);
 
-  function getVisiblePages(current, total, delta) {
+  // 1ページ以内なら非表示
+  if (totalPages <= 1) {
+    pagerEl.style.display = 'none';
+    items.forEach(el => { el.style.display = ''; });
+    const sp = new URLSearchParams(location.search);
+    if (sp.has(pageParam)) {
+      sp.delete(pageParam);
+      const url = location.pathname + (sp.toString() ? '?' + sp.toString() : '') + location.hash;
+      history.replaceState(null, '', url);
+    }
+    return;
+  } else {
+    pagerEl.style.display = '';
+  }
+
+  const params = new URLSearchParams(location.search);
+  let currentPage = Number(params.get(pageParam)) || 1;
+  if (currentPage < 1) currentPage = 1;
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  function showPage(page) {
+    const start = (page - 1) * itemsPerPage;
+    const end   = start + itemsPerPage;
+    items.forEach((item, i) => {
+      item.style.display = (i >= start && i < end) ? '' : 'none';
+    });
+  }
+
+  function getVisiblePages(current, total, d) {
     const pages = [1];
-    const start = Math.max(2, current - delta);
-    const end   = Math.min(total - 1, current + delta);
+    const start = Math.max(2, current - d);
+    const end   = Math.min(total - 1, current + d);
     for (let i = start; i <= end; i++) pages.push(i);
     if (total > 1) pages.push(total);
 
     const result = [];
     let prev = null;
     for (const p of pages) {
-      if (prev !== null && p - prev > 1) result.push('…');
+      if (prev !== null && p - prev > 1) result.push('ellipsis');
       result.push(p);
       prev = p;
     }
     return result;
   }
 
-  function renderPager() {
-    const visible = getVisiblePages(currentPage, totalPages, delta);
-    pagerEl.innerHTML = visible.map(item => {
-      if (item === '…') return `<li class="ellipsis">…</li>`;
-      return item === currentPage
-        ? `<li class="active"><a>${item}</a></li>`
-        : `<li><a href="?page=${item}">${item}</a></li>`;
-    }).join('');
-  }
+  function renderPager(page) {
+    const vis = getVisiblePages(page, totalPages, delta);
+    const sp  = new URLSearchParams(location.search);
 
-  function showPage() {
-    const start = (currentPage - 1) * itemsPerPage;
-    const end   = start + itemsPerPage;
-    items.forEach((item, idx) => {
-      item.style.display = idx >= start && idx < end ? '' : 'none';
-    });
-  }
+    function makeHref(target) {
+      const copy = new URLSearchParams(sp);
+      if (target === 1) copy.delete(pageParam);
+      else copy.set(pageParam, String(target));
+      return location.pathname + (copy.toString() ? '?' + copy.toString() : '') + location.hash;
+    }
 
-  renderPager();
-  showPage();
-
-  pagerEl.addEventListener('click', e => {
-    if (e.target.tagName === 'A') {
-      e.preventDefault();
-      const num = Number(e.target.textContent);
-      if (!Number.isNaN(num) && num !== currentPage) {
-        currentPage = num;
-        renderPager();
-        showPage();
+    const parts = [];
+    for (const item of vis) {
+      if (item === 'ellipsis') {
+        parts.push(`<li class="ellipsis" aria-hidden="true">…</li>`);
+      } else if (item === page) {
+        parts.push(`<li class="active"><a aria-current="page">${item}</a></li>`);
+      } else {
+        parts.push(`<li><a href="${makeHref(item)}">${item}</a></li>`);
       }
+    }
+    pagerEl.innerHTML = parts.join('');
+  }
+
+  function updateURL(page) {
+    const sp = new URLSearchParams(location.search);
+    if (page === 1) sp.delete(pageParam);
+    else sp.set(pageParam, String(page));
+    const url = location.pathname + (sp.toString() ? '?' + sp.toString() : '') + location.hash;
+    history.replaceState(null, '', url);
+  }
+
+  function render(page) {
+    showPage(page);
+    renderPager(page);
+    updateURL(page);
+  }
+
+  render(currentPage);
+
+  pagerEl.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    e.preventDefault();
+    const num = Number(a.textContent.trim());
+    if (!Number.isNaN(num) && num !== currentPage) {
+      currentPage = num;
+      render(currentPage);
     }
   });
 }
 
-// ：ブログリスト用
+// ===== 使用例 =====
 initPagination({
   listSelector:  '#blog-list',
   pagerSelector: '#pagination',
   itemsPerPage:  10,
-  delta:         2
+  delta:         2,
+  pageParam:     'page'
 });
 
-// ：検索ページ用
 initPagination({
   listSelector:  '#search-list',
   pagerSelector: '#pagination',
   itemsPerPage:  10,
   delta:         2,
+  pageParam:     'sPage'
 });
 
-// 卒業実績リスト用
 initPagination({
   listSelector:  '#graduation-list',
   pagerSelector: '#graduation-pagination',
   itemsPerPage:  10,
   delta:         2,
+  pageParam:     'gPage'
 });
 
 // アコーディオンメニュー

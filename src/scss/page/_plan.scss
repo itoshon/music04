@@ -47,11 +47,11 @@
   @include sp {
     padding-top: 4.8rem;
     padding-bottom: 4rem;
-    // padding: 5rem 0;
   }
   h2 {
     text-align: center;
     font-size: 2.5rem;
+    margin-bottom: 3.9rem;
   }
   .plan__type-info {
     width: 100%;
@@ -60,10 +60,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin-top: 3.9rem;
     @include sp {
-      margin-top: 3.9rem;
-      margin-left: 0;
       flex-direction: column;
       gap: 1.98rem;
     }
@@ -91,33 +88,28 @@
       content: "";
       position: absolute;
       background-color: #000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .plus::before {
-      top: 0;
-      left: 50%;
-      width: 0.3rem; /* 棒の太さ */
+      width: 3px;
       height: 100%;
-      transform: translateX(-50%);
     }
 
     .plus::after {
-      top: 50%;
-      left: 0;
       width: 100%;
-      height: 0.3rem;
-      transform: translateY(-50%);
+      height: 3px;
     }
   }
   p {
     margin-top: 4.8rem;
-    margin-left: -0.4rem;
     font-size: 1.8rem;
     line-height: calc(30 / 18);
     font-weight: 500;
     @include sp {
       margin-top: 4.7rem;
-      margin-left: 0;
       font-size: 1.6rem;
       line-height: calc(30 / 16);
     }
@@ -128,18 +120,15 @@
 .plan__month {
   width: 100%;
   height: auto;
-  padding-bottom: 6.9rem;
-  margin-bottom: 15.5rem;
+  margin-bottom: 22.5rem;
   @include sp {
-    margin-bottom: 11.6rem;
+    margin-bottom: 18.3rem;
   }
-  .inner {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+
   h2 {
     text-align: center;
     font-size: 2.5rem;
+    margin-bottom: 3rem;
   }
 
   .table-wrapper {
@@ -170,9 +159,10 @@
     }
     .simplebar-track {
       position: absolute;
-      background: rgba(80, 80, 80, 0.15);
+      left: 0; right: 0; bottom: 0;
       width: 100%;
       height: 2.5rem;
+      background: rgba(80, 80, 80, 0.15);
     }
   }
 
@@ -180,7 +170,7 @@
     width: 100%;
     min-width: 67.5rem;
     border-collapse: collapse;
-    margin-top: 8rem;
+    margin-top: 4.9rem;
     margin-bottom: 2.5rem;
     border-bottom: 1px solid #000;
     th,
@@ -189,6 +179,7 @@
       vertical-align: middle;
       text-align: center;
       border-right: 1px solid #000;
+      padding: 0.8rem 1.2rem;
       &:last-child {
         border: none;
       }
@@ -197,7 +188,6 @@
     thead th {
       position: relative;
       height: 5rem;
-      // border-bottom: 1px solid #000;
       @include sp {
         height: 6.5rem;
       }
@@ -234,10 +224,13 @@
         box-sizing: border-box;
         position: absolute;
         top: -3rem;
-        padding-top: 1.1rem;
         left: -1px;
-        width: 101%;
+        right: -1px;
+        padding-top: 2rem;
         height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         line-height: calc(30 / 17);
         text-align: center;
         background: $color-red;
@@ -300,8 +293,8 @@
     }
     .dot {
       display: inline-block;
-      width: 0.8em;
-      height: 0.8em;
+      width: 1.5rem;
+      aspect-ratio: 1 / 1;
       background: #000;
       border-radius: 50%;
       vertical-align: middle;
@@ -314,7 +307,7 @@
     .line {
       display: inline-block;
       width: 3rem;
-      height: 0.1rem;
+      height: 1px;
       background-color: currentColor;
       vertical-align: middle;
     }
