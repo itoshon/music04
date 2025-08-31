@@ -31,63 +31,162 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // トップボタンとお問い合わせボタン
 document.addEventListener('DOMContentLoaded', () => {
-  const floatingBtn = document.getElementById('floating-btn');
-  const pageTopBtn  = document.getElementById('page-top');
-  const footer      = document.querySelector('footer');
+  const slot       = document.querySelector('.floating-slot');
+  const pageTopBtn = document.getElementById('page-top');
+  const SHOW_AFTER_PX = 200; // 何pxスクロールで表示するか
 
-  // 何pxスクロールしたら表示するか
-  const threshold   = 200;
-
-  const SAFE_GAP    = 0;
-
-  let ticking = false;
-
-  function update() {
-    const scY = window.scrollY || window.pageYOffset;
-
-    // 即時の表示/非表示（アニメなし）
-    if (scY > threshold) {
-      floatingBtn.classList.add('is-visible');
+  function toggle() {
+    const y = window.scrollY || window.pageYOffset;
+    if (y > SHOW_AFTER_PX) {
+      slot?.classList.remove('is-hidden');
     } else {
-      floatingBtn.classList.remove('is-visible');
-      floatingBtn.style.bottom = '0px'; // 画面下に固定へ戻す
-      ticking = false;
-      return;
-    }
-
-
-    if (footer) {
-      const footRect = footer.getBoundingClientRect();
-      const overlap  = window.innerHeight - footRect.top;
-
-      const offset = overlap > 0 ? Math.max(0, Math.floor(overlap - SAFE_GAP)) : 0;
-
-      floatingBtn.style.bottom = offset + 'px';
-    } else {
-      floatingBtn.style.bottom = '0px';
-    }
-
-    ticking = false;
-  }
-
-  function onScrollOrResize() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(update); // 同一フレームで確定値のみ反映（カチッ挙動）
+      slot?.classList.add('is-hidden');
     }
   }
 
-  window.addEventListener('scroll', onScrollOrResize, { passive: true });
-  window.addEventListener('resize', onScrollOrResize);
+  window.addEventListener('scroll', toggle, { passive: true });
+  window.addEventListener('resize', toggle);
+  toggle(); // 初期反映
 
-  // 初期反映
-  update();
-
-  // トップへ戻る（カチッと戻す場合は 'auto'）
+  // トップへ（好みで 'smooth' にしてもOK）
   pageTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   });
 });
+
+//   document.addEventListener('DOMContentLoaded', () => {
+//   const floatingBtn = document.getElementById('floating-btn');
+//   const pageTopBtn  = document.getElementById('page-top');
+//   const footer      = document.querySelector('footer');
+
+//   const SHOW_AFTER_PX = 200;
+//   const SAFE_GAP = 8;
+
+//   let ticking = false;
+//   let lastLift = -1; // 直前に適用した持ち上げ量（差分反映用）
+
+//   function computeLift() {
+//     if (!footer) return 0;
+//     const rect = footer.getBoundingClientRect();
+//     const overlap = window.innerHeight - rect.top; // 下端とフッター上端の差
+//     if (overlap <= 0) return 0;
+
+//     // 揺れ防止：整数化 + デバイスピクセルに丸め
+//     const dpr = window.devicePixelRatio || 1;
+//     const lift = Math.max(0, overlap + SAFE_GAP);
+//     return Math.round(lift * dpr) / dpr;
+//   }
+
+//   function update() {
+//     const scY = window.scrollY || window.pageYOffset;
+
+//     // 表示/非表示（opacityだけ切替）
+//     if (scY > SHOW_AFTER_PX) {
+//       if (!floatingBtn.classList.contains('is-visible')) {
+//         floatingBtn.classList.add('is-visible');
+//       }
+//     } else {
+//       if (floatingBtn.classList.contains('is-visible')) {
+//         floatingBtn.classList.remove('is-visible');
+//       }
+//       if (lastLift !== 0) {
+//         floatingBtn.style.transform = 'translate3d(0,0,0)';
+//         lastLift = 0;
+//       }
+//       ticking = false;
+//       return;
+//     }
+
+//     // フッター手前だけ「カチッ」と持ち上げる（transformにtransitionは掛けない）
+//     const lift = computeLift();
+//     if (lift !== lastLift) {
+//       if (lift > 0) {
+//         floatingBtn.style.transform = `translate3d(0, -${lift}px, 0)`;
+//       } else {
+//         floatingBtn.style.transform = 'translate3d(0,0,0)';
+//       }
+//       lastLift = lift;
+//     }
+
+//     ticking = false;
+//   }
+
+//   function onScrollOrResize() {
+//     if (!ticking) {
+//       ticking = true;
+//       requestAnimationFrame(update);
+//     }
+//   }
+
+//   // 初期反映 & 監視
+//   update();
+//   window.addEventListener('scroll', onScrollOrResize, { passive: true });
+//   window.addEventListener('resize', onScrollOrResize);
+
+//   // トップへ戻る
+//   pageTopBtn?.addEventListener('click', () => {
+//     window.scrollTo({ top: 0, behavior: 'auto' });
+//   });
+// });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const floatingBtn = document.getElementById('floating-btn');
+//   const pageTopBtn  = document.getElementById('page-top');
+//   const footer      = document.querySelector('footer');
+
+//   // 何pxスクロールしたら表示するか
+//   const threshold   = 200;
+
+//   const SAFE_GAP    = 0;
+
+//   let ticking = false;
+
+//   function update() {
+//     const scY = window.scrollY || window.pageYOffset;
+
+//     // 即時の表示/非表示（アニメなし）
+//     if (scY > threshold) {
+//       floatingBtn.classList.add('is-visible');
+//     } else {
+//       floatingBtn.classList.remove('is-visible');
+//       floatingBtn.style.bottom = '0px'; // 画面下に固定へ戻す
+//       ticking = false;
+//       return;
+//     }
+
+
+//     if (footer) {
+//       const footRect = footer.getBoundingClientRect();
+//       const overlap  = window.innerHeight - footRect.top;
+
+//       const offset = overlap > 0 ? Math.max(0, Math.floor(overlap - SAFE_GAP)) : 0;
+
+//       floatingBtn.style.bottom = offset + 'px';
+//     } else {
+//       floatingBtn.style.bottom = '0px';
+//     }
+
+//     ticking = false;
+//   }
+
+//   function onScrollOrResize() {
+//     if (!ticking) {
+//       ticking = true;
+//       requestAnimationFrame(update); // 同一フレームで確定値のみ反映（カチッ挙動）
+//     }
+//   }
+
+//   window.addEventListener('scroll', onScrollOrResize, { passive: true });
+//   window.addEventListener('resize', onScrollOrResize);
+
+//   // 初期反映
+//   update();
+
+//   // トップへ戻る（カチッと戻す場合は 'auto'）
+//   pageTopBtn?.addEventListener('click', () => {
+//     window.scrollTo({ top: 0, behavior: 'auto' });
+//   });
+// });
 
 
 // リストページネーション
