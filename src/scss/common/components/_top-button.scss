@@ -29,7 +29,7 @@
   flex-direction: column;
   align-items: center;
   gap: 3.2rem;
-  pointer-events: auto;
+  pointer-events: none;
   @include sp {
     gap: 2.2rem;
   }
@@ -40,6 +40,7 @@
   height: 6.8rem;
   border-radius: 50%;
   cursor: pointer;
+  pointer-events: auto;
   transition: opacity 0.3s ease;
 
   img {
@@ -71,6 +72,7 @@
   height: 6rem;
   letter-spacing: 0.29rem;
   cursor: pointer;
+  pointer-events: auto;
   border: 0.1rem solid $color-red;
   transition: color 0.4s, background-color 0.4s, border-color 0.4s;
 

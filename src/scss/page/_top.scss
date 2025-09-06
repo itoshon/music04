@@ -392,6 +392,11 @@
   height: 4rem;
   cursor: pointer;
   transition: opacity 0.4s ease;
+
+  @include sp {
+    top: 40.6%;
+    transform: translateY(-50%);
+  }
   &:hover {
     opacity: 0.6;
   }
@@ -411,7 +416,10 @@
   }
   &.voice-arrow--next {
     position: absolute;
-    right: 2.1rem;
+    right: 0.8rem;
+    @include sp {
+      right: 2.2rem;
+    }
   }
 }
 
