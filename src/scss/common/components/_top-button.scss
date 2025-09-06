@@ -1,38 +1,40 @@
 @use "../../global/variable" as *;
 @use "../../global/mixin" as *;
-/* ← 新規：stickyの「行」。ここが画面下に吸着し、footer手前で自然停止 */
+
 .floating-slot {
   position: sticky;
-  bottom: 16px;         // 画面下からのオフセット
-  z-index: 50;          // コンテンツより前面に
+  bottom: 16px;
+  z-index: 50;
   display: flex;
-  justify-content: flex-end; // 右寄せ（PC）
-  pointer-events: none;  // クリック可否は中身側でON
+  justify-content: flex-end;
+  pointer-events: none;
   width: 100%;
-  /* 必要ならサイト幅に合わせて内側に寄せる */
-  /* max-width: 1200px; margin: 0 auto; padding-right: 16px; */
 
   @include sp {
     bottom: 12px;
-    justify-content: center; // SPは中央寄せ
+    justify-content: center;
   }
 
-  /* 表示トグル（JSで .is-hidden を付け外し） */
-  &.is-hidden { opacity: 0; }
-  &:not(.is-hidden) { opacity: 1; transition: opacity 0.15s linear; }
+  &.is-hidden {
+    opacity: 0;
+  }
+  &:not(.is-hidden) {
+    opacity: 1;
+    transition: opacity 0.15s linear;
+  }
 }
 
-/* ← 既存 #floating-btn は「固定」や「visibility制御」をやめる */
 #floating-btn {
-  /* position: fixed; bottom/right/left/width/visibility/pointer-events は全削除 */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;           // あると見栄えが安定
-  pointer-events: auto;  // ここでクリック有効に戻す
+  gap: 3.2rem;
+  pointer-events: auto;
+  @include sp {
+    gap: 2.2rem;
+  }
 }
 
-/* 既存の子要素は基本そのままでOK（必要最低限だけ再掲） */
 #floating-btn #page-top {
   width: 6.8rem;
   height: 6.8rem;
@@ -46,12 +48,13 @@
     height: 100%;
     border-radius: 50%;
   }
-  &:hover { opacity: 0.6; }
+  &:hover {
+    opacity: 0.6;
+  }
 
   @include sp {
     align-self: flex-end;
-    margin-right: 2rem;
-    margin-bottom: 1.8rem;
+    margin-top: 4rem;
   }
 }
 
@@ -81,5 +84,27 @@
     width: 33.5rem;
     height: 5.9rem;
     align-self: center;
+  }
+}
+
+body.contact-page {
+  #floating-btn #contact-btn {
+    display: none;
+  }
+  #floating-btn {
+    gap: 0;
+    @include sp {
+      width: 100%;
+    }
+    // width: 100%;
+  }
+  #floating-btn #page-top {
+    margin-right: 9.9rem;
+    margin-bottom: 3rem;
+    @include sp {
+      margin-top: 2.1rem;
+      margin-right: 3rem;
+      margin-bottom: 1.7rem;
+    }
   }
 }

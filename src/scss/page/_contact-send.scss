@@ -42,6 +42,10 @@
 .contact__send-container {
   margin-top: 6.7rem;
   margin-bottom: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   @include sp {
     margin-top: 4.7rem;
     margin-bottom: 5rem;

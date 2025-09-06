@@ -171,7 +171,7 @@
       .p-blog__text {
         margin-top: 2rem;
         @include sp {
-          margin-top: 2.7rem;
+          margin-top: 2.4rem;
         }
         li {
           padding-top: 0.4rem;
@@ -208,7 +208,7 @@
       border-top: 0.5px solid #000;
       margin: 0.7rem 0;
       @include sp {
-        margin: 1.9rem 0;
+        margin: 2.2rem 0;
       }
     }
 
@@ -220,7 +220,7 @@
         padding-left: 1.1rem;
         line-height: calc(25 / 20);
         @include sp {
-          margin-top: 2.5rem;
+          margin-top: 2.2rem;
           padding-left: 0.9rem;
           line-height: calc(30 / 20);
         }
@@ -390,7 +390,7 @@
 
     .p-blog__related {
       margin-top: 11.8rem;
-      margin-bottom: 18.7rem;
+      margin-bottom: 2.6rem;
       width: 100%;
       height: auto;
       @include sp {
@@ -479,7 +479,7 @@
   @include sp {
     width: 100%;
     margin-top: 3rem;
-    margin-bottom: 19.4rem;
+    margin-bottom: 0.4rem;
   }
   .p-widget {
     width: 100%;

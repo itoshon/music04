@@ -239,12 +239,11 @@
 
 .p-blog__related {
   margin-top: 10rem;
-  margin-bottom: 15.6rem;
   width: 100%;
   height: auto;
   @include sp {
     margin-top: 6.2rem;
-    margin-bottom: 19.7rem;
+    margin-bottom: 0.8rem;
   }
   .c-title-black {
     justify-content: flex-start;

@@ -42,7 +42,6 @@
 
 .graduation-list__container {
   margin-top: 6.7rem;
-  margin-bottom: 21.1rem;
 
   .graduation__head {
     margin-bottom: 4rem;
@@ -54,9 +53,8 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 10.6rem;
-    row-gap: 7.1rem;
+    row-gap: 7rem;
     justify-items: center;
-    margin: 0 0 7.3rem;
     padding: 0;
     @include sp {
       grid-template-columns: repeat(1, 1fr);
@@ -111,7 +109,7 @@
       }
     }
     .graduation__info {
-      padding-top: 2rem;
+      margin-top: 2rem;
       .graduation__title {
         font-size: 2rem;
         line-height: calc(25 / 20);
@@ -122,12 +120,43 @@
         text-overflow: ellipsis;
       }
       time {
-        padding-top: 1.3rem;
+        margin-top: 1.3rem;
         display: block;
         font-size: 1.8rem;
         font-weight: 500;
         text-align: end;
       }
     }
+  }
+}
+
+
+#graduation {
+  padding-bottom: 17.3rem;
+  @include sp {
+    padding-bottom: 11.6rem;
+  }
+}
+
+
+#graduation nav[aria-label="ページネーション"] {
+  margin: 0;
+}
+
+
+@supports selector(:has(*)) {
+
+  #graduation nav[aria-label="ページネーション"]:has(.pagination:not(:empty)) {
+    margin-top: 7.5rem;
+    margin-bottom: 4.9rem;
+    @include sp {
+      margin-top: 5.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  #graduation:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) {
+    padding-bottom: 0;
+    @include sp { padding-bottom: 0; }
   }
 }

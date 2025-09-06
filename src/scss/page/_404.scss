@@ -42,6 +42,10 @@
 .not-found__404-container {
   margin-top: 6.8rem;
   margin-bottom: 9rem;
+  @include sp {
+    margin-top: 3.6rem;
+    margin-bottom: 4.8rem;
+  }
   .not-found__404-com {
     text-align: center;
     @include sp {
@@ -57,6 +61,7 @@
       @include sp {
         font-size: 1.6rem;
         line-height: calc(30 / 16);
+        margin-bottom: 0.8rem;
       }
     }
   }

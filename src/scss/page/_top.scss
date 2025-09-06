@@ -188,8 +188,7 @@
   height: auto;
   background-color: $color-red;
   @include sp {
-    margin-top: 1.38rem;
-    padding-bottom: 4rem;
+    padding: 5rem 0 4rem;
   }
   .main__about-com {
     text-align: center;
@@ -219,9 +218,7 @@
   height: auto;
   margin-top: 6.5rem;
   @include sp {
-    padding-top: 5rem;
-    padding-bottom: 3.9rem;
-    margin-bottom: 0;
+    margin-top: 5rem;
   }
   h2 {
     text-align: center;
@@ -243,6 +240,7 @@
     margin-bottom: 9rem;
     @include sp {
       gap: 3.9rem;
+      margin-bottom: 3.9rem;
     }
     .main__reason-box {
       width: 100%;
@@ -350,6 +348,8 @@
   @include sp {
     width: 100%;
     height: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
   .main__voice-container {
     display: flex;
@@ -369,16 +369,14 @@
     }
     @include sp {
       margin: 0;
-      padding: 0 1.25rem;
+      width: 100%;
+      // padding: 0 1.25rem;
     }
   }
 
   .slick-slide {
     margin: 0 1.75rem;
     box-sizing: border-box;
-    @include sp {
-      padding: 0;
-    }
   }
 }
 
@@ -397,6 +395,7 @@
   &:hover {
     opacity: 0.6;
   }
+
   img {
     display: block;
     width: 100%;
@@ -406,10 +405,13 @@
   &.voice-arrow--prev {
     position: absolute;
     margin-left: -4.2rem;
+    @include sp {
+      margin-left: 2rem;
+    }
   }
   &.voice-arrow--next {
     position: absolute;
-    right: 0.7rem;
+    right: 2.1rem;
   }
 }
 
@@ -449,6 +451,9 @@
       font-weight: 700;
       text-align: center;
       margin-top: 1.8rem;
+      @include sp {
+        margin-top: 2.8rem;
+      }
     }
     p {
       font-size: 1.8rem;
@@ -486,8 +491,8 @@
     margin-top: 5.5rem;
     align-items: stretch;
     @include sp {
-      padding-left: 1.2rem;
-      padding-top: 4.4rem;
+      margin-left: 1.2rem;
+      margin-top: 5rem;
     }
   }
   .usage__flow-img {
@@ -545,7 +550,7 @@
     gap: 5.85rem;
     @include sp {
       margin-left: 0.6rem;
-      gap: 4.5rem;
+      gap: 4.9rem;
     }
 
     li {
@@ -565,7 +570,6 @@
         line-height: calc(33 / 22);
         padding-left: 2.6rem;
         @include sp {
-          padding-top: 0.5rem;
           padding-left: 3rem;
         }
 
@@ -609,8 +613,8 @@
   margin-top: 5.2rem;
   margin-bottom: 7rem;
   @include sp {
-    padding-top: 3.3rem;
-    padding-bottom: 4.6rem;
+    margin-top: 5.5rem;
+    margin-bottom: 5.4rem;
   }
   h2 {
     text-align: center;
@@ -618,15 +622,13 @@
     padding-top: 5rem;
     @include sp {
       font-size: 2.5rem;
+      padding-top: 0;
     }
   }
   .main__faq-list {
     width: 100%;
     height: auto;
-    margin-top: 3.9rem;
-    @include sp {
-      margin-top: 3.5rem;
-    }
+    margin-top: 3.8rem;
   }
   .main__faq-item {
     border-top: 0.05rem solid #000;
@@ -646,7 +648,7 @@
     position: relative;
     transition: background-color 0.2s;
     @include sp {
-      padding: 1.7rem 1.5rem 0.9rem 0rem;
+      padding: 1.6rem 1.5rem 0.8rem 0rem;
     }
   }
 
@@ -709,7 +711,7 @@
     cursor: pointer;
     max-height: 100%;
     @include sp {
-      padding: 1.8rem 5rem 0.7rem 0rem;
+      padding: 2rem 5rem 0.7rem 0rem;
     }
     p {
       display: flex;
@@ -751,9 +753,9 @@
 
 // ブログ
 .main__blog-list {
-  padding-bottom: 6.7rem;
+  padding-bottom: 4.9rem;
   @include sp {
-    padding-bottom: 19.1rem;
+  padding-bottom: 0.4rem;
   }
   h2 {
     text-align: center;
@@ -771,8 +773,9 @@
     margin-bottom: 4rem;
     @include sp {
       flex-direction: column;
-      margin-top: 4.3rem;
       gap: 4.4rem;
+      margin-top: 3.9rem;
+      margin-bottom: 3.7rem;
     }
     .main__blog-list__item-box {
       flex: 0 0 calc((100% - 10rem) / 3);

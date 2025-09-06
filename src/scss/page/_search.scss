@@ -30,18 +30,22 @@
   @include sp {
     margin-top: 4.2rem;
   }
-
+}
+.search__list {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  @include sp {
+    gap: 3.9rem;
+  }
+}
   .blog-list__item-box {
     width: 100%;
     height: auto;
     display: flex;
-    margin-bottom: 7rem;
     transition: 0.4s ease;
     &:hover {
       opacity: 0.6;
-    }
-    @include sp {
-      margin-bottom: 4.2rem;
     }
     .blog-list__item-link {
       display: flex;
@@ -107,6 +111,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           @include sp {
+            padding-top: 0.6rem;
             line-height: calc(30 / 20);
             padding-bottom: 0;
           }
@@ -117,6 +122,7 @@
           display: block;
           padding-top: 0.6rem;
           @include sp {
+            padding-top: 0.8rem;
             text-align: end;
           }
         }
@@ -143,6 +149,27 @@
           }
         }
       }
+    }
+  }
+#search {
+  padding-bottom: 9.8rem;
+  @include sp {
+    padding-bottom: 11.6rem;
+  }
+}
+#search + nav[aria-label="ページネーション"] {
+  margin-top: 7rem;
+  margin-bottom: 4.9rem;
+  @include sp {
+    margin-top: 5.5rem;
+    margin-bottom: 1rem;
+  }
+}
+@supports selector(:has(+ *)) {
+  #search:has(+ nav[aria-label="ページネーション"] .pagination:not(:empty)) {
+    padding-bottom: 0;
+    @include sp {
+      padding-bottom: 0rem;
     }
   }
 }
