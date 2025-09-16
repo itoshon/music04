@@ -3,7 +3,7 @@
 
 .floating-slot {
   position: sticky;
-  bottom: 16px;
+  bottom: 0;
   z-index: 50;
   display: flex;
   justify-content: flex-end;
@@ -11,7 +11,6 @@
   width: 100%;
 
   @include sp {
-    bottom: 12px;
     justify-content: center;
   }
 
@@ -60,26 +59,24 @@
 }
 
 #floating-btn #contact-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
-  padding: 0;
+  width: 30rem;
+  height: 6rem;
   background-color: $color-red;
   color: #fff;
   font-size: 2rem;
-  width: 30rem;
-  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid $color-red;
+  line-height: 1;
+  padding: 0;
   letter-spacing: 0.29rem;
   cursor: pointer;
   pointer-events: auto;
-  border: 0.1rem solid $color-red;
-  transition: color 0.4s, background-color 0.4s, border-color 0.4s;
-
+  transition: color 0.4s, background-color 0.4s;
   &:hover {
     background-color: #fff;
     color: $color-red;
-    border-color: $color-red;
   }
 
   @include sp {

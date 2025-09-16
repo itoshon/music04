@@ -43,12 +43,13 @@
 }
 
 .blog-list__container {
-  margin-top: 6.7rem;
-  margin-bottom: 5.1rem;
+  padding-top: 6.7rem;
+  padding-bottom: 17rem;
   @include sp {
-    margin-top: 4.8rem;
-    margin-bottom: 1.2rem;
+    padding-top: 4.8rem;
+    padding-bottom: 1.2rem;
   }
+
   h2 {
     font-size: 2.5rem;
     margin-bottom: 3.9rem;
@@ -58,8 +59,10 @@
     }
   }
   .blog-list__item {
+    display: grid;
+    row-gap: 7rem;
     @include sp {
-      margin-bottom: 5.3rem;
+      row-gap: 3.9rem;
     }
   }
   .blog-list__item-box {
@@ -67,7 +70,6 @@
     justify-content: space-between;
     width: 100%;
     height: auto;
-    margin-bottom: 7rem;
     transition: opacity 0.4s ease;
     &:hover {
       opacity: 0.6;
@@ -76,7 +78,6 @@
       flex-direction: column;
       justify-content: flex-start;
       gap: 3.9rem;
-      margin-bottom: 3.9rem;
     }
     .blog-list__item-link {
       display: flex;
@@ -179,15 +180,15 @@
           @include sp {
             font-size: 1.6rem;
             line-height: calc(30 / 16);
-            display: -webkit-box;
             -webkit-line-clamp: 5;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
           }
         }
       }
     }
+  }
+
+  nav[aria-label="ページネーション"] {
+    padding: 0;
   }
 }
 
@@ -204,6 +205,7 @@
   margin: 0;
   padding: 0;
 }
+
 .pagination a,
 .pagination .ellipsis {
   display: block;
@@ -234,32 +236,22 @@
   pointer-events: none;
 }
 
-
-#blog-section {
-  padding-bottom: 9.8rem;
-  @include sp {
-    padding-bottom: 6.4rem;
-  }
-}
-
-#blog-section nav[aria-label="ページネーション"] {
-  margin: 0;
-}
-
 @supports selector(:has(*)) {
-
-  #blog-section nav[aria-label="ページネーション"]:has(.pagination:not(:empty)) {
-    margin-top: 7rem;
-    margin-bottom: 4.9rem;
+  /* ページネーションがある場合 */
+  .blog-list__container:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) {
+    padding-bottom: 5.1rem;
     @include sp {
-      margin-top: 5.5rem;
-      margin-bottom: 1rem;
+      padding-bottom: 1rem;
     }
   }
+  .blog-list__container:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) nav[aria-label="ページネーション"] {
+    padding-top: 7rem;
 
-
-  #blog-section:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) {
-    padding-bottom: 0;
-    @include sp { padding-bottom: 0; }
+    @include sp {
+      padding-top: 5.5rem;
+    }
+  }
+  /* ページネーションが無い場合（デフォルトの下余白を維持） */
+  .blog-list__container:not(:has(nav[aria-label="ページネーション"] .pagination:not(:empty))) {
   }
 }

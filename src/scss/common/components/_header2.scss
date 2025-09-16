@@ -217,14 +217,16 @@
             background-color: $color-red;
             color: #fff;
             font-size: 1.5rem;
+            display: flex;
             justify-content: center;
-            border: 0.1rem solid transparent;
-            transition: 0.4s;
-
+            align-items: center;
+            border: 0.1rem solid $color-red;
+            transition: background-color 0.4s ease,
+              color 0.4s ease,
+              border-color 0.4s ease;
             &:hover {
               background-color: #fff;
               color: $color-red;
-              border-color: $color-red;
             }
           }
         }

@@ -42,9 +42,9 @@
   }
 }
 .contact {
-  margin-top: 6.7rem;
+  padding-top: 6.7rem;
   @include sp {
-    margin-top: 4.7rem;
+    padding-top: 4.7rem;
   }
 }
 .contact__form-com {
@@ -205,17 +205,18 @@
     }
   }
   .contact__form-btn {
+    width: 25rem;
+    height: 5rem;
     background-color: $color-red;
     color: #fff;
     font-size: 2.5rem;
-    width: 25rem;
-    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0.1rem solid $color-red;
     cursor: pointer;
-    transition: color 0.4s, background-color 0.4s, border-color 0.4s;
-    border: 0.1rem solid transparent;
+    pointer-events: auto;
+    transition: color 0.4s, background-color 0.4s;
 
     @include sp {
       width: 100%;
@@ -224,7 +225,6 @@
     &:hover {
       background-color: #fff;
       color: $color-red;
-      border-color: $color-red;
     }
   }
 }

@@ -40,15 +40,15 @@
   }
 }
 .contact__send-container {
-  margin-top: 6.7rem;
-  margin-bottom: 9rem;
+  padding-top: 6.7rem;
+  padding-bottom: 9rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @include sp {
-    margin-top: 4.7rem;
-    margin-bottom: 5rem;
+    padding-top: 4.7rem;
+    padding-bottom: 5rem;
   }
 }
 .contact__send-com {
@@ -57,12 +57,12 @@
     text-align: left;
   }
   p {
-    padding-bottom: 4rem;
+    margin-bottom: 4rem;
     font-size: 1.8rem;
     font-weight: 500;
     line-height: calc(30 / 18);
     @include sp {
-      padding-bottom: 3.8rem;
+      margin-bottom: 3.8rem;
       font-size: 1.6rem;
       line-height: calc(30 / 16);
     }
@@ -70,21 +70,21 @@
 }
 
 .contact__send-btn {
+  width: 25rem;
+  height: 5rem;
   background-color: $color-red;
   color: #fff;
   font-size: 2.5rem;
-  width: 25rem;
-  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 0.1rem solid $color-red;
   cursor: pointer;
-  transition: color 0.4s, background-color 0.4s, border-color 0.4s;
-  border: 0.1rem solid transparent;
+  pointer-events: auto;
+  transition: color 0.4s, background-color 0.4s;
   &:hover {
     background-color: #fff;
     color: $color-red;
-    border-color: $color-red;
   }
   @include sp {
     width: 100%;

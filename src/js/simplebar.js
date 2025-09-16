@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
-  
+
   // 画面がリサイズされて PC ⇄ SP が切り替わったときにも再判定したい場合
   window.addEventListener("resize", () => {
     const nowSP = window.matchMedia("(max-width: 767px)").matches;

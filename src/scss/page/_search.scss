@@ -1,13 +1,22 @@
 @use "../global/variable" as *;
 @use "../global/mixin" as *;
 
+
+#search {
+  padding-top: 6.6rem;
+  padding-bottom: 9.8rem;
+
+  @include sp {
+    padding-top: 3.8rem;
+    padding-bottom: 11.6rem;
+  }
+}
+
 .search__title {
   display: flex;
   justify-content: space-between;
-  margin-top: 6.6rem;
-  @include sp {
-    margin-top: 3.8rem;
-  }
+  align-items: flex-end;
+
   h2 {
     font-size: 1.8rem;
     strong {
@@ -26,9 +35,9 @@
 }
 
 .search__list-container {
-  margin-top: 4.5rem;
+  padding-top: 4.5rem;
   @include sp {
-    margin-top: 4.2rem;
+    padding-top: 4.2rem;
   }
 }
 .search__list {
@@ -102,7 +111,7 @@
           margin-left: 0;
         }
         h3 {
-          padding-top: 0.4rem;
+          margin-top: 0.4rem;
           font-size: 2rem;
           line-height: calc(25 / 20);
           display: -webkit-box;
@@ -111,7 +120,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           @include sp {
-            padding-top: 0.6rem;
+            margin-top: 0.6rem;
             line-height: calc(30 / 20);
             padding-bottom: 0;
           }
@@ -120,14 +129,13 @@
           font-size: 1.7rem;
           font-weight: 500;
           display: block;
-          padding-top: 0.6rem;
+          margin-top: 0.6rem;
           @include sp {
-            padding-top: 0.8rem;
+            margin-top: 0.8rem;
             text-align: end;
           }
         }
         p {
-          padding-top: 1rem;
           font-size: 1.8rem;
           font-weight: 500;
           line-height: calc(30 / 18);
@@ -136,40 +144,76 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
+          margin-top: 1rem;
           @include sp {
             font-size: 1.6rem;
             line-height: calc(30 / 16);
-            padding-top: 0;
-            display: -webkit-box;
             -webkit-line-clamp: 5;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-top: 1rem;
           }
         }
       }
     }
   }
-#search {
-  padding-bottom: 9.8rem;
-  @include sp {
-    padding-bottom: 11.6rem;
-  }
-}
 #search + nav[aria-label="ページネーション"] {
-  margin-top: 7rem;
-  margin-bottom: 4.9rem;
-  @include sp {
-    margin-top: 5.5rem;
-    margin-bottom: 1rem;
-  }
+  margin: 0;
+  padding: 0;
 }
+
+.pagination {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  justify-content: center;
+
+  @include sp { gap: 0.3rem; }
+}
+
+.pagination li { margin: 0; padding: 0; }
+
+.pagination a,
+.pagination .ellipsis {
+  display: block;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  border: 0.1rem solid #000;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+
+  &:hover { background-color: #000; color: #fff; }
+
+  @include sp { padding: 0.8rem 1.7rem; }
+}
+
+.pagination .ellipsis {
+  border: none;
+  pointer-events: none;
+  padding: 1rem 0.8rem;
+}
+
+.pagination li.active a {
+  background-color: #000;
+  color: #fff;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
 @supports selector(:has(+ *)) {
   #search:has(+ nav[aria-label="ページネーション"] .pagination:not(:empty)) {
     padding-bottom: 0;
+
+    @include sp { padding-bottom: 0; }
+  }
+
+  #search:has(+ nav[aria-label="ページネーション"] .pagination:not(:empty))
+  + nav[aria-label="ページネーション"] {
+    padding-top: 7rem;
+    padding-bottom: 4.9rem;
+
     @include sp {
-      padding-bottom: 0rem;
+      padding-top: 5.5rem;
+      padding-bottom: 1rem;
     }
   }
 }

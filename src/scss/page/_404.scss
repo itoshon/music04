@@ -40,11 +40,11 @@
   }
 }
 .not-found__404-container {
-  margin-top: 6.8rem;
-  margin-bottom: 9rem;
+  padding-top: 6.8rem;
+  padding-bottom: 9rem;
   @include sp {
-    margin-top: 3.6rem;
-    margin-bottom: 4.8rem;
+    padding-top: 3.6rem;
+    padding-bottom: 4.8rem;
   }
   .not-found__404-com {
     text-align: center;

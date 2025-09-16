@@ -8,15 +8,18 @@
 
   @include sp {
     height: auto;
-    max-height: 7.7rem;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .inner {
-    height: 100%;
+    display: flex;
+    align-items: center;
+    min-height: 5rem;
     margin: 0 auto;
     min-width: 0;
     @include sp {
+      align-items: flex-start;
+      min-height: auto;
       padding-top: 0.6rem;
       padding-bottom: 0.6rem;
     }
@@ -25,25 +28,32 @@
   .breadcrumb__list {
     display: flex;
     align-items: center;
-    height: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: 1.6rem;
     min-width: 0;
     overflow: hidden;
+    flex: 1 1 auto;
 
     @include sp {
       flex-wrap: wrap;
+      align-items: flex-start;
+      row-gap: 0.2rem;
     }
   }
 
   .breadcrumb__item {
     display: flex;
     align-items: center;
-    height: 100%;
     min-width: 0;
     max-width: 100%;
+    @include sp {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+      min-width: 0;
+    }
   }
 
   .breadcrumb__item:not(:last-child)::after {
@@ -52,24 +62,26 @@
     color: #000;
     flex-shrink: 0;
     white-space: nowrap;
+    align-self: center;
   }
 
   .breadcrumb__link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 5rem;
     color: #000;
     font-weight: 500;
     text-decoration: none;
     position: relative;
-    transition: color 0.4s, opacity 0.4s;
+    transition: color 0.4s;
     white-space: nowrap;
-
+    line-height: 1;
     @include sp {
-      display: block;
-      white-space: normal;
-      word-break: break-word;
+      display: inline-flex;
+      align-items: center;
+      height: auto;
+      white-space: nowrap;
     }
 
     &::after {
@@ -77,15 +89,13 @@
       position: absolute;
       left: 0;
       right: 0;
-      top: 100%;
+      bottom: 1rem;
       height: 2px;
-      margin-top: -1.5rem;
       background: $color-red;
       transform-origin: left center;
       transform: scaleX(0);
       transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
       pointer-events: none;
-
       @include sp {
         display: none;
       }
@@ -93,7 +103,6 @@
 
     &:hover {
       color: $color-red;
-      opacity: 0.6;
     }
     &:hover::after {
       transform: scaleX(1);
@@ -103,17 +112,16 @@
   .breadcrumb__item[aria-current="page"] {
     flex: 1 1 auto;
     min-width: 0;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
     font-weight: 500;
 
     @include sp {
-      white-space: normal;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
-      overflow: hidden;
     }
 
     .breadcrumb__link {
