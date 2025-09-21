@@ -90,7 +90,7 @@
       width: 100%;
       height: auto;
       @include sp {
-        margin-top: 5.2rem;
+        margin-top: 4.9rem;
       }
       .p-blog__head {
         width: 100%;
@@ -171,7 +171,7 @@
       .p-blog__text {
         margin-top: 2rem;
         @include sp {
-          margin-top: 2.4rem;
+          margin-top: 2.7rem;
         }
         li {
           padding-top: 0.4rem;
@@ -208,7 +208,7 @@
       border-top: 0.5px solid #000;
       margin: 0.7rem 0;
       @include sp {
-        margin: 2.2rem 0;
+        margin: 1.7rem 0;
       }
     }
 
@@ -220,7 +220,7 @@
         padding-left: 1.1rem;
         line-height: calc(25 / 20);
         @include sp {
-          margin-top: 2.2rem;
+          margin-top: 2.6rem;
           padding-left: 0.9rem;
           line-height: calc(30 / 20);
         }
@@ -478,8 +478,8 @@
   margin-top: 6.9rem;
   @include sp {
     width: 100%;
-    margin-top: 3rem;
-    margin-bottom: 0.4rem;
+    margin-top: 3.2rem;
+    margin-bottom: 0.7rem;
   }
   .p-widget {
     width: 100%;
@@ -488,7 +488,7 @@
     background-color: #fff;
     border: 0.5px solid #000;
     @include sp {
-      margin-bottom: 3.2rem;
+      margin-bottom: 3.1rem;
     }
     .p-widget__body {
       display: flex;
@@ -570,7 +570,7 @@
         opacity: 0.6;
       }
       @include sp {
-        padding-top: 0.7rem;
+        margin-top: 2.1rem;
         gap: 2rem;
       }
       .p-widget__recommend-img {

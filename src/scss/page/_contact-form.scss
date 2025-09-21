@@ -90,7 +90,7 @@
       @include sp {
         width: 100%;
         font-size: 1.6rem;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.3rem;
       }
     }
     .contact__form-input {
@@ -110,7 +110,7 @@
       @include sp {
         width: 100%;
         height: auto;
-        padding: 0.9rem 2rem;
+        padding: 0.8rem 2rem;
         line-height: normal;
         margin-left: 0;
       }
@@ -163,8 +163,9 @@
       gap: 2.1rem;
       align-items: flex-start;
       @include sp {
-        margin: 0;
-        gap: 2rem;
+        margin-top: 0.4rem;
+        margin-left: 0;
+        gap: 1.9rem;
       }
       .checkboxItem {
         display: flex;
