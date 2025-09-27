@@ -245,10 +245,10 @@
     }
   }
   .blog-list__container:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) nav[aria-label="ページネーション"] {
-    padding-top: 7rem;
+    margin-top: 7rem;
 
     @include sp {
-      padding-top: 5.5rem;
+      margin-top: 5.5rem;
     }
   }
   /* ページネーションが無い場合（デフォルトの下余白を維持） */

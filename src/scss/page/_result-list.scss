@@ -132,7 +132,7 @@
       }
     }
   }
-nav[aria-label="ページネーション"] {
+  nav[aria-label="ページネーション"] {
     padding: 0; /* 基本は0、:hasで上paddingを付与 */
   }
 }
@@ -142,10 +142,15 @@ nav[aria-label="ページネーション"] {
   gap: 1rem;
   justify-content: center;
 
-  @include sp { gap: 0.3rem; }
+  @include sp {
+    gap: 0.3rem;
+  }
 }
 
-.pagination li { margin: 0; padding: 0; }
+.pagination li {
+  margin: 0;
+  padding: 0;
+}
 
 .pagination a,
 .pagination .ellipsis {
@@ -158,9 +163,14 @@ nav[aria-label="ページネーション"] {
   border: 0.1rem solid #000;
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 
-  &:hover { background-color: #000; color: #fff; }
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 
-  @include sp { padding: 0.8rem 1.7rem; }
+  @include sp {
+    padding: 0.8rem 1.7rem;
+  }
 }
 
 .pagination .ellipsis {
@@ -176,18 +186,19 @@ nav[aria-label="ページネーション"] {
   pointer-events: none;
 }
 @supports selector(:has(*)) {
-
   .graduation-list__container:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) {
     padding-bottom: 4.9rem;
 
-    @include sp { padding-bottom: 1rem; }
+    @include sp {
+      padding-bottom: 1rem;
+    }
   }
 
-  .graduation-list__container:has(nav[aria-label="ページネーション"] .pagination:not(:empty))
-  nav[aria-label="ページネーション"] {
-    padding-top: 7.5rem;
+  .graduation-list__container:has(nav[aria-label="ページネーション"] .pagination:not(:empty)) nav[aria-label="ページネーション"] {
+    margin-top: 7.5rem;
 
-    @include sp { padding-top: 5.5rem; }
+    @include sp {
+      margin-top: 5.5rem;
+    }
   }
-
 }
