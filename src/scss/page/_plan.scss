@@ -120,9 +120,9 @@
 .plan__month {
   width: 100%;
   height: auto;
-  margin-bottom: 6.5rem;
+  padding-bottom: 6.5rem;
   @include sp {
-    margin-bottom: -0.4rem;
+    padding-bottom: 0;
   }
 
   h2 {
@@ -318,7 +318,7 @@
     @include sp {
       font-size: 1.6rem;
       line-height: calc(30 / 16);
-      padding-top: 1.6rem;
+      margin-top: 1.6rem;
     }
   }
 }
