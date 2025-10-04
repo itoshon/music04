@@ -235,10 +235,10 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
-    margin-bottom: 9rem;
+    padding-bottom: 9rem;
     @include sp {
       gap: 3.9rem;
-      margin-bottom: 3.9rem;
+      padding-bottom: 3.9rem;
     }
     .main__reason-box {
       width: 100%;
