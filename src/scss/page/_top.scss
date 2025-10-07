@@ -215,8 +215,10 @@
   width: 100%;
   height: auto;
   padding-top: 6.5rem;
+  padding-bottom: 9rem;
   @include sp {
     padding-top: 5rem;
+    padding-bottom: 4.9rem;
   }
   h2 {
     text-align: center;
@@ -235,10 +237,8 @@
     display: flex;
     flex-direction: column;
     gap: 5rem;
-    padding-bottom: 9rem;
     @include sp {
       gap: 3.9rem;
-      padding-bottom: 3.9rem;
     }
     .main__reason-box {
       width: 100%;
