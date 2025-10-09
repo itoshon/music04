@@ -373,12 +373,6 @@
             font-size: 1.6rem;
             font-weight: 700;
             line-height: calc(25 / 16);
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-width: 0;
             min-height: 0;
             @include sp {
               margin-top: 0;
