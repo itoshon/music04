@@ -218,7 +218,7 @@
   padding-bottom: 9rem;
   @include sp {
     padding-top: 5rem;
-    padding-bottom: 4.9rem;
+    padding-bottom: 3.9rem;
   }
   h2 {
     text-align: center;
@@ -326,12 +326,12 @@
   h2 {
     font-size: 3rem;
     color: #fff;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 3.8rem;
     @include sp {
       margin-bottom: 4rem;
       font-size: 2.5rem;
-      font-weight: 500;
     }
   }
 }
@@ -620,7 +620,7 @@
   padding-bottom: 7rem;
   @include sp {
     padding-top: 5.6rem;
-    padding-bottom: 5.4rem;
+    padding-bottom: 5rem;
   }
   h2 {
     text-align: center;
@@ -633,6 +633,9 @@
     width: 100%;
     height: auto;
     margin-top: 3.5rem;
+    @include sp {
+      margin-top: 3.9rem;
+    }
   }
   .main__faq-item {
     border-top: 0.05rem solid #000;
