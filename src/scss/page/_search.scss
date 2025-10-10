@@ -31,17 +31,20 @@
 
   h2 {
     font-size: 1.8rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     min-width: 0;
+    display: inline-block;
+
     strong {
       font-weight: 700;
+      display: inline;
+      word-break: break-all;
     }
+
     .search__suffix {
       font-weight: 500;
       font-size: 1.8rem;
       margin-left: -0.5rem;
+      white-space: nowrap;
     }
   }
   .search__count {

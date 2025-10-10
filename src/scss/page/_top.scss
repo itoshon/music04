@@ -270,7 +270,6 @@
           font-size: 2.2rem;
           display: inline-block;
           position: relative;
-          padding-top: 0.7rem;
           padding-left: 5rem;
           @include sp {
             padding: 0;
@@ -297,14 +296,6 @@
               font-size: 1.6rem;
               line-height: calc(30 / 16);
             }
-          }
-        }
-      }
-      &:nth-child(2),
-      &:nth-child(3) {
-        .main__reason-box-com-area {
-          h3 {
-            padding-top: 0rem;
           }
         }
       }
